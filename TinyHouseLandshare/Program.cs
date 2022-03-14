@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using TinyHouseLandshare.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<LandShareDbContext>(options =>
+            options.UseInMemoryDatabase("InMem"));
+
 builder.Services.AddControllersWithViews();
+
+
 
 var app = builder.Build();
 

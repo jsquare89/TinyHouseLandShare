@@ -24,3 +24,8 @@ C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.pdb
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.genruntimeconfig.cache
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\ref\TinyHouseLandshare.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.csproj.CopyComplete
