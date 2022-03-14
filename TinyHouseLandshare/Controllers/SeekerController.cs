@@ -2,15 +2,15 @@
 
 namespace TinyHouseLandshare.Controllers
 {
-    public class LeaseeController : Controller
+    public class SeekerController : Controller
     {
-        [Route("Leasee")]
+        [Route("Seeker")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [Route("Leasee/{id}")]
+        [Route("Seeker/{id}")]
         public IActionResult Listing(Guid id)
         {
             return View();
