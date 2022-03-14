@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using TinyHouseLandshare.Models;
 
 namespace TinyHouseLandshare.Data
 {
-    public class LandShareDbContext: DbContext
+    public class LandShareDbContext: IdentityDbContext<UserEntity, UserRoleEntity, Guid>
     {
         public LandShareDbContext(DbContextOptions options): base(options)
         {

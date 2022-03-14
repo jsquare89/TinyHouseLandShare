@@ -2,7 +2,7 @@
 {
     public class SeekerPost: Post
     {
-        public IEnumerable<string> AdditionalLocations { get; set; }
+        public string AdditionalLocations { get; set; }
         public string HouseSize { get; set; }
         public int OccupantCount { get; set; }
         public bool WifiConnectionRequired { get; set; }

@@ -29,3 +29,10 @@ C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.csproj.CopyComplete
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\System.Security.Permissions.dll

@@ -8,7 +8,7 @@
         public string Details { get; set; }
         public string Location { get; set; }
         public DateTimeOffset CreatedTime { get; set; }
-        public IEnumerable<string> PictureUris { get; set; }
+        public string PictureUri { get; set; }
 
     }
 }
