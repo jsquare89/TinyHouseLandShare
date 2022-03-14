@@ -35,12 +35,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZFxMaXN0aW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Leasee/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhc2VlXEluZGV4LmNzaHRtbA==
+[C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Seeker/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vla2VyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Leasee/Listing.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhc2VlXExpc3RpbmcuY3NodG1s
+[C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Seeker/Listing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vla2VyXExpc3RpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Shared/Error.cshtml]

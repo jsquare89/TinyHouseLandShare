@@ -1,6 +1,6 @@
 ﻿namespace TinyHouseLandshare.Models
 {
-    public class LeaseePost: Post
+    public class SeekerPost: Post
     {
         public IEnumerable<string> AdditionalLocations { get; set; }
         public string HouseSize { get; set; }
