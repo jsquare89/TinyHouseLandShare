@@ -57,13 +57,31 @@ namespace TinyHouseLandshare.Data
                     CreatedAt = DateTimeOffset.UtcNow
                 };
 
+                string defaultPassword = "Pass123!";
 
-                await userManager.CreateAsync(user, "Pass123!");
+                await userManager.CreateAsync(user, defaultPassword);
 
                 // Put the user in the admin role
                 await userManager.AddToRoleAsync(user, adminRoleName);
                 await userManager.UpdateAsync(user);
+
+
+
+                var user2 = new UserEntity
+                {
+                    Email = "jarredjardine@gmail.com",
+                    UserName = "jarredjardine@gmail.com",
+                    Name = "Jarred",
+                    CreatedAt = DateTimeOffset.UtcNow
+                };
+
+                await userManager.CreateAsync(user2, defaultPassword);
+
+                // Put the user in the admin role
+                await userManager.AddToRoleAsync(user2, adminRoleName);
+                await userManager.UpdateAsync(user2);
             }
+        
         }
     }
 }

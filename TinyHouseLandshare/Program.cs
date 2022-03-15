@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<LandShareDbContext>(options =>
             options.UseInMemoryDatabase("InMem"));
 
+
 builder.Services.AddIdentity<UserEntity, UserRoleEntity>(options =>
         {
             options.Password.RequiredLength = 8;
@@ -45,5 +46,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
+InitializeDatabase.Initialize(app);
 app.Run();
