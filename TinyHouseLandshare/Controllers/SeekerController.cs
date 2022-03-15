@@ -8,9 +8,9 @@ namespace TinyHouseLandshare.Controllers
     [Route("[controller]")]
     public class SeekerController : Controller
     {
-        private readonly ISeekerPostRepository _seekerPostRepository;
+        private readonly ISeekerListingRepository _seekerPostRepository;
 
-        public SeekerController(ISeekerPostRepository seekerPostRepository)
+        public SeekerController(ISeekerListingRepository seekerPostRepository)
         {
             _seekerPostRepository = seekerPostRepository;
         }
@@ -27,8 +27,15 @@ namespace TinyHouseLandshare.Controllers
         [Route("{id}")]
         public IActionResult Listing(Guid id)
         {
-            var seekerPost = _seekerPostRepository.GetSeekerPost(id);
-            return View(seekerPost);
+            var seekerListing = _seekerPostRepository.GetSeekerPost(id);
+
+            if(seekerListing is null)
+            {
+                Response.StatusCode = 404;
+                return View("SeekerNotFound", id);
+
+            }
+            return View(seekerListing);
         }
 
         [HttpGet]
@@ -40,10 +47,10 @@ namespace TinyHouseLandshare.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public IActionResult CreateListing(SeekerPostViewModel model)
+        public IActionResult CreateListing(SeekerListingViewModel model)
         {
             // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
-            var seekerPost = new SeekerPost
+            var seekerPost = new SeekerListing
             {
                 Title = model.Title,
                 Location = model.Location,

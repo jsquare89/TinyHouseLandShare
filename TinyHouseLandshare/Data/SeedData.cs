@@ -18,21 +18,37 @@ namespace TinyHouseLandshare.Data
         public static async Task AddTestData(
             LandShareDbContext context)
         {
-            if (context.SeekerPosts.Any())
+            if (context.SeekerListings.Any())
             {
                 // Already has data
                 return;
             }
 
             CreateSeekerPosts(context);
+            CreateLandPosts(context);
 
             await context.SaveChangesAsync();
         }
 
+        private static void CreateLandPosts(LandShareDbContext context)
+        {
+            //context.LandListings.Add(
+            //    new LandListing
+            //    {
+            //        Title = "Beautiful Acreage Available",
+            //        Details = "Details about the acreage",
+            //        Location = "Victoria",
+            //        CreatedTime = DateTimeOffset.UtcNow,
+            //        PictureUri = "",
+            //        MapLocation = "coords go here",
+            //        Price = "600 per month",
+            //    });
+        }
+
         private static void CreateSeekerPosts(LandShareDbContext context)
         {
-            context.SeekerPosts.Add(
-                new SeekerPost
+            context.SeekerListings.Add(
+                new SeekerListing
                 {
                     Title = "Looking for Land",
                     Details = "Details go here",
@@ -51,8 +67,8 @@ namespace TinyHouseLandshare.Data
                     Privacy = true
                 });
 
-            context.SeekerPosts.Add(
-                new SeekerPost
+            context.SeekerListings.Add(
+                new SeekerListing
                 {
                     Title = "Looking for a home for me and my Tiny Mansion",
                     Details = "Details go here lorem ipsem...",

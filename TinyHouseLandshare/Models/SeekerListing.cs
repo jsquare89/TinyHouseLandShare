@@ -1,6 +1,6 @@
 ﻿namespace TinyHouseLandshare.Models
 {
-    public class SeekerPost: Post
+    public class SeekerListing: Listing
     {
         public string HouseSize { get; set; }
         public int OccupantCount { get; set; }

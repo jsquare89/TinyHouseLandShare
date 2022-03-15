@@ -11,8 +11,8 @@ namespace TinyHouseLandshare.Data
 
         }
 
-        public DbSet<LandPost> LandPosts { get; set; }
-        public DbSet<SeekerPost> SeekerPosts { get; set; }
+        public DbSet<LandListing> LandListings { get; set; }
+        public DbSet<SeekerListing> SeekerListings { get; set; }
 
     }
 }

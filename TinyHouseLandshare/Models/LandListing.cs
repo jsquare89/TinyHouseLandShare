@@ -1,6 +1,6 @@
 ﻿namespace TinyHouseLandshare.Models
 {
-    public class LandPost: Post
+    public class LandListing: Listing
     {
         public string MapLocation { get; set; }
         public string Price { get; set; }

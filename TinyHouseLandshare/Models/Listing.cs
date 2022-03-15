@@ -1,6 +1,6 @@
 ﻿namespace TinyHouseLandshare.Models
 {
-    public class Post
+    public class Listing
     {
         public Guid Id { get; set; }
 
