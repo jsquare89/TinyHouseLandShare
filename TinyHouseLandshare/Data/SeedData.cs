@@ -26,8 +26,6 @@ namespace TinyHouseLandshare.Data
 
             CreateSeekerPosts(context);
 
-
-
             await context.SaveChangesAsync();
         }
 

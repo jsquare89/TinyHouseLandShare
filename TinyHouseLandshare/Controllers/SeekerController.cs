@@ -27,7 +27,8 @@ namespace TinyHouseLandshare.Controllers
         [Route("{id}")]
         public IActionResult Listing(Guid id)
         {
-            return View();
+            var seekerPost = _seekerPostRepository.GetSeekerPost(id);
+            return View(seekerPost);
         }
 
         [HttpGet]
@@ -49,16 +50,16 @@ namespace TinyHouseLandshare.Controllers
                 Details = model.Details,
                 CreatedTime = DateTimeOffset.UtcNow,
                 PictureUri = "",
-                HouseSize = "26'x8' 200sqft",
-                OccupantCount = 1,
-                WifiConnectionRequired = true,
-                WaterConnectionRequired = true,
-                ElectricalConnectionRequired = true,
-                ParkingRequired = true,
+                HouseSize = "",
+                OccupantCount = 0,
+                WifiConnectionRequired = false,
+                WaterConnectionRequired = false,
+                ElectricalConnectionRequired = false,
+                ParkingRequired = false,
                 ChildFriendlyRequired = false,
-                PetsRequired = true,
+                PetsRequired = false,
                 Smoker = false,
-                Privacy = true
+                Privacy = false
             };
 
             _seekerPostRepository.Add(seekerPost);

@@ -12,20 +12,10 @@
         <div>
             <img src="" title="seeker main image"/>
             <p>Id: @post.Id</p>
-            <h1>@post.Title</h1>
+            <h1><a asp-controller="seeker" asp-action="listing" asp-route-id="@post.Id" >@post.Title</a></h1>
             <p>@post.Location</p>
             <p>Post created on: @post.CreatedTime.Date</p>
             <p>House Size: @post.HouseSize</p>
-            <p>Number Occupants: @post.OccupantCount </p>
-            <p>@post.Details</p>
-            <p>Water Connection Required: @post.WaterConnectionRequired</p>
-            <p>Electrical Connection Required: @post.ElectricalConnectionRequired</p>
-            <p>Internet/Wifi Connecterion Required: @post.WifiConnectionRequired</p>
-            <p>Parking Required: @post.ParkingRequired</p>
-            <p>Child Friendly: @post.ChildFriendlyRequired</p>
-            <p>Pet Friendly: @post.PetsRequired</p>
-            <p>Smoking: @post.Smoker</p>
-            <p>Privacy: @post.Privacy</p>
         </div>
     }
 </div>

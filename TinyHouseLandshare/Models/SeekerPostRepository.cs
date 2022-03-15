@@ -17,7 +17,7 @@ namespace TinyHouseLandshare.Models
             return seekerPost;
         }
 
-        public SeekerPost Delete(int id)
+        public SeekerPost Delete(Guid id)
         {
             SeekerPost seekerPost = _context.SeekerPosts.Find(id);
             if(seekerPost is not null)
@@ -28,7 +28,7 @@ namespace TinyHouseLandshare.Models
             return seekerPost;
         }
 
-        public SeekerPost GetSeekerPost(int id)
+        public SeekerPost GetSeekerPost(Guid id)
         {
             return _context.SeekerPosts.Find(id);
         }

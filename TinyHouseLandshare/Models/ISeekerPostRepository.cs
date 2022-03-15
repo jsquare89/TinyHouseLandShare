@@ -2,11 +2,11 @@
 {
     public interface ISeekerPostRepository
     {
-        SeekerPost GetSeekerPost(int id);
+        SeekerPost GetSeekerPost(Guid id);
         IEnumerable<SeekerPost> GetAllSeekerPost();
         SeekerPost Add(SeekerPost seekerPost);
         SeekerPost Update(SeekerPost seekerPostUpdated);
-        SeekerPost Delete(int id);
+        SeekerPost Delete(Guid id);
 
     }
 }

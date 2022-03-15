@@ -1,8 +1,23 @@
-﻿@{
+﻿@model SeekerPost
+@{
     ViewData["Title"] = "Seeker Listing";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Seeker Title here</h1>
-    <p>Seeker Details here.</p>
-</div>
+        <div>
+            <img src="" title="seeker main image"/>
+            <p>Id: @Model.Id</p>
+            <h1>@Model.Title</h1>
+            <p>@Model.Location</p>
+            <p>Model created on: @Model.CreatedTime.Date</p>
+            <p>House Size: @Model.HouseSize</p>
+            <p>Number Occupants: @Model.OccupantCount </p>
+            <p>@Model.Details</p>
+            <p>Water Connection Required: @Model.WaterConnectionRequired</p>
+            <p>Electrical Connection Required: @Model.ElectricalConnectionRequired</p>
+            <p>Internet/Wifi Connecterion Required: @Model.WifiConnectionRequired</p>
+            <p>Parking Required: @Model.ParkingRequired</p>
+            <p>Child Friendly: @Model.ChildFriendlyRequired</p>
+            <p>Pet Friendly: @Model.PetsRequired</p>
+            <p>Smoking: @Model.Smoker</p>
+            <p>Privacy: @Model.Privacy</p>
+        </div>
