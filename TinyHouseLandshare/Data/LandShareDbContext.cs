@@ -12,7 +12,7 @@ namespace TinyHouseLandshare.Data
         }
 
         public DbSet<LandPost> LandPosts { get; set; }
-        public DbSet<SeekerPost> LeaseePosts { get; set; }
+        public DbSet<SeekerPost> SeekerPosts { get; set; }
 
     }
 }

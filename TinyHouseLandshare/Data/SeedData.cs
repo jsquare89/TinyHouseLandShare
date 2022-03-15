@@ -11,23 +11,48 @@ namespace TinyHouseLandshare.Data
                 services.GetRequiredService<RoleManager<UserRoleEntity>>(),
                 services.GetRequiredService<UserManager<UserEntity>>());
 
-            //await AddTestData(
-            //    services.GetRequiredService<DbContext>()));
+            await AddTestData(
+                services.GetRequiredService<LandShareDbContext>());
         }
 
-        //public static async Task AddTestData(
-        //    DbContext context)
-        //{
-        //    if (context.Model.Any())
-        //    {
-        //        // Already has data
-        //        return;
-        //    }
+        public static async Task AddTestData(
+            LandShareDbContext context)
+        {
+            if (context.SeekerPosts.Any())
+            {
+                // Already has data
+                return;
+            }
 
-        //   // Create models
+            CreateSeekerPosts(context);
 
-        //    await context.SaveChangesAsync();
-        //}
+
+
+            await context.SaveChangesAsync();
+        }
+
+        private static void CreateSeekerPosts(LandShareDbContext context)
+        {
+            context.SeekerPosts.Add(
+                new SeekerPost
+                {
+                    Title = "Looking for Land",
+                    Details = "Details go here",
+                    Location = "Langley",
+                    CreatedTime = DateTimeOffset.UtcNow,
+                    PictureUri = "",
+                    HouseSize = "26'x8' 200sqft",
+                    OccupantCount = 1,
+                    WifiConnectionRequired = true,
+                    WaterConnectionRequired = true,
+                    ElectricalConnectionRequired = true,
+                    ParkingRequired = true,
+                    ChildFriendlyRequired = false,
+                    PetsRequired = true,
+                    Smoker = false,
+                    Privacy = true
+                });
+        }
 
         private static async Task AddTestUsers(
             RoleManager<UserRoleEntity> roleManager,
@@ -48,40 +73,41 @@ namespace TinyHouseLandshare.Data
             bool adminRoleExists = await roleManager.RoleExistsAsync(adminRoleName);
             if (adminRoleExists)
             {
-                // Add a test user
-                var user = new UserEntity
-                {
-                    Email = "admin@landshare.com",
-                    UserName = "admin@lanshare.com",
-                    Name = "Admin",
-                    CreatedAt = DateTimeOffset.UtcNow
-                };
-
                 string defaultPassword = "Pass123!";
 
-                await userManager.CreateAsync(user, defaultPassword);
+                await CreateUserWithRole(
+                    new UserEntity
+                    {
+                        Email = "admin@landshare.com",
+                        UserName = "admin@landshare.com",
+                        Name = "Admin",
+                        CreatedAt = DateTimeOffset.UtcNow
+                    },
+                    defaultPassword,
+                    adminRoleName,
+                    userManager);
 
-                // Put the user in the admin role
-                await userManager.AddToRoleAsync(user, adminRoleName);
-                await userManager.UpdateAsync(user);
-
-
-
-                var user2 = new UserEntity
-                {
-                    Email = "jarredjardine@gmail.com",
-                    UserName = "jarredjardine@gmail.com",
-                    Name = "Jarred",
-                    CreatedAt = DateTimeOffset.UtcNow
-                };
-
-                await userManager.CreateAsync(user2, defaultPassword);
-
-                // Put the user in the admin role
-                await userManager.AddToRoleAsync(user2, adminRoleName);
-                await userManager.UpdateAsync(user2);
+                await CreateUserWithRole(
+                    new UserEntity
+                    {
+                        Email = "jarredjardine@gmail.com",
+                        UserName = "jarredjardine@gmail.com",
+                        Name = "Jarred",
+                        CreatedAt = DateTimeOffset.UtcNow
+                    },
+                    defaultPassword,
+                    adminRoleName,
+                    userManager);
             }
-        
+        }
+
+        private static async Task CreateUserWithRole(UserEntity user, string password, string role, UserManager<UserEntity> userManager)
+        {
+            await userManager.CreateAsync(user, password);
+
+            // Put the user in the admin role
+            await userManager.AddToRoleAsync(user, role);
+            await userManager.UpdateAsync(user);
         }
     }
 }
