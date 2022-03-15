@@ -19,8 +19,10 @@ builder.Services.AddIdentity<UserEntity, UserRoleEntity>(options =>
     .AddEntityFrameworkStores<LandShareDbContext>();
 
 
+
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<ISeekerPostRepository, SeekerPostRepository>();
 
 
 

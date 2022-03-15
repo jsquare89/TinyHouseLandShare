@@ -52,6 +52,27 @@ namespace TinyHouseLandshare.Data
                     Smoker = false,
                     Privacy = true
                 });
+
+            context.SeekerPosts.Add(
+                new SeekerPost
+                {
+                    Title = "Looking for a home for me and my Tiny Mansion",
+                    Details = "Details go here lorem ipsem...",
+                    Location = "Oliver",
+                    CreatedTime = DateTimeOffset.UtcNow,
+                    PictureUri = "",
+                    HouseSize = "34'x10' 420sqft",
+                    OccupantCount = 3,
+                    WifiConnectionRequired = true,
+                    WaterConnectionRequired = true,
+                    ElectricalConnectionRequired = true,
+                    ParkingRequired = true,
+                    ChildFriendlyRequired = true,
+                    PetsRequired = true,
+                    Smoker = false,
+                    Privacy = true
+                });
+
         }
 
         private static async Task AddTestUsers(
