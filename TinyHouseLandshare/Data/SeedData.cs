@@ -18,31 +18,44 @@ namespace TinyHouseLandshare.Data
         public static async Task AddTestData(
             LandShareDbContext context)
         {
-            if (context.SeekerListings.Any())
+            if (context.SeekerListings.Any() is false)
             {
-                // Already has data
-                return;
+                CreateSeekerPosts(context);
+                await context.SaveChangesAsync();
             }
-
-            CreateSeekerPosts(context);
-            CreateLandPosts(context);
-
-            await context.SaveChangesAsync();
+            if (context.LandListings.Any() is false)
+            {
+                CreateLandPosts(context);
+                await context.SaveChangesAsync();
+            }
         }
 
         private static void CreateLandPosts(LandShareDbContext context)
         {
-            //context.LandListings.Add(
-            //    new LandListing
-            //    {
-            //        Title = "Beautiful Acreage Available",
-            //        Details = "Details about the acreage",
-            //        Location = "Victoria",
-            //        CreatedTime = DateTimeOffset.UtcNow,
-            //        PictureUri = "",
-            //        MapLocation = "coords go here",
-            //        Price = "600 per month",
-            //    });
+            context.LandListings.Add(
+                new LandListing
+                {
+                    Title = "Beautiful Acreage Available",
+                    Details = "Details about the acreage",
+                    Location = "Victoria",
+                    CreatedTime = DateTimeOffset.UtcNow,
+                    PictureUri = "",
+                    MapLocation = "coords go here",
+                    Price = "600 per month",
+                    AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
+                    LotSize = "20x40ft 800sqft",
+                    FoundationSize = "12x30ft",
+                    SiteFoundation = "concrete",
+                    DrivewayFoundation = "gravel",
+                    WifiConnection = "Yes",
+                    WaterConnection = "Yes",
+                    ElectricalConnection = "50Amp",
+                    Parking = "On site",
+                    ChildFriendly = "True",
+                    Pets = "True",
+                    SmokingPermitted = "True",
+                    Privacy = "True"
+                }); ;
         }
 
         private static void CreateSeekerPosts(LandShareDbContext context)

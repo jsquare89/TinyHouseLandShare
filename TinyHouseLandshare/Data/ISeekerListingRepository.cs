@@ -2,14 +2,12 @@
 
 namespace TinyHouseLandshare.Data
 { 
-
     public interface ISeekerListingRepository
     {
-        SeekerListing GetSeekerPost(Guid id);
-        IEnumerable<SeekerListing> GetAllSeekerPost();
-        SeekerListing Add(SeekerListing seekerPost);
-        SeekerListing Update(SeekerListing seekerPostUpdated);
+        SeekerListing GetSeekerListing(Guid id);
+        IEnumerable<SeekerListing> GetAllSeekerListings();
+        SeekerListing Add(SeekerListing seekerListing);
+        SeekerListing Update(SeekerListing seekerListingUpdated);
         SeekerListing Delete(Guid id);
-
     }
 }

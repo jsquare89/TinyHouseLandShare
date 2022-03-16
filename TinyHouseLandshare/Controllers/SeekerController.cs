@@ -19,15 +19,15 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult Index()
         {
-            var model = _seekerPostRepository.GetAllSeekerPost();
-            return View(model);
+            var seekerListings = _seekerPostRepository.GetAllSeekerListings();
+            return View(seekerListings);
         }
 
 
         [Route("{id}")]
         public IActionResult Listing(Guid id)
         {
-            var seekerListing = _seekerPostRepository.GetSeekerPost(id);
+            var seekerListing = _seekerPostRepository.GetSeekerListing(id);
 
             if(seekerListing is null)
             {

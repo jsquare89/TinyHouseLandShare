@@ -10,38 +10,39 @@ namespace TinyHouseLandshare.Data
         {
             _context = context;
         }
-        public SeekerListing Add(SeekerListing seekerPost)
+        public SeekerListing Add(SeekerListing seekerListing)
         {
-            _context.SeekerListings.Add(seekerPost);
+            _context.SeekerListings.Add(seekerListing);
             _context.SaveChanges();
-            return seekerPost;
+            return seekerListing;
         }
 
         public SeekerListing Delete(Guid id)
         {
-            SeekerListing seekerPost = _context.SeekerListings.Find(id);
-            if(seekerPost is not null)
+            SeekerListing seekerListing = _context.SeekerListings.Find(id);
+
+            if(seekerListing is not null)
             {
-                _context.SeekerListings.Remove(seekerPost);
+                _context.SeekerListings.Remove(seekerListing);
                 _context.SaveChanges();
             }
-            return seekerPost;
+            return seekerListing;
         }
 
-        public SeekerListing GetSeekerPost(Guid id)
+        public SeekerListing GetSeekerListing(Guid id)
         {
             return _context.SeekerListings.Find(id);
         }
 
-        public IEnumerable<SeekerListing> GetAllSeekerPost()
+        public IEnumerable<SeekerListing> GetAllSeekerListings()
         {
             return _context.SeekerListings;
         }
 
         public SeekerListing Update(SeekerListing seekerPostUpdated)
         {
-            var seekerPost = _context.SeekerListings.Attach(seekerPostUpdated);
-            seekerPost.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var seekerListing = _context.SeekerListings.Attach(seekerPostUpdated);
+            seekerListing.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
             return seekerPostUpdated;
         }

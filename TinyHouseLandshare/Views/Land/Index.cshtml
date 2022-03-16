@@ -1,8 +1,24 @@
-﻿@{
+﻿@model IEnumerable<LandListing>
+@{
     ViewData["Title"] = "Land Listings";
 }
 
 <div class="text-center">
     <h1 class="display-4">Land Listings</h1>
-    <p>See all land listings in North America</a>.</p>
+    <p>See all land listings in North America.</p>
+
+    @foreach(var listing in Model)
+    {
+        <div>
+            <img src="" title="seeker main image"/>
+            <h1><a asp-controller="land" asp-action="listing" asp-route-id="@listing.Id" >@listing.Title</a></h1>
+            <p>@listing.Location</p>
+            <p>Post created on: @listing.CreatedTime.Date</p>
+            <p>Date Available: @listing.AvailableDate</p>
+            <p>House Size: @listing.LotSize</p>
+            <p>Foundation Size: @listing.FoundationSize</p>
+        </div>
+    }
 </div>
+
+

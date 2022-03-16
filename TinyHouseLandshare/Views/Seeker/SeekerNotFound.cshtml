@@ -8,14 +8,14 @@
     <hr/>
     @if(@Model.Equals(Guid.Empty))
     {
-        <h5>Seeker cannot be found.</h5>
+        <h5>Seeker Listing cannot be found.</h5>
     }
     else
     {
-        <h5>Seeker with Id = @Model cannot be found.</h5>
+        <h5>Seeker Listing with Id = @Model cannot be found.</h5>
     }
 </div>
 
 <a asp-action="index" asp-controller="seeker" class="btn btn-outline-success">
-    Click here to see the list of all seekers
+    Click here to see all seeker listings
 </a>
