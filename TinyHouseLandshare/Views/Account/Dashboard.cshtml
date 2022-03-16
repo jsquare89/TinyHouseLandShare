@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SeekerListing
+@{
     ViewData["Title"] = "Dashboard";
 }
 
@@ -13,3 +14,24 @@
         @Html.ActionLink("Create Land Listing", "createlisting", "Land")
     </P>
 </div>
+
+
+<div class="text-center">
+    <h1 class="display-4">Your Listings</h1>
+    <p>View your listings below</p>
+
+    @if(Model is not null)
+    {
+        <div>
+            <h3>Seeker Listing</h3>
+            <img src="" title="seeker main image"/>
+            <h4><a asp-controller="seeker" asp-action="listing" asp-route-id="@Model.Id" >@Model.Title</a></h4>
+            <p>@Model.CreatedTime.Date</p>
+            <p>@Model.Status</p>
+        </div>
+    }
+
+</div>
+
+
+

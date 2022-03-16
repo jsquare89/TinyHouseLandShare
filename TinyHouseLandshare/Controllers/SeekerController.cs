@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Data;
 using TinyHouseLandshare.Models;
@@ -11,10 +12,16 @@ namespace TinyHouseLandshare.Controllers
     public class SeekerController : Controller
     {
         private readonly ISeekerListingRepository _seekerListingRepository;
+        private readonly IUserSeekerListingRepository _userSeekerListingRepository;
+        private readonly UserManager<UserEntity> _userManager;
 
-        public SeekerController(ISeekerListingRepository seekerListingRepository)
+        public SeekerController(ISeekerListingRepository seekerListingRepository,
+                                IUserSeekerListingRepository userSeekerListingRepository,
+                                UserManager<UserEntity> userManager)
         {
             _seekerListingRepository = seekerListingRepository;
+            _userSeekerListingRepository = userSeekerListingRepository;
+            _userManager = userManager;
         }
         
         [Route("")]
@@ -66,14 +73,25 @@ namespace TinyHouseLandshare.Controllers
                 WifiConnectionRequired = false,
                 WaterConnectionRequired = false,
                 ElectricalConnectionRequired = false,
+                PreferedLandType = "Residential",
                 ParkingRequired = false,
                 ChildFriendlyRequired = false,
                 PetsRequired = false,
                 Smoker = false,
-                Privacy = false
+                Privacy = false,
+                Approved = true,
+                Status = "published",
+                Submitted = true
             };
 
-            _seekerListingRepository.Add(seekerListing);
+
+            seekerListing = _seekerListingRepository.Add(seekerListing);
+            var userListing = new UserListing
+            {
+                User = new Guid(_userManager.GetUserId(User)),
+                Listing = seekerListing.Id
+            };
+            _userSeekerListingRepository.Add(userListing);
 
             return RedirectToAction("Index");
         }

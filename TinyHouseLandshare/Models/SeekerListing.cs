@@ -7,6 +7,7 @@
         public bool WifiConnectionRequired { get; set; }
         public bool WaterConnectionRequired { get; set; }
         public bool ElectricalConnectionRequired { get; set; }
+        public string PreferedLandType { get; set; }
         public bool ParkingRequired { get; set; }
         public bool ChildFriendlyRequired { get; set; }
         public bool PetsRequired { get; set; }

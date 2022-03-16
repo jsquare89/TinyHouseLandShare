@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using TinyHouseLandshare.Data;
 using TinyHouseLandshare.Models;
 using TinyHouseLandshare.ViewModels;
 
@@ -11,11 +12,15 @@ namespace TinyHouseLandshare.Controllers
     {
         private readonly UserManager<UserEntity> _userManager;
         private readonly SignInManager<UserEntity> _signInManager;
+        private readonly IUserSeekerListingRepository _userSeekerListingRepository;
 
-        public AccountController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager)
+        public AccountController(UserManager<UserEntity> userManager, 
+                                 SignInManager<UserEntity> signInManager,
+                                 IUserSeekerListingRepository userSeekerListingRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _userSeekerListingRepository = userSeekerListingRepository;
         }
 
 
@@ -98,7 +103,9 @@ namespace TinyHouseLandshare.Controllers
         [HttpGet]
         public IActionResult Dashboard()
         {
-            return View();
+            var userId = new Guid(_userManager.GetUserId(User));
+            var userListings = _userSeekerListingRepository.GetUserListing(userId);
+            return View(userListings);
         }
     }
 }

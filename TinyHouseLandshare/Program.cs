@@ -22,7 +22,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ISeekerListingRepository, SeekerListingRepository>();
 builder.Services.AddScoped<ILandListingRepository, LandListingRepository>();
-
+builder.Services.AddScoped<IUserSeekerListingRepository, UserSeekerListingRepository>();
 
 var app = builder.Build();
 

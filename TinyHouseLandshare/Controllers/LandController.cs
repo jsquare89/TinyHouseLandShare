@@ -72,7 +72,10 @@ namespace TinyHouseLandshare.Controllers
                 ChildFriendly = "True",
                 Pets = "True",
                 SmokingPermitted = "True",
-                Privacy = "True"
+                Privacy = "True",
+                Approved = true,
+                Status = "published",
+                Submitted = true
             };
 
             _landListingRepository.Add(landListing);

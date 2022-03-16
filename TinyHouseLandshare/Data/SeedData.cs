@@ -55,7 +55,10 @@ namespace TinyHouseLandshare.Data
                     ChildFriendly = "True",
                     Pets = "True",
                     SmokingPermitted = "True",
-                    Privacy = "True"
+                    Privacy = "True",
+                    Approved = true,
+                    Status = "published",
+                    Submitted = true
                 });
         }
 
@@ -74,11 +77,15 @@ namespace TinyHouseLandshare.Data
                     WifiConnectionRequired = true,
                     WaterConnectionRequired = true,
                     ElectricalConnectionRequired = true,
+                    PreferedLandType = "Residential",
                     ParkingRequired = true,
                     ChildFriendlyRequired = false,
                     PetsRequired = true,
                     Smoker = false,
-                    Privacy = true
+                    Privacy = true,
+                    Approved = true,
+                    Status = "published",
+                    Submitted = true
                 });
 
             context.SeekerListings.Add(
@@ -94,11 +101,15 @@ namespace TinyHouseLandshare.Data
                     WifiConnectionRequired = true,
                     WaterConnectionRequired = true,
                     ElectricalConnectionRequired = true,
+                    PreferedLandType = "Commercial",
                     ParkingRequired = true,
                     ChildFriendlyRequired = true,
                     PetsRequired = true,
                     Smoker = false,
-                    Privacy = true
+                    Privacy = true,
+                    Approved = true,
+                    Status = "published",
+                    Submitted = true
                 });
 
         }
