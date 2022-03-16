@@ -126,8 +126,10 @@ namespace TinyHouseLandshare.Data
             }
 
             string adminRoleName = "Admin";
+            string userRoleName = "User";
             // Add a test role
             await roleManager.CreateAsync(new UserRoleEntity(adminRoleName));
+            await roleManager.CreateAsync(new UserRoleEntity(userRoleName));
 
 
             bool adminRoleExists = await roleManager.RoleExistsAsync(adminRoleName);
@@ -156,7 +158,7 @@ namespace TinyHouseLandshare.Data
                         CreatedAt = DateTimeOffset.UtcNow
                     },
                     defaultPassword,
-                    adminRoleName,
+                    userRoleName,
                     userManager);
             }
         }
