@@ -11,7 +11,7 @@ namespace TinyHouseLandshare.Data
         {
             _context = context;
         }
-        public UserListing Add(UserListing userListing)
+        public UserLandListing Add(UserLandListing userListing)
         {
             //_context.UserListings.Add(userListing);
             //_context.SaveChanges();
@@ -20,12 +20,12 @@ namespace TinyHouseLandshare.Data
 
         }
 
-        public UserListing Delete(Guid id)
+        public UserLandListing Delete(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<UserListing> GetAllUserListings()
+        public IEnumerable<UserLandListing> GetAllUserListings()
         {
             throw new NotImplementedException();
         }
@@ -49,7 +49,7 @@ namespace TinyHouseLandshare.Data
             throw new NotImplementedException();
         }
 
-        public UserListing Update(UserListing userListingUpdated)
+        public UserLandListing Update(UserLandListing userListingUpdated)
         {
             throw new NotImplementedException();
         }

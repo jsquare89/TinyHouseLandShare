@@ -1,10 +1,10 @@
-﻿namespace TinyHouseLandshare.ViewModels
+﻿using TinyHouseLandshare.Models;
+
+namespace TinyHouseLandshare.ViewModels
 {
     public class UserListingsViewModel
     {
-        public Guid ListingId { get; set; }
-        public string Title { get; set; }
-        public string Location { get; set; }
-        public DateTimeOffset CreatedTime { get; set; }
+        public SeekerListing SeekerListing { get; set; }
+        public IEnumerable<LandListing> LandListings { get; set; }
     }
 }

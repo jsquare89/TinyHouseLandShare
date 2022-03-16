@@ -11,30 +11,30 @@ namespace TinyHouseLandshare.Data
         {
             _context = context;
         }
-        public UserListing Add(UserListing userListing)
+        public UserSeekerListing Add(UserSeekerListing userListing)
         {
             _context.UserSeekerListings.Add(userListing);
             _context.SaveChanges();
             return userListing;
         }
 
-        public UserListing Delete(Guid id)
+        public UserSeekerListing Delete(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<UserListing> GetAllUserListings()
+        public IEnumerable<UserSeekerListing> GetAllUserListings()
         {
             return _context.UserSeekerListings;
         }
 
         public SeekerListing GetUserListing(Guid UserId)
         {
-            var listingId = _context.UserSeekerListings.Where(l => l.User == UserId).Select(l => l.Listing).FirstOrDefault();
+            var listingId = _context.UserSeekerListings.Where(l => l.UserId == UserId).Select(l => l.SeekerListingId).FirstOrDefault();
             return _context.SeekerListings.Where(l => l.Id == listingId).FirstOrDefault();
         }
 
-        public UserListing Update(UserListing userListingUpdated)
+        public UserSeekerListing Update(UserSeekerListing userListingUpdated)
         {
             throw new NotImplementedException();
         }

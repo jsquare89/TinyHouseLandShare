@@ -86,10 +86,10 @@ namespace TinyHouseLandshare.Controllers
 
 
             seekerListing = _seekerListingRepository.Add(seekerListing);
-            var userListing = new UserListing
+            var userListing = new UserSeekerListing
             {
-                User = new Guid(_userManager.GetUserId(User)),
-                Listing = seekerListing.Id
+                UserId = new Guid(_userManager.GetUserId(User)),
+                SeekerListingId = seekerListing.Id
             };
             _userSeekerListingRepository.Add(userListing);
 

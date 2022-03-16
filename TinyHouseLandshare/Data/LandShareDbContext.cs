@@ -14,13 +14,14 @@ namespace TinyHouseLandshare.Data
         public DbSet<LandListing> LandListings { get; set; }
         public DbSet<SeekerListing> SeekerListings { get; set; }
 
-        public DbSet<UserListing> UserSeekerListings { get; set; }
-        public DbSet<UserListing> UserLandListings { get; set; }
+        public DbSet<UserSeekerListing> UserSeekerListings { get; set; }
+        public DbSet<UserLandListing> UserLandListings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<UserListing>().HasKey(u => new { u.User, u.Listing });
+            modelBuilder.Entity<UserSeekerListing>().HasKey(u => new { u.UserId, u.SeekerListingId });
+            modelBuilder.Entity<UserLandListing>().HasKey(u => new { u.UserId, u.LandListingId });
         }
 
     }

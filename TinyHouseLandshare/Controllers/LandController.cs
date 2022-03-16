@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Data;
 using TinyHouseLandshare.Models;
@@ -10,10 +11,16 @@ namespace TinyHouseLandshare.Controllers
     public class LandController : Controller
     {
         private readonly ILandListingRepository _landListingRepository;
+        private readonly IUserLandListingRepository _userLandListingRepository;
+        private readonly UserManager<UserEntity> _userManager;
 
-        public LandController(ILandListingRepository landListingRepository)
+        public LandController(ILandListingRepository landListingRepository,
+                              IUserLandListingRepository userLandListingRepository,
+                              UserManager<UserEntity> userManager)
         {
             _landListingRepository = landListingRepository;
+            _userLandListingRepository = userLandListingRepository;
+            _userManager = userManager;
         }
 
         [Route("Land")]
@@ -78,7 +85,14 @@ namespace TinyHouseLandshare.Controllers
                 Submitted = true
             };
 
-            _landListingRepository.Add(landListing);
+            landListing = _landListingRepository.Add(landListing);
+
+            var userListing = new UserLandListing
+            {
+                UserId = new Guid(_userManager.GetUserId(User)),
+                LandListingId = landListing.Id
+            };
+            _userLandListingRepository.Add(userListing);
 
             return RedirectToAction("Index");
         }

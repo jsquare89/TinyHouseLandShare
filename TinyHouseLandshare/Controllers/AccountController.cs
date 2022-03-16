@@ -13,14 +13,17 @@ namespace TinyHouseLandshare.Controllers
         private readonly UserManager<UserEntity> _userManager;
         private readonly SignInManager<UserEntity> _signInManager;
         private readonly IUserSeekerListingRepository _userSeekerListingRepository;
+        private readonly IUserLandListingRepository _userLandListingRepository;
 
         public AccountController(UserManager<UserEntity> userManager, 
                                  SignInManager<UserEntity> signInManager,
-                                 IUserSeekerListingRepository userSeekerListingRepository)
+                                 IUserSeekerListingRepository userSeekerListingRepository,
+                                 IUserLandListingRepository userLandListingRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _userSeekerListingRepository = userSeekerListingRepository;
+            _userLandListingRepository = userLandListingRepository;
         }
 
 
@@ -85,7 +88,7 @@ namespace TinyHouseLandshare.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Dashboard", "Account");
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt.");
@@ -104,7 +107,12 @@ namespace TinyHouseLandshare.Controllers
         public IActionResult Dashboard()
         {
             var userId = new Guid(_userManager.GetUserId(User));
-            var userListings = _userSeekerListingRepository.GetUserListing(userId);
+            var userListings = new UserListingsViewModel
+            {
+                SeekerListing = _userSeekerListingRepository.GetUserListing(userId),
+                LandListings = _userLandListingRepository.GetUserListings(userId)
+            };
+
             return View(userListings);
         }
     }

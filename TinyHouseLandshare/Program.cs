@@ -23,6 +23,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISeekerListingRepository, SeekerListingRepository>();
 builder.Services.AddScoped<ILandListingRepository, LandListingRepository>();
 builder.Services.AddScoped<IUserSeekerListingRepository, UserSeekerListingRepository>();
+builder.Services.AddScoped<IUserLandListingRepository, UserLandListingRepository>();
 
 var app = builder.Build();
 

@@ -2,10 +2,9 @@
 
 namespace TinyHouseLandshare.Data
 {
-    public interface IUserListingRepository
+    public interface IUserLandListingRepository
     {
-        IEnumerable<Guid> GetUserListings(Guid UserId);
-        SeekerListing GetUserSeekerListing(Guid UserId);
+        IEnumerable<LandListing> GetUserListings(Guid UserId);
         IEnumerable<UserLandListing> GetAllUserListings();
         UserLandListing Add(UserLandListing userListing);
         UserLandListing Update(UserLandListing userListingUpdated);
