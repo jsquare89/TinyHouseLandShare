@@ -43,6 +43,7 @@ namespace TinyHouseLandshare.Data
                     MapLocation = "coords go here",
                     Price = "600 per month",
                     AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
+                    LandType = "Residential",
                     LotSize = "20x40ft 800sqft",
                     FoundationSize = "12x30ft",
                     SiteFoundation = "concrete",

@@ -61,6 +61,7 @@ namespace TinyHouseLandshare.Controllers
                 Price = "600 per month",
                 AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
                 LotSize = "20x40ft 800sqft",
+                LandType = "Commercial",
                 FoundationSize = "12x30ft",
                 SiteFoundation = "concrete",
                 DrivewayFoundation = "gravel",

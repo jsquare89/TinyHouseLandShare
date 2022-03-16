@@ -52,7 +52,7 @@ namespace TinyHouseLandshare.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Dashboard", "Account");
                 }
 
                 foreach(var error in result.Errors)
@@ -91,6 +91,12 @@ namespace TinyHouseLandshare.Controllers
 
         [HttpGet]
         public IActionResult Profile()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Dashboard()
         {
             return View();
         }

@@ -53,6 +53,20 @@
             </div>
         </nav>
     </header>
+    <div class="container-fluid">
+        @if (signInManager.IsSignedIn(User))
+        {
+            <div>
+                @Html.ActionLink("Dashboard/Your Listings", "Dashboard", "Account")
+            </div>
+        }
+        <div>
+            @Html.ActionLink("Seeker Listings", "index", "Seeker")
+        </div>
+        <div>
+            @Html.ActionLink("Land Listings", "index", "Land")
+        </div>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

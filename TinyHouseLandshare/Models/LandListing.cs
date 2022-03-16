@@ -6,6 +6,7 @@
         public string Price { get; set; }
         public DateTimeOffset AvailableDate { get; set; }
         public string LotSize { get; set; }
+        public string LandType { get; set; }
         public string FoundationSize { get; set; }
         public string SiteFoundation { get; set; }
         public string DrivewayFoundation { get; set; }
