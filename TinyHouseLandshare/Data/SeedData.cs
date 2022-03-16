@@ -55,7 +55,7 @@ namespace TinyHouseLandshare.Data
                     Pets = "True",
                     SmokingPermitted = "True",
                     Privacy = "True"
-                }); ;
+                });
         }
 
         private static void CreateSeekerPosts(LandShareDbContext context)

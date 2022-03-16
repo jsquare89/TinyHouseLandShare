@@ -10,9 +10,11 @@ namespace TinyHouseLandshare.Data
         {
             _context = context;
         }
-        public LandListing Add(LandListing LandListing)
+        public LandListing Add(LandListing landListing)
         {
-            throw new NotImplementedException();
+            _context.LandListings.Add(landListing);
+            _context.SaveChanges();
+            return landListing;
         }
 
         public LandListing Delete(Guid id)
@@ -30,7 +32,7 @@ namespace TinyHouseLandshare.Data
             return _context.LandListings.Find(id);
         }
 
-        public LandListing Update(LandListing LandListingUpdated)
+        public LandListing Update(LandListing landListingUpdated)
         {
             throw new NotImplementedException();
         }

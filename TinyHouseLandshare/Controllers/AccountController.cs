@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Models;
 using TinyHouseLandshare.ViewModels;
 
 namespace TinyHouseLandshare.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<UserEntity> _userManager;
@@ -26,12 +28,14 @@ namespace TinyHouseLandshare.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -60,12 +64,14 @@ namespace TinyHouseLandshare.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
@@ -81,6 +87,12 @@ namespace TinyHouseLandshare.Controllers
                 
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Profile()
+        {
+            return View();
         }
     }
 }

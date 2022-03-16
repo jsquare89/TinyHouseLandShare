@@ -1,4 +1,5 @@
-﻿@{
+﻿@model LandListing
+@{
     ViewData["Title"] = "Land Listing";
 }
 
@@ -8,6 +9,18 @@
             <p>@Model.Location</p>
             <p>Post created on: @Model.CreatedTime.Date</p>
             <p>Date Available: @Model.AvailableDate</p>
+            <p>Price: @Model.Price</p>
+            <p>Map Location: @Model.MapLocation</p>
             <p>House Size: @Model.LotSize</p>
             <p>Foundation Size: @Model.FoundationSize</p>
+            <p>Site Foundation: @Model.SiteFoundation</p>
+            <p>Driveway Foundation: @Model.DrivewayFoundation</p>
+            <p>Wifi Connection: @Model.WifiConnection</p>
+            <p>Water Connection: @Model.WaterConnection</p>
+            <p>Electrical Connection: @Model.ElectricalConnection</p>
+            <p>Parking: @Model.Parking</p>
+            <p>Child Friendly: @Model.ChildFriendly</p>
+            <p>Pet Friendly: @Model.Pets</p>
+            <p>Smoking Permitted: @Model.SmokingPermitted</p>
+            <p>Privacy: @Model.Privacy</p>
         </div>
