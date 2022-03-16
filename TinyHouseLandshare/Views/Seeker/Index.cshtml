@@ -7,14 +7,15 @@
     <h1 class="display-4">Seeker Listings</h1>
     <p>See all Seeker listings in North America.</p>
 
-    @foreach(var post in Model)
+    @foreach(var listing in Model)
     {
         <div>
             <img src="" title="seeker main image"/>
-            <h1><a asp-controller="seeker" asp-action="listing" asp-route-id="@post.Id" >@post.Title</a></h1>
-            <p>@post.Location</p>
-            <p>Post created on: @post.CreatedTime.Date</p>
-            <p>House Size: @post.HouseSize</p>
+            <h1><a asp-controller="seeker" asp-action="listing" asp-route-id="@listing.Id" >@listing.Title</a></h1>
+            <p>@listing.Id</p>
+            <p>@listing.Location</p>
+            <p>Post created on: @listing.CreatedTime.Date</p>
+            <p>House Size: @listing.HouseSize</p>
         </div>
     }
 </div>

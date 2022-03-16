@@ -1,0 +1,30 @@
+﻿@model SeekerListingViewModel
+
+@{
+    ViewBag.Title = "Edit Seeker Listing";
+}
+
+<div>
+    <h1>Edit Seeker Listing</h1>
+    <p>@Model.Id</p>
+    <form method="post">
+         <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" value="@Model.Title"/>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Location"></label>
+                <input asp-for="Location" class="form-control" value="@Model.Location"/>
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Details"></label>
+                <textarea asp-for="Details" class="form-control" >@Model.Details</textarea>
+                <span asp-validation-for="Details" class="text-danger"></span>
+            </div>
+        <button type="submit" class="btn btn-primary">Submit Edit</button>
+    </form>
+</div>

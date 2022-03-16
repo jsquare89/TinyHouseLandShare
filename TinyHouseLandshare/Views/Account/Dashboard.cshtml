@@ -6,10 +6,12 @@
 <div class="text-center">
     <h1 class="display-4">Dashboard</h1>
     <br />
-   
-    <P>
-        @Html.ActionLink("Create Seeker Listing", "createlisting", "seeker")
-    </P>
+    @if (Model.SeekerListing is null)
+    {
+        <P>
+            @Html.ActionLink("Create Seeker Listing", "createlisting", "seeker")
+        </P>
+    }
     <P>
         @Html.ActionLink("Create Land Listing", "createlisting", "Land")
     </P>
@@ -26,8 +28,16 @@
             <h3>Seeker Listing</h3>
             <img src="" title="seeker main image"/>
             <h4><a asp-controller="seeker" asp-action="listing" asp-route-id="@Model.SeekerListing.Id" >@Model.SeekerListing.Title</a></h4>
+            <p>@Model.SeekerListing.Id</p>
             <p>@Model.SeekerListing.CreatedTime.Date</p>
             <p>@Model.SeekerListing.Status</p>
+            @Html.ActionLink("Edit", 
+                              "EditListing", 
+                              "Seeker", 
+                              new{ Model.SeekerListing.Id}, 
+                              new{ @class="btn btn-info"})
+                
+            
         </div>
     }
     else

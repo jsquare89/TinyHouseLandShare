@@ -94,7 +94,7 @@ namespace TinyHouseLandshare.Controllers
             };
             _userLandListingRepository.Add(userListing);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Dashboard", "Account");
         }
 
     }

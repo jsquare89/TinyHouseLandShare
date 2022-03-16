@@ -79,9 +79,9 @@ namespace TinyHouseLandshare.Controllers
                 PetsRequired = false,
                 Smoker = false,
                 Privacy = false,
-                Approved = true,
-                Status = "published",
-                Submitted = true
+                Approved = false,
+                Status = "draft",
+                Submitted = false
             };
 
 
@@ -93,7 +93,57 @@ namespace TinyHouseLandshare.Controllers
             };
             _userSeekerListingRepository.Add(userListing);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Dashboard", "Account");
+        }
+
+
+        [HttpGet]
+        [Route("[action]")]
+        public IActionResult EditListing(Guid id)
+        {
+            var seekerListing = _seekerListingRepository.GetSeekerListing(id);
+            var seekerListingViewModel = new SeekerListingViewModel
+            {
+                Id= id,
+                Title = seekerListing.Title,
+                Location = seekerListing.Location,
+                Details = seekerListing.Details,
+            };
+            return View(seekerListingViewModel);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public IActionResult EditListing(SeekerListingViewModel model)
+        {
+            // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
+            var seekerListing = new SeekerListing
+            {
+                Id = model.Id,
+                Title = model.Title,
+                Location = model.Location,
+                Details = model.Details,
+                CreatedTime = DateTimeOffset.UtcNow,
+                PictureUri = "",
+                HouseSize = "",
+                OccupantCount = 0,
+                WifiConnectionRequired = false,
+                WaterConnectionRequired = false,
+                ElectricalConnectionRequired = false,
+                PreferedLandType = "Residential",
+                ParkingRequired = false,
+                ChildFriendlyRequired = false,
+                PetsRequired = false,
+                Smoker = false,
+                Privacy = false,
+                Approved = false,
+                Status = "updated draft",
+                Submitted = false
+            };
+
+            seekerListing = _seekerListingRepository.Update(seekerListing);
+
+            return RedirectToAction("Dashboard", "Account");
         }
     }
 }
