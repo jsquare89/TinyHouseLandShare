@@ -55,6 +55,15 @@
         </nav>
     </header>
     <div class="container-fluid">
+        @if(User.IsInRole("Admin"))
+        {
+            <div>
+                @Html.ActionLink("Administrator Dahsboard", "Dashboard", "Admin")
+            </div>
+            <div>
+                @Html.ActionLink("Approve Listings", "ApproveListing", "Admin")
+            </div>
+        }
         @if (signInManager.IsSignedIn(User))
         {
             <div>
