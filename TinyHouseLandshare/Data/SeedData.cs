@@ -5,6 +5,8 @@ namespace TinyHouseLandshare.Data
 {
     public class SeedData
     {
+        public static UserEntity tempUser;
+
         public static async Task InitializeAsync(IServiceProvider services)
         {
             await AddTestUsers(
@@ -13,6 +15,9 @@ namespace TinyHouseLandshare.Data
 
             await AddTestData(
                 services.GetRequiredService<LandShareDbContext>());
+            await AddUserListingForApproval(
+                services.GetRequiredService<LandShareDbContext>());
+            
         }
 
         public static async Task AddTestData(
@@ -149,7 +154,7 @@ namespace TinyHouseLandshare.Data
                     adminRoleName,
                     userManager);
 
-                await CreateUserWithRole(
+                tempUser = await CreateUserWithRole(
                     new UserEntity
                     {
                         Email = "jarredjardine@gmail.com",
@@ -161,15 +166,54 @@ namespace TinyHouseLandshare.Data
                     userRoleName,
                     userManager);
             }
+
+
         }
 
-        private static async Task CreateUserWithRole(UserEntity user, string password, string role, UserManager<UserEntity> userManager)
+        private static async Task AddUserListingForApproval(LandShareDbContext context)
+        {
+            SeekerListing newSeekerListing = new SeekerListing
+            {
+                Title = "Tiny House seeking approval lol",
+                Details = "Details go here lorem ipsem...",
+                Location = "Langley",
+                CreatedTime = DateTimeOffset.UtcNow,
+                PictureUri = "",
+                HouseSize = "34'x10' 420sqft",
+                OccupantCount = 3,
+                WifiConnectionRequired = true,
+                WaterConnectionRequired = true,
+                ElectricalConnectionRequired = true,
+                PreferedLandType = "Commercial",
+                ParkingRequired = true,
+                ChildFriendlyRequired = true,
+                PetsRequired = true,
+                Smoker = false,
+                Privacy = true,
+                Approved = false,
+                Status = "submitted for approval",
+                Submitted = true
+            };
+
+            context.SeekerListings.Add(newSeekerListing);
+
+            UserSeekerListing userSeekerListing = new UserSeekerListing
+            {
+                UserId = tempUser.Id,
+                SeekerListingId = newSeekerListing.Id
+            };
+            context.UserSeekerListings.Add(userSeekerListing);
+            context.SaveChanges();
+        }
+
+        private static async Task<UserEntity> CreateUserWithRole(UserEntity user, string password, string role, UserManager<UserEntity> userManager)
         {
             await userManager.CreateAsync(user, password);
 
             // Put the user in the admin role
             await userManager.AddToRoleAsync(user, role);
             await userManager.UpdateAsync(user);
+            return user;
         }
     }
 }

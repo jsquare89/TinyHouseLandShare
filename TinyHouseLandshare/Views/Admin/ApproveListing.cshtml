@@ -1,11 +1,41 @@
-﻿
+﻿@model ApproveListingViewModel
 @{
     ViewData["Title"] = "Approve Listings";
 }
 
 <div class="text-center">
     <h1 class="display-4">Approve Listings</h1>
-    
+    @foreach(var listing in @Model.seekerListings)
+    {
+        <div>
+            <h4>@listing.Title</h4>
+            <p>Location: @listing.Location</p>
+            <p>Created Time: @listing.CreatedTime</p>
+            <p>Details: @listing.Details</p>
+            <p>House size: @listing.HouseSize</p>
+            <p>Occutpant count: @listing.OccupantCount</p>
+            <p>Submitted: @listing.Submitted</p>
+            <p>Status: @listing.Status</p>
+            <p>Approved: @listing.Approved</p>
+        </div>
+        <form method="post" asp-controller="Admin" asp-action="ApproveListing">
+            <button class="btn btn-success" formmethod="post" asp-action="ApproveListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
+        </form>
+        
+        @Html.ActionLink("Reject", 
+                         "ApproveListing", 
+                         "Admin", 
+                         new { @listing.Id }, 
+                         new { @class="btn btn-danger"});
+                          
+                         @Html.ActionLink("Dummy Button", 
+                         "ApproveListing", 
+                         "Admin", 
+                         new { @listing.Id }, 
+                         new { @class="btn btn-success"})
+
+    }
+
 </div>
 
 

@@ -46,5 +46,10 @@ namespace TinyHouseLandshare.Data
             _context.SaveChanges();
             return seekerPostUpdated;
         }
+
+        public IEnumerable<SeekerListing> GetAllUnapprovedSubmittedSeekerListings()
+        {
+            return _context.SeekerListings.Where(l => l.Approved.Equals(false) && l.Submitted.Equals(true));
+        }
     }
 }
