@@ -146,7 +146,7 @@ namespace TinyHouseLandshare.Controllers
             return RedirectToAction("Dashboard", "Account");
         }
 
-        [HttpGet]
+        [Route("[action]")]
         public IActionResult DeleteListing(Guid id)
         {
             var userListingToDelete = new UserSeekerListing
@@ -157,6 +157,16 @@ namespace TinyHouseLandshare.Controllers
             _userSeekerListingRepository.Delete(userListingToDelete);
             _seekerListingRepository.Delete(id);
 
+            return RedirectToAction("Dashboard", "Account");
+        }
+
+        [Route("[action]")]
+        public IActionResult SubmitApproval(Guid id)
+        {
+            var seekerListing = _seekerListingRepository.GetSeekerListing(id);
+            seekerListing.Submitted = true;
+            seekerListing.Status = "Submitted for approval";
+            _seekerListingRepository.Update(seekerListing);
             return RedirectToAction("Dashboard", "Account");
         }
     }

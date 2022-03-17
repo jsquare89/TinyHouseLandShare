@@ -31,11 +31,19 @@
             <p>@Model.SeekerListing.Id</p>
             <p>@Model.SeekerListing.CreatedTime.Date</p>
             <p>@Model.SeekerListing.Status</p>
+            <p>Submitted: @Model.SeekerListing.Submitted</p>
+            <p>Approved: @Model.SeekerListing.Approved</p>
+
             @Html.ActionLink("Edit", 
                               "EditListing", 
                               "Seeker", 
                               new{ Model.SeekerListing.Id}, 
                               new{ @class="btn btn-info"})
+            @Html.ActionLink("Submit for Approval", 
+                              "SubmitApproval", 
+                              "Seeker", 
+                              new{ Model.SeekerListing.Id}, 
+                              new{ @class="btn btn-warning"})
             @Html.ActionLink("Delete", 
                               "DeleteListing", 
                               "Seeker", 
