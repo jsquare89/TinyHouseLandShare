@@ -1,4 +1,5 @@
 ﻿@inject SignInManager<UserEntity> signInManager;
+@inject UserManager<UserEntity> userManager;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,7 @@
                             <li class="nav-item">
                                 <form method="post" asp-action="Logout" asp-controller="Account">
                                     <button type="submit" class="nav-link btn btn-link py-0 text-dark" style="width:auto">
-                                        Logout @User.Identity.Name
+                                        Logout @User.Identity.Name (@userManager.GetUserId(User))
                                     </button>
                                 </form>
                             </li>

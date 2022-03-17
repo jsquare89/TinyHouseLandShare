@@ -19,7 +19,13 @@ namespace TinyHouseLandshare.Data
 
         public LandListing Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var landListing = _context.LandListings.Find(id);
+            if (landListing is not null)
+            {
+                _context.LandListings.Remove(landListing);
+                _context.SaveChanges();
+            }
+            return landListing;
         }
 
         public IEnumerable<LandListing> GetAllLandListings()
@@ -34,7 +40,10 @@ namespace TinyHouseLandshare.Data
 
         public LandListing Update(LandListing landListingUpdated)
         {
-            throw new NotImplementedException();
+            var landListing = _context.LandListings.Attach(landListingUpdated);
+            landListing.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+            return landListingUpdated;
         }
     }
 }

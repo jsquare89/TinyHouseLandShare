@@ -50,7 +50,7 @@
                               new{ Model.SeekerListing.Id}, 
                               new{ @class="btn btn-danger"})
                 
-            
+            <br/>
         </div>
     }
     else
@@ -63,6 +63,7 @@
     @if(Model.LandListings.Any() is true)
     {
         <div>
+            <br/>
             <h3>Land Listings</h3>
             <p>loop land listings and show here</p>
             @foreach(var landListing in Model.LandListings)
@@ -70,9 +71,37 @@
                 <div>
                     <img src="" title="land main image"/>
                     <h4><a asp-controller="land" asp-action="listing" asp-route-id="@landListing.Id" >@landListing.Title</a></h4>
+                    <p>@landListing.Id</p>
                     <p>@landListing.CreatedTime.Date</p>
                     <p>@landListing.Status</p>
+                    <p>Submitted: @landListing.Submitted</p>
+                    <p>Approved: @landListing.Approved</p>
                 </div>
+
+                @Html.ActionLink("Edit", 
+                              "EditListing", 
+                              "Land", 
+                              new{ landListing.Id}, 
+                              new{ @class="btn btn-info"})
+                @if(landListing.Submitted is false)
+                {
+                    @Html.ActionLink("Submit for Approval",
+                                      "SubmitApproval",
+                                      "Land",
+                                      new { landListing.Id },
+                                      new { @class = "btn btn-warning"});
+                }
+                else
+                {
+                    <button type="button" class="btn btn-secondary" disabled>Submit for Approval</button>
+                }
+                
+                @Html.ActionLink("Delete", 
+                              "DeleteListing", 
+                              "Land", 
+                              new{ landListing.Id}, 
+                              new{ @class="btn btn-danger"})
+                <br />
             }
         </div>
     }

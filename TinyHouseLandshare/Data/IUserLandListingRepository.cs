@@ -8,6 +8,6 @@ namespace TinyHouseLandshare.Data
         IEnumerable<UserLandListing> GetAllUserListings();
         UserLandListing Add(UserLandListing userListing);
         UserLandListing Update(UserLandListing userListingUpdated);
-        UserLandListing Delete(Guid id);
+        UserLandListing Delete(UserLandListing userListing);
     }
 }

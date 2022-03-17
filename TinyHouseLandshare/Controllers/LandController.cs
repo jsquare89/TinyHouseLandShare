@@ -80,9 +80,9 @@ namespace TinyHouseLandshare.Controllers
                 Pets = "True",
                 SmokingPermitted = "True",
                 Privacy = "True",
-                Approved = true,
-                Status = "published",
-                Submitted = true
+                Approved = false,
+                Status = "draft",
+                Submitted = false   
             };
 
             landListing = _landListingRepository.Add(landListing);
@@ -96,6 +96,89 @@ namespace TinyHouseLandshare.Controllers
 
             return RedirectToAction("Dashboard", "Account");
         }
+
+
+        [HttpGet]
+        [Route("[action]")]
+        public IActionResult EditListing(Guid id)
+        {
+            var landListing = _landListingRepository.GetLandListing(id);
+            var landListingViewModel = new LandListingViewModel
+            {
+                Id = id,
+                Title = landListing.Title,
+                Location = landListing.Location,
+                Details = landListing.Details,
+            };
+            return View(landListingViewModel);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public IActionResult EditListing(LandListingViewModel model)
+        {
+            // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
+            var landListing = new LandListing
+            {
+                Id = model.Id,
+                Title = model.Title,
+                Location = model.Location,
+                Details = model.Details,
+                CreatedTime = DateTimeOffset.UtcNow,
+                PictureUri = "",
+                MapLocation = "coords go here",
+                Price = "600 per month",
+                AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
+                LotSize = "20x40ft 800sqft",
+                LandType = "Commercial",
+                FoundationSize = "12x30ft",
+                SiteFoundation = "concrete",
+                DrivewayFoundation = "gravel",
+                WifiConnection = "Yes",
+                WaterConnection = "Yes",
+                ElectricalConnection = "50Amp",
+                Parking = "On site",
+                ChildFriendly = "True",
+                Pets = "True",
+                SmokingPermitted = "True",
+                Privacy = "True",
+                Approved = false,
+                Status = "draft",
+                Submitted = false
+            };
+
+            landListing = _landListingRepository.Update(landListing);
+
+            return RedirectToAction("Dashboard", "Account");
+        }
+
+        [Route("[action]")]
+        public IActionResult DeleteListing(Guid id)
+        {
+            var userListingToDelete = new UserLandListing
+            {
+                UserId = new Guid(_userManager.GetUserId(User)),
+                LandListingId = id
+            };
+            _userLandListingRepository.Delete(userListingToDelete);
+            _landListingRepository.Delete(id);
+
+            return RedirectToAction("Dashboard", "Account");
+        }
+
+        [Route("[action]")]
+        public IActionResult SubmitApproval(Guid id)
+        {
+            var landListing = _landListingRepository.GetLandListing(id);
+            landListing.Submitted = true;
+            landListing.Status = "Submitted for approval";
+            _landListingRepository.Update(landListing);
+            return RedirectToAction("Dashboard", "Account");
+        }
+
+
+
+
 
     }
 }
