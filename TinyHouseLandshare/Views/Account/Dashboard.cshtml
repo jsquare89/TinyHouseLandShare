@@ -39,11 +39,19 @@
                               "Seeker", 
                               new{ Model.SeekerListing.Id}, 
                               new{ @class="btn btn-info"})
-            @Html.ActionLink("Submit for Approval", 
+            @if(Model.SeekerListing.Submitted is false)
+            {
+                @Html.ActionLink("Submit for Approval", 
                               "SubmitApproval", 
                               "Seeker", 
                               new{ Model.SeekerListing.Id}, 
                               new{ @class="btn btn-warning"})
+            }
+            else
+            {
+                <button type="button" class="btn btn-secondary" disabled>Submit for Approval</button>
+            }
+
             @Html.ActionLink("Delete", 
                               "DeleteListing", 
                               "Seeker", 
