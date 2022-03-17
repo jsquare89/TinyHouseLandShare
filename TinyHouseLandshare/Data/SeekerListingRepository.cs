@@ -39,6 +39,11 @@ namespace TinyHouseLandshare.Data
             return _context.SeekerListings;
         }
 
+        public IEnumerable<SeekerListing> GetAllApprovedSeekerListings()
+        {
+            return _context.SeekerListings.Where(seekerListing => seekerListing.Approved.Equals(true));
+        }
+
         public SeekerListing Update(SeekerListing seekerPostUpdated)
         {
             var seekerListing = _context.SeekerListings.Attach(seekerPostUpdated);
@@ -49,7 +54,7 @@ namespace TinyHouseLandshare.Data
 
         public IEnumerable<SeekerListing> GetAllUnapprovedSubmittedSeekerListings()
         {
-            return _context.SeekerListings.Where(l => l.Approved.Equals(false) && l.Submitted.Equals(true));
+            return _context.SeekerListings.Where(seekerListing => seekerListing.Approved.Equals(false) && seekerListing.Submitted.Equals(true));
         }
     }
 }

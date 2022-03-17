@@ -172,6 +172,7 @@ namespace TinyHouseLandshare.Data
 
         private static async Task AddUserListingForApproval(LandShareDbContext context)
         {
+            // Adds seeker listing for temp user
             SeekerListing newSeekerListing = new SeekerListing
             {
                 Title = "Tiny House seeking approval lol",
@@ -203,6 +204,45 @@ namespace TinyHouseLandshare.Data
                 SeekerListingId = newSeekerListing.Id
             };
             context.UserSeekerListings.Add(userSeekerListing);
+            context.SaveChanges();
+
+            // Adds land listing for temp user
+            var newLandListing = new LandListing
+                {
+                    Title = "Land by the beach",
+                    Details = "Details about the land",
+                    Location = "Tofino",
+                    CreatedTime = DateTimeOffset.UtcNow,
+                    PictureUri = "",
+                    MapLocation = "coords go here",
+                    Price = "800 per month",
+                    AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
+                    LandType = "Rural",
+                    LotSize = "20x40ft 800sqft",
+                    FoundationSize = "12x30ft",
+                    SiteFoundation = "concrete",
+                    DrivewayFoundation = "gravel",
+                    WifiConnection = "Yes",
+                    WaterConnection = "Yes",
+                    ElectricalConnection = "50Amp",
+                    Parking = "On site",
+                    ChildFriendly = "True",
+                    Pets = "True",
+                    SmokingPermitted = "True",
+                    Privacy = "True",
+                    Approved = false,
+                    Status = "draft",
+                    Submitted = true
+                };
+
+            context.LandListings.Add(newLandListing);
+
+            var userLandListing = new UserLandListing
+            {
+                UserId = tempUser.Id,
+                LandListingId = newLandListing.Id,
+            };
+            context.UserLandListings.Add(userLandListing);
             context.SaveChanges();
         }
 

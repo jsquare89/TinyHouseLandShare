@@ -33,6 +33,16 @@ namespace TinyHouseLandshare.Data
             return _context.LandListings;
         }
 
+        public IEnumerable<LandListing> GetAllApprovedLandListings()
+        {
+            return _context.LandListings.Where(landListing => landListing.Approved.Equals(true));
+        }
+
+        public IEnumerable<LandListing> GetAllUnApprovedSubmittedLandListings()
+        {
+            return _context.LandListings.Where(landListing => landListing.Approved.Equals(false) && landListing.Submitted.Equals(true));
+        }
+
         public LandListing GetLandListing(Guid id)
         {
             return _context.LandListings.Find(id);

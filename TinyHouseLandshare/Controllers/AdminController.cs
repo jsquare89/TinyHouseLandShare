@@ -9,10 +9,13 @@ namespace TinyHouseLandshare.Controllers
     public class AdminController : Controller
     {
         private readonly ISeekerListingRepository _seekerListingRepository;
+        private readonly ILandListingRepository _landListingRepository;
 
-        public AdminController(ISeekerListingRepository seekerListingRepository)
+        public AdminController(ISeekerListingRepository seekerListingRepository,
+                               ILandListingRepository landListingRepository)
         {
             _seekerListingRepository = seekerListingRepository;
+            _landListingRepository = landListingRepository;
         }
         public IActionResult Index()
         {
@@ -27,23 +30,43 @@ namespace TinyHouseLandshare.Controllers
         [HttpGet]
         public IActionResult ApproveListing()
         {
-            var seekerListingsForApproval = _seekerListingRepository.GetAllUnapprovedSubmittedSeekerListings();
             var seekerListingsViewModel = new ApproveListingViewModel
             {
-                seekerListings = seekerListingsForApproval,
-                landListings = null
+                seekerListings = _seekerListingRepository.GetAllUnapprovedSubmittedSeekerListings(),
+                landListings = _landListingRepository.GetAllUnApprovedSubmittedLandListings()
             };
 
             return View(seekerListingsViewModel);
         }
 
         [HttpPost]
-        public IActionResult ApproveListing(Guid id)
+        public IActionResult ApproveSeekerListing(Guid id)
         {
+            if(id == Guid.Empty)
+            {
+                return BadRequest();
+            }
+
             var listing = _seekerListingRepository.GetSeekerListing(id);
             listing.Approved = true;
             listing.Status = "Posted";
             _seekerListingRepository.Update(listing);
+
+            return RedirectToAction("ApproveListing", "Admin");
+        }
+
+        [HttpPost]
+        public IActionResult ApproveLandListing(Guid id)
+        {
+            if (id == Guid.Empty)
+            {
+                return BadRequest();
+            }
+
+            var listing = _landListingRepository.GetLandListing(id);
+            listing.Approved = true;
+            listing.Status = "Posted";
+            _landListingRepository.Update(listing);
 
             return RedirectToAction("ApproveListing", "Admin");
         }

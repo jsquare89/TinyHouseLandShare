@@ -5,6 +5,11 @@
 
 <div class="text-center">
     <h1 class="display-4">Approve Listings</h1>
+    @if(@Model.seekerListings.Any() == false)
+    {
+        <p>There are currently no pending seeker listings for approval</p>
+    }
+
     @foreach(var listing in @Model.seekerListings)
     {
         <div>
@@ -18,8 +23,8 @@
             <p>Status: @listing.Status</p>
             <p>Approved: @listing.Approved</p>
         </div>
-        <form method="post" asp-controller="Admin" asp-action="ApproveListing">
-            <button class="btn btn-success" formmethod="post" asp-action="ApproveListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
+        <form method="post" asp-controller="Admin" asp-action="ApproveSeekerListing">
+            <button class="btn btn-success" formmethod="post" asp-action="ApproveSeekerListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
         </form>
         
         @Html.ActionLink("Reject", 
@@ -27,14 +32,39 @@
                          "Admin", 
                          new { @listing.Id }, 
                          new { @class="btn btn-danger"});
-                          
-                         @Html.ActionLink("Dummy Button", 
+    }
+
+
+    @if(@Model.landListings.Any() is false)
+    {
+        <p>There are currently no pending land listings for approval</p>
+    }
+
+    @foreach(var listing in @Model.landListings)
+    {
+        <div>
+            <h4>@listing.Title</h4>
+            <p>Location: @listing.Location</p>
+            <p>Created Time: @listing.CreatedTime</p>
+            <p>Details: @listing.Details</p>
+            <p>Lot Size: @listing.LotSize</p>
+            <p>Land Type: @listing.LandType</p>
+            <p>Submitted: @listing.Submitted</p>
+            <p>Status: @listing.Status</p>
+            <p>Approved: @listing.Approved</p>
+        </div>
+        <form method="post" asp-controller="Admin" asp-action="ApproveLandListing">
+            <button class="btn btn-success" formmethod="post" asp-action="ApproveLandListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
+        </form>
+        
+        @Html.ActionLink("Reject", 
                          "ApproveListing", 
                          "Admin", 
                          new { @listing.Id }, 
-                         new { @class="btn btn-success"})
-
+                         new { @class="btn btn-danger"});
     }
+
+
 
 </div>
 

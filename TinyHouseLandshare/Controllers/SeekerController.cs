@@ -29,7 +29,7 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            var seekerListings = _seekerListingRepository.GetAllSeekerListings();
+            var seekerListings = _seekerListingRepository.GetAllApprovedSeekerListings();
             return View(seekerListings);
         }
 
