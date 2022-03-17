@@ -36,6 +36,11 @@
                               "Seeker", 
                               new{ Model.SeekerListing.Id}, 
                               new{ @class="btn btn-info"})
+            @Html.ActionLink("Delete", 
+                              "DeleteListing", 
+                              "Seeker", 
+                              new{ Model.SeekerListing.Id}, 
+                              new{ @class="btn btn-danger"})
                 
             
         </div>

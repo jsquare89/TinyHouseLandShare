@@ -18,9 +18,10 @@ namespace TinyHouseLandshare.Data
             return userListing;
         }
 
-        public UserSeekerListing Delete(Guid id)
+        public UserSeekerListing Delete(UserSeekerListing userSeekerListing)
         {
-            throw new NotImplementedException();
+            _context.UserSeekerListings.Remove(userSeekerListing);
+            return userSeekerListing;
         }
 
         public IEnumerable<UserSeekerListing> GetAllUserListings()

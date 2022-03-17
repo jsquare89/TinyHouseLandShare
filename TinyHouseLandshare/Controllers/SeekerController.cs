@@ -145,5 +145,19 @@ namespace TinyHouseLandshare.Controllers
 
             return RedirectToAction("Dashboard", "Account");
         }
+
+        [HttpGet]
+        public IActionResult DeleteListing(Guid id)
+        {
+            var userListingToDelete = new UserSeekerListing
+            {
+                UserId = new Guid(_userManager.GetUserId(User)),
+                SeekerListingId = id
+            };
+            _userSeekerListingRepository.Delete(userListingToDelete);
+            _seekerListingRepository.Delete(id);
+
+            return RedirectToAction("Dashboard", "Account");
+        }
     }
 }
