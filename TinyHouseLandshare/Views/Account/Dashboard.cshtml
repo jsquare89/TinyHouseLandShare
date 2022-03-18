@@ -49,7 +49,10 @@
             }
             else
             {
-                <button type="button" class="btn btn-secondary" disabled>Submit for Approval</button>
+                if(Model.SeekerListing.Approved is false)
+                {
+                   <button type="button" class="btn btn-secondary" disabled>Submit for Approval</button>
+                }
             }
 
             @Html.ActionLink("Delete", 
@@ -91,17 +94,21 @@
                               "Land", 
                               new{ landListing.Id}, 
                               new{ @class="btn btn-info"})
-                @if(landListing.Submitted is false)
+                @if(landListing.Submitted is false && landListing.Approved is false)
                 {
                     @Html.ActionLink("Submit for Approval",
                                       "SubmitApproval",
                                       "Land",
                                       new { landListing.Id },
-                                      new { @class = "btn btn-warning"});
+                                      new { @class = "btn btn-warning"})
+                    ;
                 }
                 else
                 {
-                    <button type="button" class="btn btn-secondary" disabled>Submit for Approval</button>
+                    if(landListing.Approved is false)
+                    {
+                        <button type="button" class="btn btn-secondary" disabled>Submit for Approval</button>
+                    }
                 }
                 
                 @Html.ActionLink("Delete", 
