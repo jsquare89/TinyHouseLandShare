@@ -56,5 +56,16 @@ namespace TinyHouseLandshare.Data
         {
             return _context.SeekerListings.Where(seekerListing => seekerListing.Approved.Equals(false) && seekerListing.Submitted.Equals(true));
         }
+
+        public IEnumerable<SeekerListing> Search(SeekerSearchFilter seekerSearch)
+        {
+            return GetAllApprovedSeekerListings().Where(seekerListing =>
+                seekerListing.Location.Equals(seekerSearch.Location) &&
+                seekerListing.WaterConnectionRequired.Equals(seekerSearch.waterConnection) &&
+                seekerListing.ElectricalConnectionRequired.Equals(seekerSearch.electricalConnection) &&
+                seekerListing.WifiConnectionRequired.Equals(seekerSearch.wifiConnection) &&
+                seekerListing.PetsRequired.Equals(seekerSearch.petsAllowed) &&
+                seekerListing.ChildFriendlyRequired.Equals(seekerSearch.childFriendly));
+        }
     }
 }

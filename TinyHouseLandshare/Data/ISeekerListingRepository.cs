@@ -11,5 +11,6 @@ namespace TinyHouseLandshare.Data
         SeekerListing Add(SeekerListing seekerListing);
         SeekerListing Update(SeekerListing seekerListingUpdated);
         SeekerListing Delete(Guid id);
+        IEnumerable<SeekerListing> Search(SeekerSearchFilter seekerSearch);
     }
 }

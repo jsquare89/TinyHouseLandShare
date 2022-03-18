@@ -169,5 +169,22 @@ namespace TinyHouseLandshare.Controllers
             _seekerListingRepository.Update(seekerListing);
             return RedirectToAction("Dashboard", "Account");
         }
+
+        [HttpGet]
+        [Route("[action]")]
+        [AllowAnonymous]
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        [AllowAnonymous]
+        public IActionResult Search(SeekerSearchFilter seekerSearchFilter)
+        {
+            var filteredListings = _seekerListingRepository.Search(seekerSearchFilter);
+            return View("Index", filteredListings);
+        }
     }
 }

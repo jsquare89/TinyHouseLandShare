@@ -1,0 +1,43 @@
+﻿@model SeekerSearchFilter
+
+@{
+    ViewBag.Title = "Search Tiny House Owners looking for rent";
+}
+
+<div>
+    <h1>@ViewBag.Title</h1>
+    <form method="post">
+         <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Location">Location</label>
+                <select name="Location" asp-for="Location">
+                    <option value="">Any Location</option>
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Langley">Langley</option>
+                    <option value="Tofino">Tofino</option>
+                    <option value="Oliver">Oliver</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="waterConnection">Water Connection</label>
+                <input type="checkbox" asp-for="waterConnection" class="">
+            </div>
+            <div class="form-group">
+                <label asp-for="electricalConnection">Electrical Connection</label>
+                <input type="checkbox" asp-for="electricalConnection" class="">
+            </div>
+            <div class="form-group">
+                <label asp-for="wifiConnection">Wifi Connection</label>
+                <input type="checkbox" asp-for="wifiConnection" class="">
+            </div>
+            <div class="form-group">
+                <label asp-for="petsAllowed">Pets Allowed</label>
+                <input type="checkbox" asp-for="petsAllowed" class="">
+            </div>
+            <div class="form-group">
+                <label asp-for="childFriendly">Child Friendly</label>
+                <input type="checkbox" asp-for="childFriendly" class="">
+            </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>

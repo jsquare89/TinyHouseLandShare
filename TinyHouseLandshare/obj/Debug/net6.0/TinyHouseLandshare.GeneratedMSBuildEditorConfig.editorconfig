@@ -71,6 +71,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZFxMaXN0aW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Sale/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Seeker/CreateListing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vla2VyXENyZWF0ZUxpc3RpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -85,6 +89,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Seeker/Listing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vla2VyXExpc3RpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Seeker/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vla2VyXFNlYXJjaC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Seeker/SeekerNotFound.cshtml]

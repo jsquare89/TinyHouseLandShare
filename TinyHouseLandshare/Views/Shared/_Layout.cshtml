@@ -26,6 +26,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Sale" asp-action="Index">For Sale</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>
                     </ul>
@@ -70,6 +73,9 @@
                 @Html.ActionLink("Dashboard/Your Listings", "Dashboard", "Account")
             </div>
         }
+         <div>
+            @Html.ActionLink("Search Tiny House Owners", "search", "Seeker")
+        </div>
         <div>
             @Html.ActionLink("Seeker Listings", "index", "Seeker")
         </div>
