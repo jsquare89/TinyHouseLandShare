@@ -10,13 +10,13 @@
         public string FoundationSize { get; set; }
         public string SiteFoundation { get; set; }
         public string DrivewayFoundation { get; set; }
-        public string WifiConnection { get; set; }
-        public string WaterConnection { get; set; }
-        public string ElectricalConnection { get; set; }
-        public string Parking { get; set; }
-        public string ChildFriendly { get; set; }
-        public string Pets { get; set; }
-        public string SmokingPermitted { get; set; }
+        public bool WifiConnection { get; set; }
+        public bool WaterConnection { get; set; }
+        public bool ElectricalConnection { get; set; }
+        public bool Parking { get; set; }
+        public bool ChildFriendly { get; set; }
+        public bool Pets { get; set; }
+        public bool SmokingPermitted { get; set; }
         public string Privacy { get; set; }
 
     }

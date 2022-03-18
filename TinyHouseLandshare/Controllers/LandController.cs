@@ -72,13 +72,13 @@ namespace TinyHouseLandshare.Controllers
                 FoundationSize = "12x30ft",
                 SiteFoundation = "concrete",
                 DrivewayFoundation = "gravel",
-                WifiConnection = "Yes",
-                WaterConnection = "Yes",
-                ElectricalConnection = "50Amp",
-                Parking = "On site",
-                ChildFriendly = "True",
-                Pets = "True",
-                SmokingPermitted = "True",
+                WifiConnection = true,
+                WaterConnection = true,
+                ElectricalConnection = true,
+                Parking = true,
+                ChildFriendly = true,
+                Pets = true,
+                SmokingPermitted = false,
                 Privacy = "True",
                 Approved = false,
                 Status = "draft",
@@ -134,13 +134,13 @@ namespace TinyHouseLandshare.Controllers
                 FoundationSize = "12x30ft",
                 SiteFoundation = "concrete",
                 DrivewayFoundation = "gravel",
-                WifiConnection = "Yes",
-                WaterConnection = "Yes",
-                ElectricalConnection = "50Amp",
-                Parking = "On site",
-                ChildFriendly = "True",
-                Pets = "True",
-                SmokingPermitted = "True",
+                WifiConnection = true,
+                WaterConnection = true,
+                ElectricalConnection = true,
+                Parking = true,
+                ChildFriendly = true,
+                Pets = true,
+                SmokingPermitted = false,
                 Privacy = "True",
                 Approved = false,
                 Status = "draft",
@@ -176,9 +176,21 @@ namespace TinyHouseLandshare.Controllers
             return RedirectToAction("Dashboard", "Account");
         }
 
+        [HttpGet]
+        [Route("[action]")]
+        [AllowAnonymous]
+        public IActionResult Search()
+        {
+            return View();
+        }
 
-
-
-
+        [HttpPost]
+        [Route("[action]")]
+        [AllowAnonymous]
+        public IActionResult Search(LandSearchFilter landSearchFilter)
+        {
+            var filteredListings = _landListingRepository.Search(landSearchFilter);
+            return View("Index", filteredListings);
+        }
     }
 }

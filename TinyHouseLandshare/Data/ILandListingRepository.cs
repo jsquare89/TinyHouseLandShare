@@ -11,5 +11,6 @@ namespace TinyHouseLandshare.Data
         LandListing Add(LandListing LandListing);
         LandListing Update(LandListing LandListingUpdated);
         LandListing Delete(Guid id);
+        IEnumerable<LandListing> Search(LandSearchFilter seekerSearch);
     }
 }

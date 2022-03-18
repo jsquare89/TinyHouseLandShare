@@ -59,6 +59,15 @@ namespace TinyHouseLandshare.Data
 
         public IEnumerable<SeekerListing> Search(SeekerSearchFilter seekerSearch)
         {
+            if(seekerSearch.Location is "Any")
+            {
+                return GetAllApprovedSeekerListings().Where(seekerListing =>
+                seekerListing.WaterConnectionRequired.Equals(seekerSearch.waterConnection) &&
+                seekerListing.ElectricalConnectionRequired.Equals(seekerSearch.electricalConnection) &&
+                seekerListing.WifiConnectionRequired.Equals(seekerSearch.wifiConnection) &&
+                seekerListing.PetsRequired.Equals(seekerSearch.petsAllowed) &&
+                seekerListing.ChildFriendlyRequired.Equals(seekerSearch.childFriendly));
+            }
             return GetAllApprovedSeekerListings().Where(seekerListing =>
                 seekerListing.Location.Equals(seekerSearch.Location) &&
                 seekerListing.WaterConnectionRequired.Equals(seekerSearch.waterConnection) &&

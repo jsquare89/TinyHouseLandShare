@@ -55,5 +55,25 @@ namespace TinyHouseLandshare.Data
             _context.SaveChanges();
             return landListingUpdated;
         }
+
+        public IEnumerable<LandListing> Search(LandSearchFilter landSearch)
+        {
+            if(landSearch.Location is "Any")
+            {
+                return GetAllApprovedLandListings().Where(landListing =>
+                landListing.WaterConnection.Equals(landSearch.waterConnection) &&
+                landListing.ElectricalConnection.Equals(landSearch.electricalConnection) &&
+                landListing.WifiConnection.Equals(landSearch.wifiConnection) &&
+                landListing.Pets.Equals(landSearch.petsAllowed) &&
+                landListing.ChildFriendly.Equals(landSearch.childFriendly));
+            }
+            return GetAllApprovedLandListings().Where(landListing =>
+                landListing.Location.Equals(landSearch.Location) &&
+                landListing.WaterConnection.Equals(landSearch.waterConnection) &&
+                landListing.ElectricalConnection.Equals(landSearch.electricalConnection) &&
+                landListing.WifiConnection.Equals(landSearch.wifiConnection) &&
+                landListing.Pets.Equals(landSearch.petsAllowed) &&
+                landListing.ChildFriendly.Equals(landSearch.childFriendly));
+        }
     }
 }
