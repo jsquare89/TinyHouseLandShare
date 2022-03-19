@@ -17,6 +17,8 @@ namespace TinyHouseLandshare.Data
         public DbSet<UserSeekerListing> UserSeekerListings { get; set; }
         public DbSet<UserLandListing> UserLandListings { get; set; }
 
+        public DbSet<Message> Messages { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

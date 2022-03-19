@@ -1,6 +1,9 @@
-﻿@model LandListing
+﻿@inject SignInManager<UserEntity> signInManager;
+@inject UserManager<UserEntity> userManager;
+@model LandListing
 @{
     ViewData["Title"] = "Land Listing";
+    var userId = (userManager.GetUserId(User) is not null)? new Guid(@userManager.GetUserId(User)): Guid.Empty;
 }
 
     <div>
@@ -25,3 +28,10 @@
             <p>Smoking Permitted: @Model.SmokingPermitted</p>
             <p>Privacy: @Model.Privacy</p>
         </div>
+
+        @if (signInManager.IsSignedIn(User))
+        {
+            <div>
+                @await Component.InvokeAsync("Message", new {ListingId = @Model.Id, SenderId = userId })
+            </div>
+        }

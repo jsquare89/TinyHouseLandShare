@@ -11,47 +11,36 @@ namespace TinyHouseLandshare.Data
         {
             _context = context;
         }
-        public UserLandListing Add(UserLandListing userListing)
-        {
-            //_context.UserListings.Add(userListing);
-            //_context.SaveChanges();
-            //return userListing;
-            throw new NotImplementedException();
 
+        public IQueryable<UserListing> GetAllUserListings()
+        {
+            var listings = _context.UserSeekerListings.
+                Select(seekerListings => new UserListing
+            {
+                UserId = seekerListings.UserId,
+                ListingId = seekerListings.SeekerListingId
+            }).Union(_context.UserLandListings.
+                Select(landListings => new UserListing
+                {
+                    UserId = landListings.UserId,
+                    ListingId = landListings.LandListingId
+                }));
+            return listings;
         }
 
-        public UserLandListing Delete(Guid id)
+        public IQueryable<UserListing> GetUserListings(Guid UserId)
         {
-            throw new NotImplementedException();
+            var listings = GetAllUserListings().
+                Where(listing => listing.UserId.Equals(UserId));
+            return listings;
         }
 
-        public IEnumerable<UserLandListing> GetAllUserListings()
+        public Guid GetUserIdByListing(Guid listingId)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Guid> GetUserListings(Guid UserId)
-        {
-            //return _context.UserListings.Where(l => l.User == UserId).Select(l => l.Listing).ToList();
-            throw new NotImplementedException();
-
-        }
-
-        public SeekerListing GetUserSeekerListing(Guid UserId)
-        {
-            //var userListings = GetUserListings(UserId);
-            //foreach(var listing in userListings)
-            //{
-            //    if()
-            //}
-            //var listingId = _context.UserListings.Where(l)
-            //return _context.SeekerListings.Where(s => s.Id == )
-            throw new NotImplementedException();
-        }
-
-        public UserLandListing Update(UserLandListing userListingUpdated)
-        {
-            throw new NotImplementedException();
+            var userId = GetAllUserListings().
+                Where(listing => listing.ListingId.Equals(listing)).
+                Select(listing => listing.ListingId).FirstOrDefault();
+            return userId;
         }
     }
 }

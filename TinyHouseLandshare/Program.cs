@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TinyHouseLandshare.Data;
 using TinyHouseLandshare.Models;
+using TinyHouseLandshare.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,8 @@ builder.Services.AddScoped<ISeekerListingRepository, SeekerListingRepository>();
 builder.Services.AddScoped<ILandListingRepository, LandListingRepository>();
 builder.Services.AddScoped<IUserSeekerListingRepository, UserSeekerListingRepository>();
 builder.Services.AddScoped<IUserLandListingRepository, UserLandListingRepository>();
+builder.Services.AddScoped<IUserListingRepository, UserListingRepository>();
+builder.Services.AddScoped<IMessagingService, MessagingService>();
 
 var app = builder.Build();
 
