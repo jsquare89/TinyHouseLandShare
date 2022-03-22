@@ -5,7 +5,8 @@ namespace TinyHouseLandshare.Data
 {
     public class SeedData
     {
-        public static UserEntity tempUser;
+        private static UserEntity tempUser;
+        private static LandListing tempLandListing;
 
         public static async Task InitializeAsync(IServiceProvider services)
         {
@@ -37,34 +38,34 @@ namespace TinyHouseLandshare.Data
 
         private static void CreateLandPosts(LandShareDbContext context)
         {
-            context.LandListings.Add(
-                new LandListing
-                {
-                    Title = "Beautiful Acreage Available",
-                    Details = "Details about the acreage",
-                    Location = "Victoria",
-                    CreatedTime = DateTimeOffset.UtcNow,
-                    PictureUri = "",
-                    MapLocation = "coords go here",
-                    Price = "600 per month",
-                    AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
-                    LandType = "Residential",
-                    LotSize = "20x40ft 800sqft",
-                    FoundationSize = "12x30ft",
-                    SiteFoundation = "concrete",
-                    DrivewayFoundation = "gravel",
-                    WifiConnection = true,
-                    WaterConnection = true,
-                    ElectricalConnection = true,
-                    Parking = true,
-                    ChildFriendly = false,
-                    Pets = false,
-                    SmokingPermitted = false,
-                    Privacy = "True",
-                    Approved = true,
-                    Status = "published",
-                    Submitted = true
-                });
+            var landListing = new LandListing
+            {
+                Title = "Beautiful Acreage Available",
+                Details = "Details about the acreage",
+                Location = "Victoria",
+                CreatedTime = DateTimeOffset.UtcNow,
+                PictureUri = "",
+                MapLocation = "coords go here",
+                Price = "600 per month",
+                AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
+                LandType = "Residential",
+                LotSize = "20x40ft 800sqft",
+                FoundationSize = "12x30ft",
+                SiteFoundation = "concrete",
+                DrivewayFoundation = "gravel",
+                WifiConnection = true,
+                WaterConnection = true,
+                ElectricalConnection = true,
+                Parking = true,
+                ChildFriendly = false,
+                Pets = false,
+                SmokingPermitted = false,
+                Privacy = "True",
+                Approved = true,
+                Status = "published",
+                Submitted = true
+            };
+            context.LandListings.Add(landListing);;
         }
 
         private static void CreateSeekerPosts(LandShareDbContext context)
@@ -145,6 +146,7 @@ namespace TinyHouseLandshare.Data
                 await CreateUserWithRole(
                     new UserEntity
                     {
+                        Id = new Guid("ca073980-4320-49d6-a248-f6d537e0078f"),
                         Email = "admin@landshare.com",
                         UserName = "admin@landshare.com",
                         Name = "Admin",
@@ -152,11 +154,12 @@ namespace TinyHouseLandshare.Data
                     },
                     defaultPassword,
                     adminRoleName,
-                    userManager);
+                    userManager); ;
 
                 tempUser = await CreateUserWithRole(
                     new UserEntity
                     {
+                        Id = new Guid("b12797b7-67a4-4418-9b81-ee52fc12a7a0"),
                         Email = "jarredjardine@gmail.com",
                         UserName = "jarredjardine@gmail.com",
                         Name = "Jarred",
@@ -230,8 +233,8 @@ namespace TinyHouseLandshare.Data
                     Pets = true,
                     SmokingPermitted = true,
                     Privacy = "True",
-                    Approved = false,
-                    Status = "draft",
+                    Approved = true,
+                    Status = "posted",
                     Submitted = true
                 };
 

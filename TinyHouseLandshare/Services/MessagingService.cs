@@ -13,12 +13,17 @@ namespace TinyHouseLandshare.Services
         }
         public IEnumerable<Message> GetMessages(Guid userId)
         {
-            return _context.Messages.Where(message => message.SenderId == userId);
+            return _context.Messages.Where(message => message.ReceiverId.Equals(userId)).OrderByDescending(message => message.TimeStamp);
         }
 
         public int GetMessagesCount(Guid userId)
         {
             return GetMessages(userId).Count();
+        }
+
+        public int GetUnreadMessagesCount(Guid userId)
+        {
+            return GetMessages(userId).Where(message => message.IsViewed.Equals(false)).Count();
         }
 
         public Message SendMessage(Message message)

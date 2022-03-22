@@ -2,7 +2,7 @@
 
 <h3>Message User about this Listing</h3>
 <div>
-        <form method="post" asp-action="SendMessage" asp-controller="Message">
+        <form method="post" asp-action="Send" asp-controller="Message">
             @Html.HiddenFor(model => Model.ListingId)
             @Html.HiddenFor(model => Model.SenderId)
             <label>Message</label>

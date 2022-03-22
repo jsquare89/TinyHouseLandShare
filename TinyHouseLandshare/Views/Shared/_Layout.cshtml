@@ -1,6 +1,9 @@
 ﻿@inject SignInManager<UserEntity> signInManager;
 @inject UserManager<UserEntity> userManager;
 
+    @{
+        var userId = @userManager.GetUserId(User);
+    }
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +41,7 @@
                             <li class="nav-item">
                                 <form method="post" asp-action="Logout" asp-controller="Account">
                                     <button type="submit" class="nav-link btn btn-link py-0 text-dark" style="width:auto">
-                                        Logout @User.Identity.Name (@userManager.GetUserId(User))
+                                        Logout @User.Identity.Name (@userId)
                                     </button>
                                 </form>
                             </li>
@@ -71,6 +74,9 @@
         {
             <div>
                 @Html.ActionLink("Dashboard/Your Listings", "Dashboard", "Account")
+            </div>
+            <div>
+                @Html.ActionLink("Message Inbox", "Inbox", "Message", new { userId = userId })
             </div>
         }
          <div>

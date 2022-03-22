@@ -38,8 +38,8 @@ namespace TinyHouseLandshare.Data
         public Guid GetUserIdByListing(Guid listingId)
         {
             var userId = GetAllUserListings().
-                Where(listing => listing.ListingId.Equals(listing)).
-                Select(listing => listing.ListingId).FirstOrDefault();
+                Where(listing => listing.ListingId.Equals(listingId)).
+                Select(listing => listing.UserId).FirstOrDefault();
             return userId;
         }
     }
