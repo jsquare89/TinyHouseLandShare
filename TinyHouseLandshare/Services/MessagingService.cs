@@ -21,6 +21,11 @@ namespace TinyHouseLandshare.Services
             return GetMessages(userId).Count();
         }
 
+        public IEnumerable<Message> GetUserMessageHeads(Guid userId)
+        {
+            return GetMessages(userId).Where(message => message.OriginMessageId.Equals(Guid.Empty));
+        }
+
         public int GetUnreadMessagesCount(Guid userId)
         {
             return GetMessages(userId).Where(message => message.IsViewed.Equals(false)).Count();

@@ -11,6 +11,6 @@ namespace TinyHouseLandshare.Models
         public DateTimeOffset TimeStamp { get; set; }
         public string Value { get; set; }
         public bool IsViewed { get; set; }
-        public Guid ParentMessageId { get; set; }
+        public Guid OriginMessageId { get; set; }
     }
 }

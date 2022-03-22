@@ -22,7 +22,7 @@ namespace TinyHouseLandshare.Controllers
 
         public IActionResult Inbox(Guid userId)
         {
-            var headMessages = _messagingService.GetMessages(userId);
+            var headMessages = _messagingService.GetUserMessageHeads(userId);
             var unreadMessageCount = _messagingService.GetUnreadMessagesCount(userId);
             var viewModel = new MessageInboxViewModel
             {
@@ -45,7 +45,7 @@ namespace TinyHouseLandshare.Controllers
                     TimeStamp = DateTimeOffset.UtcNow,
                     Value = messageViewModel.Message,
                     IsViewed = false,
-                    ParentMessageId = Guid.Empty
+                    OriginMessageId = Guid.Empty
                 };
                 _messagingService.SendMessage(message);
                 return RedirectToAction("Dashboard", "Account");
