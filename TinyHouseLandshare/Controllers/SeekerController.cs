@@ -12,15 +12,15 @@ namespace TinyHouseLandshare.Controllers
     public class SeekerController : Controller
     {
         private readonly ISeekerListingRepository _seekerListingRepository;
-        private readonly IUserSeekerListingRepository _userSeekerListingRepository;
+        private readonly IUserListingRepository _userListingRepository;
         private readonly UserManager<UserEntity> _userManager;
 
         public SeekerController(ISeekerListingRepository seekerListingRepository,
-                                IUserSeekerListingRepository userSeekerListingRepository,
+                                IUserListingRepository userListingRepository,
                                 UserManager<UserEntity> userManager)
         {
             _seekerListingRepository = seekerListingRepository;
-            _userSeekerListingRepository = userSeekerListingRepository;
+            _userListingRepository = userListingRepository;
             _userManager = userManager;
         }
         
@@ -86,12 +86,13 @@ namespace TinyHouseLandshare.Controllers
 
 
             seekerListing = _seekerListingRepository.Add(seekerListing);
-            var userListing = new UserSeekerListing
+
+            var userListing = new UserListing
             {
                 UserId = new Guid(_userManager.GetUserId(User)),
                 SeekerListingId = seekerListing.Id
             };
-            _userSeekerListingRepository.Add(userListing);
+            _userListingRepository.Add(userListing);
 
             return RedirectToAction("Dashboard", "Account");
         }
@@ -149,12 +150,12 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult DeleteListing(Guid id)
         {
-            var userListingToDelete = new UserSeekerListing
+            var userListingToDelete = new UserListing
             {
                 UserId = new Guid(_userManager.GetUserId(User)),
                 SeekerListingId = id
             };
-            _userSeekerListingRepository.Delete(userListingToDelete);
+            _userListingRepository.Delete(userListingToDelete);
             _seekerListingRepository.Delete(id);
 
             return RedirectToAction("Dashboard", "Account");

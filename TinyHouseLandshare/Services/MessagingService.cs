@@ -13,7 +13,12 @@ namespace TinyHouseLandshare.Services
         }
         public IEnumerable<Message> GetMessages(Guid userId)
         {
-            return _context.Messages.Where(message => message.ReceiverId.Equals(userId)).OrderByDescending(message => message.TimeStamp);
+            var results =  from m in _context.Messages
+                           join ul in _context.UserListings on m.UserListingId equals ul.Id
+                           where ul.UserId == userId
+                           orderby m.TimeStamp descending
+                           select m;
+            return results.ToList();                           
         }
 
         public int GetMessagesCount(Guid userId)
@@ -23,7 +28,9 @@ namespace TinyHouseLandshare.Services
 
         public IEnumerable<Message> GetUserMessageHeads(Guid userId)
         {
-            return GetMessages(userId).Where(message => message.OriginMessageId.Equals(Guid.Empty));
+            return GetMessages(userId).GroupBy(message => message.UserListingId, 
+                (key, group) => group.OrderByDescending(item => item.TimeStamp).First());
+                
         }
 
         public int GetUnreadMessagesCount(Guid userId)

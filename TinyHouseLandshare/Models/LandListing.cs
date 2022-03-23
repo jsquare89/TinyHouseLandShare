@@ -1,9 +1,12 @@
-﻿namespace TinyHouseLandshare.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TinyHouseLandshare.Models
 {
     public class LandListing: Listing
     {
         public string MapLocation { get; set; }
-        public string Price { get; set; }
+        public decimal Price { get; set; }
+        public string PayPeriod { get; set; }
         public DateTimeOffset AvailableDate { get; set; }
         public string LotSize { get; set; }
         public string LandType { get; set; }

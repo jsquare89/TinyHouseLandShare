@@ -14,8 +14,9 @@ namespace TinyHouseLandshare.Data
         public DbSet<LandListing> LandListings { get; set; }
         public DbSet<SeekerListing> SeekerListings { get; set; }
 
-        public DbSet<UserSeekerListing> UserSeekerListings { get; set; }
-        public DbSet<UserLandListing> UserLandListings { get; set; }
+        public DbSet<UserListing> UserListings { get; set; }
+        //public DbSet<UserSeekerListing> UserSeekerListings { get; set; }
+        //public DbSet<UserLandListing> UserLandListings { get; set; }
 
         public DbSet<Message> Messages { get; set; }
 

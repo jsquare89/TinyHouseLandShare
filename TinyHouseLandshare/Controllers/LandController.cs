@@ -11,15 +11,15 @@ namespace TinyHouseLandshare.Controllers
     public class LandController : Controller
     {
         private readonly ILandListingRepository _landListingRepository;
-        private readonly IUserLandListingRepository _userLandListingRepository;
+        private readonly IUserListingRepository _userListingRepository;
         private readonly UserManager<UserEntity> _userManager;
 
         public LandController(ILandListingRepository landListingRepository,
-                              IUserLandListingRepository userLandListingRepository,
+                              IUserListingRepository userListingRepository,
                               UserManager<UserEntity> userManager)
         {
             _landListingRepository = landListingRepository;
-            _userLandListingRepository = userLandListingRepository;
+            _userListingRepository = userListingRepository;
             _userManager = userManager;
         }
 
@@ -65,7 +65,8 @@ namespace TinyHouseLandshare.Controllers
                 CreatedTime = DateTimeOffset.UtcNow,
                 PictureUri = "",
                 MapLocation = "coords go here",
-                Price = "600 per month",
+                Price = 600,
+                PayPeriod = "month",
                 AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
                 LotSize = "20x40ft 800sqft",
                 LandType = "Commercial",
@@ -87,12 +88,12 @@ namespace TinyHouseLandshare.Controllers
 
             landListing = _landListingRepository.Add(landListing);
 
-            var userListing = new UserLandListing
+            var userListing = new UserListing
             {
                 UserId = new Guid(_userManager.GetUserId(User)),
                 LandListingId = landListing.Id
             };
-            _userLandListingRepository.Add(userListing);
+            _userListingRepository.Add(userListing);
 
             return RedirectToAction("Dashboard", "Account");
         }
@@ -127,7 +128,8 @@ namespace TinyHouseLandshare.Controllers
                 CreatedTime = DateTimeOffset.UtcNow,
                 PictureUri = "",
                 MapLocation = "coords go here",
-                Price = "600 per month",
+                Price = 200,
+                PayPeriod = "weekly",
                 AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
                 LotSize = "20x40ft 800sqft",
                 LandType = "Commercial",
@@ -155,12 +157,12 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult DeleteListing(Guid id)
         {
-            var userListingToDelete = new UserLandListing
+            var userListingToDelete = new UserListing
             {
                 UserId = new Guid(_userManager.GetUserId(User)),
                 LandListingId = id
             };
-            _userLandListingRepository.Delete(userListingToDelete);
+            _userListingRepository.Delete(userListingToDelete);
             _landListingRepository.Delete(id);
 
             return RedirectToAction("Dashboard", "Account");

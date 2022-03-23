@@ -5,12 +5,15 @@ namespace TinyHouseLandshare.ViewModels
     public class RegisterViewModel
     {
         [Required]
-        [StringLength(50)]
+        [MaxLength(50, ErrorMessage = "Name must be fewer than 50 characters.")]
         public string Name { get; set; }
+
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
         [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         
         [Required]

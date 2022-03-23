@@ -6,7 +6,6 @@ namespace TinyHouseLandshare.Data
     public class SeedData
     {
         private static UserEntity tempUser;
-        private static LandListing tempLandListing;
 
         public static async Task InitializeAsync(IServiceProvider services)
         {
@@ -18,7 +17,7 @@ namespace TinyHouseLandshare.Data
                 services.GetRequiredService<LandShareDbContext>());
             await AddUserListingForApproval(
                 services.GetRequiredService<LandShareDbContext>());
-            
+
         }
 
         public static async Task AddTestData(
@@ -46,7 +45,8 @@ namespace TinyHouseLandshare.Data
                 CreatedTime = DateTimeOffset.UtcNow,
                 PictureUri = "",
                 MapLocation = "coords go here",
-                Price = "600 per month",
+                Price = 600,
+                PayPeriod = "monthly",
                 AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
                 LandType = "Residential",
                 LotSize = "20x40ft 800sqft",
@@ -201,12 +201,21 @@ namespace TinyHouseLandshare.Data
 
             context.SeekerListings.Add(newSeekerListing);
 
-            UserSeekerListing userSeekerListing = new UserSeekerListing
+            UserListing userListing = new UserListing
             {
+                Id = new Guid(),
                 UserId = tempUser.Id,
-                SeekerListingId = newSeekerListing.Id
+                SeekerListingId = newSeekerListing.Id,
+                LandListingId = null
             };
-            context.UserSeekerListings.Add(userSeekerListing);
+            context.UserListings.Add(userListing);
+
+            //UserSeekerListing userSeekerListing = new UserSeekerListing
+            //{
+            //    UserId = tempUser.Id,
+            //    SeekerListingId = newSeekerListing.Id
+            //};
+            //context.UserSeekerListings.Add(userSeekerListing);
             context.SaveChanges();
 
             // Adds land listing for temp user
@@ -218,7 +227,8 @@ namespace TinyHouseLandshare.Data
                     CreatedTime = DateTimeOffset.UtcNow,
                     PictureUri = "",
                     MapLocation = "coords go here",
-                    Price = "800 per month",
+                    Price = 800,
+                    PayPeriod = "monthly",
                     AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
                     LandType = "Rural",
                     LotSize = "20x40ft 800sqft",
@@ -240,12 +250,21 @@ namespace TinyHouseLandshare.Data
 
             context.LandListings.Add(newLandListing);
 
-            var userLandListing = new UserLandListing
+            var userListing2 = new UserListing
             {
+                Id = new Guid(),
                 UserId = tempUser.Id,
-                LandListingId = newLandListing.Id,
+                SeekerListingId = null,
+                LandListingId = newLandListing.Id
             };
-            context.UserLandListings.Add(userLandListing);
+            context.UserListings.Add(userListing2);
+
+            //var userLandListing = new UserLandListing
+            //{
+            //    UserId = tempUser.Id,
+            //    LandListingId = newLandListing.Id,
+            //};
+            //context.UserLandListings.Add(userLandListing);
             context.SaveChanges();
         }
 

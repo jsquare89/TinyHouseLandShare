@@ -18,7 +18,7 @@ namespace TinyHouseLandshare.ViewComponents
         {
             MessageViewModel viewModel = new MessageViewModel()
             {
-                ListingId = listingId,
+                SeekerOrLandListingId = listingId,
                 SenderId = senderId,
                 Message = ""
             };

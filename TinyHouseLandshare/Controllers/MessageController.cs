@@ -36,12 +36,12 @@ namespace TinyHouseLandshare.Controllers
         {
             if (ModelState.IsValid)
             {
-                var recieverId = _userListingRepository.GetUserIdByListing(messageViewModel.ListingId);
+                //var recieverId = _userListingRepository.GetUserIdByListing(messageViewModel.SeekerOrLandListingId);
                 var message = new Message
                 {
                     SenderId = messageViewModel.SenderId,
-                    LisitingId = messageViewModel.ListingId,
-                    ReceiverId = recieverId,
+                    UserListingId = _userListingRepository.GetListingIdBySeekerOrLandListing(messageViewModel.SeekerOrLandListingId),
+                    //ReceiverId = recieverId,
                     TimeStamp = DateTimeOffset.UtcNow,
                     Value = messageViewModel.Message,
                     IsViewed = false,

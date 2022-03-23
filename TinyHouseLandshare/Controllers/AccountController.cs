@@ -12,18 +12,16 @@ namespace TinyHouseLandshare.Controllers
     {
         private readonly UserManager<UserEntity> _userManager;
         private readonly SignInManager<UserEntity> _signInManager;
-        private readonly IUserSeekerListingRepository _userSeekerListingRepository;
+        private readonly IUserListingRepository _userListingRepository;
         private readonly IUserLandListingRepository _userLandListingRepository;
 
         public AccountController(UserManager<UserEntity> userManager, 
                                  SignInManager<UserEntity> signInManager,
-                                 IUserSeekerListingRepository userSeekerListingRepository,
-                                 IUserLandListingRepository userLandListingRepository)
+                                 IUserListingRepository userListingRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _userSeekerListingRepository = userSeekerListingRepository;
-            _userLandListingRepository = userLandListingRepository;
+            _userListingRepository = userListingRepository;
         }
 
 
@@ -109,8 +107,8 @@ namespace TinyHouseLandshare.Controllers
             var userId = new Guid(_userManager.GetUserId(User));
             var userListings = new UserListingsViewModel
             {
-                SeekerListing = _userSeekerListingRepository.GetUserListing(userId),
-                LandListings = _userLandListingRepository.GetUserListings(userId)
+                SeekerListing = _userListingRepository.GetUserSeekerListing(userId),
+                LandListings = _userListingRepository.GetUserLandListings(userId)
             };
 
             return View(userListings);
