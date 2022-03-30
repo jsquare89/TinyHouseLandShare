@@ -46,11 +46,18 @@ namespace TinyHouseLandshare.Data
             return userListing;
         }
 
-        public UserListing Delete(UserListing userLandListing)
+        public bool Delete(Guid id)
         {
-            _context.UserListings.Remove(userLandListing);
-            _context.SaveChanges();
-            return userLandListing;
+            
+            var userListing = _context.UserListings.Find(id);
+            if(userListing is not null)
+            {
+                _context.UserListings.Remove(userListing);
+                _context.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
         public Guid GetUserIdByListing(Guid listingId)

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Data;
 using TinyHouseLandshare.Models;
+using TinyHouseLandshare.Services;
 using TinyHouseLandshare.ViewModels;
 
 namespace TinyHouseLandshare.Controllers
@@ -11,16 +12,13 @@ namespace TinyHouseLandshare.Controllers
     [Authorize]
     public class SeekerController : Controller
     {
-        private readonly ISeekerListingRepository _seekerListingRepository;
-        private readonly IUserListingRepository _userListingRepository;
+        private readonly IListingService _listingService;
         private readonly UserManager<UserEntity> _userManager;
 
-        public SeekerController(ISeekerListingRepository seekerListingRepository,
-                                IUserListingRepository userListingRepository,
+        public SeekerController(IListingService listingService,
                                 UserManager<UserEntity> userManager)
         {
-            _seekerListingRepository = seekerListingRepository;
-            _userListingRepository = userListingRepository;
+            _listingService = listingService;
             _userManager = userManager;
         }
         
@@ -29,7 +27,7 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            var seekerListings = _seekerListingRepository.GetAllApprovedSeekerListings();
+            var seekerListings = _listingService.GetAllApprovedSeekerListings();
             return View(seekerListings);
         }
 
@@ -38,7 +36,7 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Listing(Guid id)
         {
-            var seekerListing = _seekerListingRepository.GetSeekerListing(id);
+            var seekerListing = _listingService.GetSeekerListing(id);
 
             if(seekerListing is null)
             {
@@ -61,13 +59,14 @@ namespace TinyHouseLandshare.Controllers
         public IActionResult CreateListing(SeekerListingViewModel model)
         {
             // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
+
+            var timeStamp = DateTimeOffset.UtcNow;
             var seekerListing = new SeekerListing
             {
                 Title = model.Title,
                 Location = model.Location,
                 Details = model.Details,
-                CreatedTime = DateTimeOffset.UtcNow,
-                PictureUri = "",
+                CreatedTime = timeStamp,
                 HouseSize = "",
                 OccupantCount = 0,
                 WifiConnectionRequired = false,
@@ -78,31 +77,31 @@ namespace TinyHouseLandshare.Controllers
                 ChildFriendlyRequired = false,
                 PetsRequired = false,
                 Smoker = false,
-                Privacy = false,
+                Privacy = "Community",
                 Approved = false,
                 Status = "draft",
-                Submitted = false
+                Submitted = false,
+                Country = "CA",
+                State = "BC",
+                ModifiedTime = timeStamp
             };
 
 
-            seekerListing = _seekerListingRepository.Add(seekerListing);
-
-            var userListing = new UserListing
-            {
-                UserId = new Guid(_userManager.GetUserId(User)),
-                SeekerListingId = seekerListing.Id
-            };
-            _userListingRepository.Add(userListing);
+            _listingService.AddSeekerListing(seekerListing, LoggedInUserId());
 
             return RedirectToAction("Dashboard", "Account");
         }
 
+        private Guid LoggedInUserId()
+        {
+            return new Guid(_userManager.GetUserId(User));
+        }
 
         [HttpGet]
         [Route("[action]")]
         public IActionResult EditListing(Guid id)
         {
-            var seekerListing = _seekerListingRepository.GetSeekerListing(id);
+            var seekerListing = _listingService.GetSeekerListing(id);
             var seekerListingViewModel = new SeekerListingViewModel
             {
                 Id= id,
@@ -118,31 +117,17 @@ namespace TinyHouseLandshare.Controllers
         public IActionResult EditListing(SeekerListingViewModel model)
         {
             // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
-            var seekerListing = new SeekerListing
-            {
-                Id = model.Id,
-                Title = model.Title,
-                Location = model.Location,
-                Details = model.Details,
-                CreatedTime = DateTimeOffset.UtcNow,
-                PictureUri = "",
-                HouseSize = "",
-                OccupantCount = 0,
-                WifiConnectionRequired = false,
-                WaterConnectionRequired = false,
-                ElectricalConnectionRequired = false,
-                PreferedLandType = "Residential",
-                ParkingRequired = false,
-                ChildFriendlyRequired = false,
-                PetsRequired = false,
-                Smoker = false,
-                Privacy = false,
-                Approved = false,
-                Status = "updated draft",
-                Submitted = false
-            };
+           
+            var seekerListing = _listingService.GetSeekerListing(model.Id);
+            seekerListing.Title = model.Title;
+            seekerListing.Location = model.Location;
+            seekerListing.Details = model.Details;
 
-            seekerListing = _seekerListingRepository.Update(seekerListing);
+            seekerListing.Status = "Edited - Unapproved";
+            seekerListing.Submitted = false;
+            seekerListing.Approved = false;
+
+            _listingService.UpdateSeekerListing(seekerListing);
 
             return RedirectToAction("Dashboard", "Account");
         }
@@ -150,24 +135,17 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult DeleteListing(Guid id)
         {
-            var userListingToDelete = new UserListing
-            {
-                UserId = new Guid(_userManager.GetUserId(User)),
-                SeekerListingId = id
-            };
-            _userListingRepository.Delete(userListingToDelete);
-            _seekerListingRepository.Delete(id);
-
+            _listingService.DeleteSeekerListing(id);
             return RedirectToAction("Dashboard", "Account");
         }
 
         [Route("[action]")]
         public IActionResult SubmitApproval(Guid id)
         {
-            var seekerListing = _seekerListingRepository.GetSeekerListing(id);
+            var seekerListing = _listingService.GetSeekerListing(id);
             seekerListing.Submitted = true;
             seekerListing.Status = "Submitted for approval";
-            _seekerListingRepository.Update(seekerListing);
+            _listingService.UpdateSeekerListing(seekerListing);
             return RedirectToAction("Dashboard", "Account");
         }
 
@@ -184,7 +162,7 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Search(SeekerSearchFilter seekerSearchFilter)
         {
-            var filteredListings = _seekerListingRepository.Search(seekerSearchFilter);
+            var filteredListings = _listingService.Search(seekerSearchFilter);
             return View("Index", filteredListings);
         }
     }

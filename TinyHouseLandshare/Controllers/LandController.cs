@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Data;
 using TinyHouseLandshare.Models;
+using TinyHouseLandshare.Services;
 using TinyHouseLandshare.ViewModels;
 
 namespace TinyHouseLandshare.Controllers
@@ -10,14 +11,17 @@ namespace TinyHouseLandshare.Controllers
     [Authorize]
     public class LandController : Controller
     {
+        private readonly IListingService _listingService;
         private readonly ILandListingRepository _landListingRepository;
         private readonly IUserListingRepository _userListingRepository;
         private readonly UserManager<UserEntity> _userManager;
 
-        public LandController(ILandListingRepository landListingRepository,
+        public LandController(IListingService listingService,
+                              ILandListingRepository landListingRepository,
                               IUserListingRepository userListingRepository,
                               UserManager<UserEntity> userManager)
         {
+            _listingService = listingService;
             _landListingRepository = landListingRepository;
             _userListingRepository = userListingRepository;
             _userManager = userManager;
@@ -57,13 +61,13 @@ namespace TinyHouseLandshare.Controllers
         public IActionResult CreateListing(LandListingViewModel model)
         {
             // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
+            var timeStamp = DateTimeOffset.UtcNow;
             var landListing = new LandListing
             {
                 Title = model.Title,
                 Location = model.Location,
                 Details = model.Details,
-                CreatedTime = DateTimeOffset.UtcNow,
-                PictureUri = "",
+                CreatedTime = timeStamp,
                 MapLocation = "coords go here",
                 Price = 600,
                 PayPeriod = "month",
@@ -83,21 +87,21 @@ namespace TinyHouseLandshare.Controllers
                 Privacy = "True",
                 Approved = false,
                 Status = "draft",
-                Submitted = false   
+                Submitted = false,
+                Country = "CA",
+                State = "BC",
+                ModifiedTime = timeStamp
             };
 
-            landListing = _landListingRepository.Add(landListing);
-
-            var userListing = new UserListing
-            {
-                UserId = new Guid(_userManager.GetUserId(User)),
-                LandListingId = landListing.Id
-            };
-            _userListingRepository.Add(userListing);
+            _listingService.AddLandListing(landListing, LoggedInUserId());          
 
             return RedirectToAction("Dashboard", "Account");
         }
 
+        private Guid LoggedInUserId()
+        {
+            return new Guid(_userManager.GetUserId(User));
+        }
 
         [HttpGet]
         [Route("[action]")]
@@ -126,7 +130,6 @@ namespace TinyHouseLandshare.Controllers
                 Location = model.Location,
                 Details = model.Details,
                 CreatedTime = DateTimeOffset.UtcNow,
-                PictureUri = "",
                 MapLocation = "coords go here",
                 Price = 200,
                 PayPeriod = "weekly",
@@ -157,14 +160,7 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult DeleteListing(Guid id)
         {
-            var userListingToDelete = new UserListing
-            {
-                UserId = new Guid(_userManager.GetUserId(User)),
-                LandListingId = id
-            };
-            _userListingRepository.Delete(userListingToDelete);
-            _landListingRepository.Delete(id);
-
+            _listingService.DeleteLandListing(id);
             return RedirectToAction("Dashboard", "Account");
         }
 

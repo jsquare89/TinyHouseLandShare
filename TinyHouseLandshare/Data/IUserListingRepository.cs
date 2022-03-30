@@ -6,7 +6,7 @@ namespace TinyHouseLandshare.Data
     {
         IQueryable<UserListing> GetAllUserListings();
         UserListing Add(UserListing userListing);
-        UserListing Delete(UserListing userLandListing);
+        bool Delete(Guid id);
         IQueryable<UserListing> GetUserListings(Guid UserId);
         Guid GetUserIdByListing(Guid listingId);
         IEnumerable<LandListing> GetUserLandListings(Guid userId);

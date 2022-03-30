@@ -8,11 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
-builder.Services.AddDbContext<LandShareDbContext>(options =>
-            options.UseInMemoryDatabase("InMem"));
+//builder.Services.AddDbContext<LandShareDbContext>(options =>
+//            options.UseInMemoryDatabase("InMem"));
 
-//builder.Services.AddDbContextPool<LandShareDbContext>(options =>
-//            options.UseSqlServer(builder.Configuration.GetConnectionString("LandShareDbConnection")));
+builder.Services.AddDbContextPool<LandShareDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("LandShareDbConnection")));
 
 
 builder.Services.AddIdentity<UserEntity, UserRoleEntity>(options =>
@@ -24,10 +24,9 @@ builder.Services.AddIdentity<UserEntity, UserRoleEntity>(options =>
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IListingService, ListingService>();
 builder.Services.AddScoped<ISeekerListingRepository, SeekerListingRepository>();
 builder.Services.AddScoped<ILandListingRepository, LandListingRepository>();
-//builder.Services.AddScoped<IUserSeekerListingRepository, UserSeekerListingRepository>();
-//builder.Services.AddScoped<IUserLandListingRepository, UserLandListingRepository>();
 builder.Services.AddScoped<IUserListingRepository, UserListingRepository>();
 builder.Services.AddScoped<IMessagingService, MessagingService>();
 

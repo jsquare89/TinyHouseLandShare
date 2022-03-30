@@ -9,14 +9,14 @@ namespace TinyHouseLandshare.Data
 
         public static async Task InitializeAsync(IServiceProvider services)
         {
-            await AddTestUsers(
-                services.GetRequiredService<RoleManager<UserRoleEntity>>(),
-                services.GetRequiredService<UserManager<UserEntity>>());
+            //await AddTestUsers(
+            //    services.GetRequiredService<RoleManager<UserRoleEntity>>(),
+            //    services.GetRequiredService<UserManager<UserEntity>>());
 
-            await AddTestData(
-                services.GetRequiredService<LandShareDbContext>());
-            await AddUserListingForApproval(
-                services.GetRequiredService<LandShareDbContext>());
+            //await AddTestData(
+            //    services.GetRequiredService<LandShareDbContext>());
+            //await AddUserListingForApproval(
+            //    services.GetRequiredService<LandShareDbContext>());
 
         }
 
@@ -43,7 +43,6 @@ namespace TinyHouseLandshare.Data
                 Details = "Details about the acreage",
                 Location = "Victoria",
                 CreatedTime = DateTimeOffset.UtcNow,
-                PictureUri = "",
                 MapLocation = "coords go here",
                 Price = 600,
                 PayPeriod = "monthly",
@@ -77,7 +76,6 @@ namespace TinyHouseLandshare.Data
                     Details = "Details go here",
                     Location = "Langley",
                     CreatedTime = DateTimeOffset.UtcNow,
-                    PictureUri = "",
                     HouseSize = "26'x8' 200sqft",
                     OccupantCount = 1,
                     WifiConnectionRequired = true,
@@ -88,7 +86,7 @@ namespace TinyHouseLandshare.Data
                     ChildFriendlyRequired = false,
                     PetsRequired = true,
                     Smoker = false,
-                    Privacy = true,
+                    Privacy = "Shared lot with Owner" ,
                     Approved = true,
                     Status = "published",
                     Submitted = true
@@ -101,7 +99,6 @@ namespace TinyHouseLandshare.Data
                     Details = "Details go here lorem ipsem...",
                     Location = "Oliver",
                     CreatedTime = DateTimeOffset.UtcNow,
-                    PictureUri = "",
                     HouseSize = "34'x10' 420sqft",
                     OccupantCount = 3,
                     WifiConnectionRequired = true,
@@ -112,7 +109,7 @@ namespace TinyHouseLandshare.Data
                     ChildFriendlyRequired = true,
                     PetsRequired = true,
                     Smoker = false,
-                    Privacy = true,
+                    Privacy = "Semi-Private",
                     Approved = true,
                     Status = "published",
                     Submitted = true
@@ -182,7 +179,6 @@ namespace TinyHouseLandshare.Data
                 Details = "Details go here lorem ipsem...",
                 Location = "Langley",
                 CreatedTime = DateTimeOffset.UtcNow,
-                PictureUri = "",
                 HouseSize = "34'x10' 420sqft",
                 OccupantCount = 3,
                 WifiConnectionRequired = true,
@@ -193,7 +189,7 @@ namespace TinyHouseLandshare.Data
                 ChildFriendlyRequired = true,
                 PetsRequired = true,
                 Smoker = false,
-                Privacy = true,
+                Privacy = "Pivate/Secluded",
                 Approved = false,
                 Status = "submitted for approval",
                 Submitted = true
@@ -225,7 +221,6 @@ namespace TinyHouseLandshare.Data
                     Details = "Details about the land",
                     Location = "Tofino",
                     CreatedTime = DateTimeOffset.UtcNow,
-                    PictureUri = "",
                     MapLocation = "coords go here",
                     Price = 800,
                     PayPeriod = "monthly",
