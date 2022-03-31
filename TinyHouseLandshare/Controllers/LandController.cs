@@ -122,19 +122,23 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult EditListing(LandListingViewModel model)
         {
-            // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
-            var landListing = _listingService.GetLandListing(model.Id);
-            landListing.Title = model.Title;
-            landListing.Location = model.Location;
-            landListing.Details = model.Details;
-            landListing.ModifiedTime = DateTimeOffset.UtcNow; 
-            landListing.Approved = false;
-            landListing.Submitted = false;
-            landListing.Status = "Edited Draft - Unapproved";
-                
-            _listingService.UpdateLandListing(landListing);
+            if(ModelState.IsValid)
+            {
+                var landListing = _listingService.GetLandListing(model.Id);
+                landListing.Title = model.Title;
+                landListing.Location = model.Location;
+                landListing.Details = model.Details;
+                landListing.ModifiedTime = DateTimeOffset.UtcNow;
+                landListing.Approved = false;
+                landListing.Submitted = false;
+                landListing.Status = "Edited Draft - Unapproved";
 
-            return RedirectToAction("Dashboard", "Account");
+                _listingService.UpdateLandListing(landListing);
+                return RedirectToAction("Dashboard", "Account");
+            }
+            // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
+
+            return View();           
         }
 
         [Route("[action]")]

@@ -5,11 +5,11 @@ namespace TinyHouseLandshare.ViewModels
     public class SeekerListingViewModel
     {
         public Guid Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Title required.")]
         public string Title { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Details required.")]
         public string Details { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Location required.")]
         public string Location { get; set; }
 
     }

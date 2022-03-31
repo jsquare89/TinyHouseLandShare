@@ -117,19 +117,21 @@ namespace TinyHouseLandshare.Controllers
         public IActionResult EditListing(SeekerListingViewModel model)
         {
             // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
-           
-            var seekerListing = _listingService.GetSeekerListing(model.Id);
-            seekerListing.Title = model.Title;
-            seekerListing.Location = model.Location;
-            seekerListing.Details = model.Details;
-            seekerListing.ModifiedTime = DateTimeOffset.UtcNow;
-            seekerListing.Status = "Edited - Unapproved";
-            seekerListing.Submitted = false;
-            seekerListing.Approved = false;
+            if (ModelState.IsValid)
+            {
+                var seekerListing = _listingService.GetSeekerListing(model.Id);
+                seekerListing.Title = model.Title;
+                seekerListing.Location = model.Location;
+                seekerListing.Details = model.Details;
+                seekerListing.ModifiedTime = DateTimeOffset.UtcNow;
+                seekerListing.Status = "Edited - Unapproved";
+                seekerListing.Submitted = false;
+                seekerListing.Approved = false;
 
-            _listingService.UpdateSeekerListing(seekerListing);
-
-            return RedirectToAction("Dashboard", "Account");
+                _listingService.UpdateSeekerListing(seekerListing);
+                return RedirectToAction("Dashboard", "Account");
+            }
+            return View();
         }
 
         [Route("[action]")]
