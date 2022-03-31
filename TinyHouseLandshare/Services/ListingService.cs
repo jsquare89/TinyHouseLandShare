@@ -16,6 +16,56 @@ namespace TinyHouseLandshare.Services
             _seekerListingRepository = seekerListingRepository;
             _landListingRepository = landListingRepository;
             _userListingRepository = userListingRepository;
+        }       
+
+        public SeekerListing GetSeekerListing(Guid id)
+        {
+            return _seekerListingRepository.GetSeekerListing(id);
+        }
+
+        public IEnumerable<SeekerListing> GetApprovedSeekerListings()
+        {
+            return _seekerListingRepository.GetAllApprovedSeekerListings();
+        }
+        public SeekerListing AddSeekerListing(SeekerListing seekerListing, Guid userId)
+        {
+            seekerListing = _seekerListingRepository.Add(seekerListing);
+
+            var userListing = new UserListing
+            {
+                UserId = userId,
+                SeekerListingId = seekerListing.Id
+            };
+            _userListingRepository.Add(userListing);
+
+            return seekerListing;
+        }
+
+        public SeekerListing UpdateSeekerListing(SeekerListing updatedSeekerListing)
+        {
+            return _seekerListingRepository.Update(updatedSeekerListing);
+        }
+
+        public void DeleteSeekerListing(Guid seekerListingId)
+        {
+            var listingId = _userListingRepository.GetListingIdBySeekerOrLandListing(seekerListingId);
+            _userListingRepository.Delete(listingId);
+            _seekerListingRepository.Delete(seekerListingId);
+        }
+
+        public IEnumerable<SeekerListing> SearchSeekerListings(SeekerSearchFilter seekerSearch)
+        {
+            return _seekerListingRepository.Search(seekerSearch);
+        }
+
+
+        public LandListing GetLandListing(Guid userId)
+        {
+            return _landListingRepository.GetLandListing(userId);
+        }
+        public IEnumerable<LandListing> GetApprovedLandListings()
+        {
+            return _landListingRepository.GetAllApprovedLandListings();
         }
 
         public LandListing AddLandListing(LandListing landListing, Guid userId)
@@ -32,18 +82,9 @@ namespace TinyHouseLandshare.Services
             return landListing;
         }
 
-        public SeekerListing AddSeekerListing(SeekerListing seekerListing, Guid userId)
+        public LandListing UpdateLandListing(LandListing updatedLandListing)
         {
-            seekerListing = _seekerListingRepository.Add(seekerListing);
-
-            var userListing = new UserListing
-            {
-                UserId = userId,
-                SeekerListingId = seekerListing.Id
-            };
-            _userListingRepository.Add(userListing);
-
-            return seekerListing;
+            return _landListingRepository.Update(updatedLandListing);
         }
 
         public void DeleteLandListing(Guid landListingId)
@@ -53,36 +94,9 @@ namespace TinyHouseLandshare.Services
             _landListingRepository.Delete(landListingId);
         }
 
-        public void DeleteSeekerListing(Guid seekerListingId)
+        public IEnumerable<LandListing> SearchLandListings(LandSearchFilter landSearchFilter)
         {
-            var listingId = _userListingRepository.GetListingIdBySeekerOrLandListing(seekerListingId);
-            _userListingRepository.Delete(listingId);
-            _seekerListingRepository.Delete(seekerListingId);
-        }
-
-        public IEnumerable<SeekerListing> GetAllApprovedSeekerListings()
-        {
-            return _seekerListingRepository.GetAllApprovedSeekerListings();
-        }
-
-        public SeekerListing GetSeekerListing(Guid id)
-        {
-            return _seekerListingRepository.GetSeekerListing(id);
-        }
-
-        public IEnumerable<SeekerListing> Search(SeekerSearchFilter seekerSearch)
-        {
-            return _seekerListingRepository.Search(seekerSearch);
-        }
-
-        public LandListing UpdateLandListing(LandListing updatedLandListing)
-        {
-            return _landListingRepository.Update(updatedLandListing);
-        }
-
-        public SeekerListing UpdateSeekerListing(SeekerListing updatedSeekerListing)
-        {
-            return _seekerListingRepository.Update(updatedSeekerListing);
+            return _landListingRepository.Search(landSearchFilter);
         }
     }
 }

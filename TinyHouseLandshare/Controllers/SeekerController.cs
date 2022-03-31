@@ -27,7 +27,7 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            var seekerListings = _listingService.GetAllApprovedSeekerListings();
+            var seekerListings = _listingService.GetApprovedSeekerListings();
             return View(seekerListings);
         }
 
@@ -122,7 +122,7 @@ namespace TinyHouseLandshare.Controllers
             seekerListing.Title = model.Title;
             seekerListing.Location = model.Location;
             seekerListing.Details = model.Details;
-
+            seekerListing.ModifiedTime = DateTimeOffset.UtcNow;
             seekerListing.Status = "Edited - Unapproved";
             seekerListing.Submitted = false;
             seekerListing.Approved = false;
@@ -162,7 +162,7 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Search(SeekerSearchFilter seekerSearchFilter)
         {
-            var filteredListings = _listingService.Search(seekerSearchFilter);
+            var filteredListings = _listingService.SearchSeekerListings(seekerSearchFilter);
             return View("Index", filteredListings);
         }
     }

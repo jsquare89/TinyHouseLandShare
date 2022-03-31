@@ -31,7 +31,7 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            var landListings = _landListingRepository.GetAllApprovedLandListings();
+            var landListings = _listingService.GetApprovedLandListings();
             return View(landListings);
         }
 
@@ -39,7 +39,7 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Listing(Guid id)
         {
-            var landListing = _landListingRepository.GetLandListing(id);
+            var landListing = _listingService.GetLandListing(id);
 
             if(landListing is null)
             {
@@ -107,7 +107,7 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult EditListing(Guid id)
         {
-            var landListing = _landListingRepository.GetLandListing(id);
+            var landListing = _listingService.GetLandListing(id);
             var landListingViewModel = new LandListingViewModel
             {
                 Id = id,
@@ -123,36 +123,16 @@ namespace TinyHouseLandshare.Controllers
         public IActionResult EditListing(LandListingViewModel model)
         {
             // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
-            var landListing = new LandListing
-            {
-                Id = model.Id,
-                Title = model.Title,
-                Location = model.Location,
-                Details = model.Details,
-                CreatedTime = DateTimeOffset.UtcNow,
-                MapLocation = "coords go here",
-                Price = 200,
-                PayPeriod = "weekly",
-                AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
-                LotSize = "20x40ft 800sqft",
-                LandType = "Commercial",
-                FoundationSize = "12x30ft",
-                SiteFoundation = "concrete",
-                DrivewayFoundation = "gravel",
-                WifiConnection = true,
-                WaterConnection = true,
-                ElectricalConnection = true,
-                Parking = true,
-                ChildFriendly = true,
-                Pets = true,
-                SmokingPermitted = false,
-                Privacy = "True",
-                Approved = false,
-                Status = "draft",
-                Submitted = false
-            };
-
-            landListing = _landListingRepository.Update(landListing);
+            var landListing = _listingService.GetLandListing(model.Id);
+            landListing.Title = model.Title;
+            landListing.Location = model.Location;
+            landListing.Details = model.Details;
+            landListing.ModifiedTime = DateTimeOffset.UtcNow; 
+            landListing.Approved = false;
+            landListing.Submitted = false;
+            landListing.Status = "Edited Draft - Unapproved";
+                
+            _listingService.UpdateLandListing(landListing);
 
             return RedirectToAction("Dashboard", "Account");
         }
@@ -167,10 +147,10 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult SubmitApproval(Guid id)
         {
-            var landListing = _landListingRepository.GetLandListing(id);
+            var landListing = _listingService.GetLandListing(id);
             landListing.Submitted = true;
             landListing.Status = "Submitted for approval";
-            _landListingRepository.Update(landListing);
+            _listingService.UpdateLandListing(landListing);
             return RedirectToAction("Dashboard", "Account");
         }
 

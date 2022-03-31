@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Data;
+using TinyHouseLandshare.Services;
 using TinyHouseLandshare.ViewModels;
 
 namespace TinyHouseLandshare.Controllers
@@ -8,12 +9,15 @@ namespace TinyHouseLandshare.Controllers
     [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
+        private readonly IListingService _listingService;
         private readonly ISeekerListingRepository _seekerListingRepository;
         private readonly ILandListingRepository _landListingRepository;
 
-        public AdminController(ISeekerListingRepository seekerListingRepository,
+        public AdminController(IListingService listingService,
+                               ISeekerListingRepository seekerListingRepository,
                                ILandListingRepository landListingRepository)
         {
+            _listingService = listingService;
             _seekerListingRepository = seekerListingRepository;
             _landListingRepository = landListingRepository;
         }
