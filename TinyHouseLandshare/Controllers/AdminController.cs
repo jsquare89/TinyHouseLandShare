@@ -10,8 +10,6 @@ namespace TinyHouseLandshare.Controllers
     public class AdminController : Controller
     {
         private readonly IListingService _listingService;
-        private readonly ISeekerListingRepository _seekerListingRepository;
-        private readonly ILandListingRepository _landListingRepository;
 
         public AdminController(IListingService listingService)
         {
@@ -50,7 +48,7 @@ namespace TinyHouseLandshare.Controllers
             var listing = _listingService.GetSeekerListing(id);
             listing.Approved = true;
             listing.Status = "Posted";
-            _seekerListingRepository.Update(listing);
+            _listingService.UpdateSeekerListing(listing);
 
             return RedirectToAction("ApproveListing", "Admin");
         }
@@ -66,7 +64,7 @@ namespace TinyHouseLandshare.Controllers
             var listing = _listingService.GetLandListing(id);
             listing.Approved = true;
             listing.Status = "Posted";
-            _landListingRepository.Update(listing);
+            _listingService.UpdateLandListing(listing);
 
             return RedirectToAction("ApproveListing", "Admin");
         }
