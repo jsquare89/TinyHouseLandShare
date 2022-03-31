@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Data;
 using TinyHouseLandshare.Models;
+using TinyHouseLandshare.Services;
 using TinyHouseLandshare.ViewModels;
 
 namespace TinyHouseLandshare.Controllers
@@ -12,15 +13,16 @@ namespace TinyHouseLandshare.Controllers
     {
         private readonly UserManager<UserEntity> _userManager;
         private readonly SignInManager<UserEntity> _signInManager;
+        private readonly IListingService _listingService;
         private readonly IUserListingRepository _userListingRepository;
 
         public AccountController(UserManager<UserEntity> userManager, 
                                  SignInManager<UserEntity> signInManager,
-                                 IUserListingRepository userListingRepository)
+                                 IListingService listingService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _userListingRepository = userListingRepository;
+            _listingService = listingService;
         }
 
 
@@ -106,8 +108,8 @@ namespace TinyHouseLandshare.Controllers
             var userId = new Guid(_userManager.GetUserId(User));
             var userListings = new UserListingsViewModel
             {
-                SeekerListing = _userListingRepository.GetUserSeekerListing(userId),
-                LandListings = _userListingRepository.GetUserLandListings(userId)
+                SeekerListing = _listingService.GetUserSeekerListing(userId),
+                LandListings = _listingService.GetUserLandListings(userId)
             };
 
             return View(userListings);

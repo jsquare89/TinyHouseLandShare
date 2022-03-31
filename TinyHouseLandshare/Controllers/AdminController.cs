@@ -13,13 +13,9 @@ namespace TinyHouseLandshare.Controllers
         private readonly ISeekerListingRepository _seekerListingRepository;
         private readonly ILandListingRepository _landListingRepository;
 
-        public AdminController(IListingService listingService,
-                               ISeekerListingRepository seekerListingRepository,
-                               ILandListingRepository landListingRepository)
+        public AdminController(IListingService listingService)
         {
             _listingService = listingService;
-            _seekerListingRepository = seekerListingRepository;
-            _landListingRepository = landListingRepository;
         }
         public IActionResult Index()
         {
@@ -36,8 +32,8 @@ namespace TinyHouseLandshare.Controllers
         {
             var seekerListingsViewModel = new ApproveListingViewModel
             {
-                seekerListings = _seekerListingRepository.GetAllUnapprovedSubmittedSeekerListings(),
-                landListings = _landListingRepository.GetAllUnApprovedSubmittedLandListings()
+                seekerListings = _listingService.GetAllUnapprovedSubmittedSeekerListings(),
+                landListings = _listingService.GetAllUnApprovedSubmittedLandListings()
             };
 
             return View(seekerListingsViewModel);
@@ -51,7 +47,7 @@ namespace TinyHouseLandshare.Controllers
                 return BadRequest();
             }
 
-            var listing = _seekerListingRepository.GetSeekerListing(id);
+            var listing = _listingService.GetSeekerListing(id);
             listing.Approved = true;
             listing.Status = "Posted";
             _seekerListingRepository.Update(listing);
@@ -67,7 +63,7 @@ namespace TinyHouseLandshare.Controllers
                 return BadRequest();
             }
 
-            var listing = _landListingRepository.GetLandListing(id);
+            var listing = _listingService.GetLandListing(id);
             listing.Approved = true;
             listing.Status = "Posted";
             _landListingRepository.Update(listing);

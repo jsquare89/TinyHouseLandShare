@@ -14,7 +14,7 @@ namespace TinyHouseLandshare.Models
         [MaxLength(500)]
         public string Value { get; set; }
         public bool IsViewed { get; set; }
-        public Guid OriginMessageId { get; set; }
+        public Guid? OriginMessageId { get; set; } = null;
 
 
 

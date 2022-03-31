@@ -98,5 +98,30 @@ namespace TinyHouseLandshare.Services
         {
             return _landListingRepository.Search(landSearchFilter);
         }
+
+        public Guid GetListingIdBySeekerOrLandListingId(Guid id)
+        {
+            return _userListingRepository.GetListingIdBySeekerOrLandListing(id);
+        }
+
+        public SeekerListing GetUserSeekerListing(Guid userId)
+        {
+            return _userListingRepository.GetUserSeekerListing(userId);
+        }
+
+        public IEnumerable<LandListing> GetUserLandListings(Guid userId)
+        {
+            return _userListingRepository.GetUserLandListings(userId);
+        }
+
+        public IEnumerable<SeekerListing> GetAllUnapprovedSubmittedSeekerListings()
+        {
+            return _seekerListingRepository.GetAllUnapprovedSubmittedSeekerListings();
+        }
+
+        public IEnumerable<LandListing> GetAllUnApprovedSubmittedLandListings()
+        {
+            return _landListingRepository.GetAllUnApprovedSubmittedLandListings();
+        }
     }
 }

@@ -38,8 +38,19 @@ namespace TinyHouseLandshare.Services
             return GetMessages(userId).Where(message => message.IsViewed.Equals(false)).Count();
         }
 
-        public Message SendMessage(Message message)
+        public Message SendMessage(Guid senderId,
+                                   Guid listingId,
+                                   string messageValue)
         {
+            var message = new Message
+            {
+                SenderId = senderId,
+                UserListingId = listingId,
+                TimeStamp = DateTimeOffset.UtcNow,
+                Value = messageValue,
+                IsViewed = false
+            };
+
             _context.Messages.Add(message);
             _context.SaveChanges();
             return message;

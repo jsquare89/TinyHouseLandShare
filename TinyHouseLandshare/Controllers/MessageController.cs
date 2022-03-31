@@ -11,13 +11,13 @@ namespace TinyHouseLandshare.Controllers
     public class MessageController : Controller
     {
         private readonly IMessagingService _messagingService;
-        private readonly IUserListingRepository _userListingRepository;
+        private readonly IListingService _listingService;
 
         public MessageController(IMessagingService messagingService,
-                                 IUserListingRepository userListingRepository)
+                                 IListingService listingService)
         {
             _messagingService = messagingService;
-            _userListingRepository = userListingRepository;
+            _listingService = listingService;
         }
 
         public IActionResult Inbox(Guid userId)
@@ -36,18 +36,8 @@ namespace TinyHouseLandshare.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var recieverId = _userListingRepository.GetUserIdByListing(messageViewModel.SeekerOrLandListingId);
-                var message = new Message
-                {
-                    SenderId = messageViewModel.SenderId,
-                    UserListingId = _userListingRepository.GetListingIdBySeekerOrLandListing(messageViewModel.SeekerOrLandListingId),
-                    //ReceiverId = recieverId,
-                    TimeStamp = DateTimeOffset.UtcNow,
-                    Value = messageViewModel.Message,
-                    IsViewed = false,
-                    OriginMessageId = Guid.Empty
-                };
-                _messagingService.SendMessage(message);
+                var listingId = _listingService.GetListingIdBySeekerOrLandListingId(messageViewModel.SeekerOrLandListingId);
+                _messagingService.SendMessage(messageViewModel.SenderId, listingId, messageViewModel.Message);
                 return RedirectToAction("Dashboard", "Account");
             }
             return BadRequest();
