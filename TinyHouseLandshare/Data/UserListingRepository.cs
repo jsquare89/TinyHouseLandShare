@@ -91,12 +91,34 @@ namespace TinyHouseLandshare.Data
             return seekerListing;
         }
 
-        public Guid GetListingIdBySeekerOrLandListing(Guid Id)
+        public Guid GetListingIdBySeekerOrLandListing(Guid id)
         {
             var listingId = _context.UserListings.
-                Where(l => l.SeekerListingId.Equals(Id) || l.LandListingId.Equals(Id)).
+                Where(l => l.SeekerListingId.Equals(id) || l.LandListingId.Equals(id)).
                 Select(l => l.Id).FirstOrDefault();
             return listingId;
+        }
+
+        public string GetListingTitleBySeekerOrLandListingId(Guid id)
+        {
+            var title = (GetSeekerListingTitleById(id)
+                        ).Union(GetLandListingTitleById(id)).FirstOrDefault();
+
+            return title;
+        }
+
+        private IQueryable<string> GetLandListingTitleById(Guid id)
+        {
+            return from ll in _context.LandListings
+                   where ll.Id == id
+                   select ll.Title;
+        }
+
+        private IQueryable<string> GetSeekerListingTitleById(Guid id)
+        {
+            return from sl in _context.SeekerListings
+                   where sl.Id == id
+                   select sl.Title;
         }
     }
 }

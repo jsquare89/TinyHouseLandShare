@@ -1,15 +1,19 @@
 ﻿using TinyHouseLandshare.Data;
 using TinyHouseLandshare.Models;
+using TinyHouseLandshare.ViewModels;
 
 namespace TinyHouseLandshare.Services
 {
     public class MessagingService : IMessagingService
     {
         private readonly LandShareDbContext _context;
+        private readonly IUserListingRepository _userListingRepository;
 
-        public MessagingService(LandShareDbContext context)
+        public MessagingService(LandShareDbContext context,
+                                IUserListingRepository userListingRepository)
         {
             _context = context;
+            _userListingRepository = userListingRepository;
         }
         public IEnumerable<Message> GetMessages(Guid userId)
         {
@@ -31,6 +35,44 @@ namespace TinyHouseLandshare.Services
             return GetMessages(userId).GroupBy(message => message.UserListingId, 
                 (key, group) => group.OrderByDescending(item => item.TimeStamp).First());
                 
+        }
+
+        public IEnumerable<HeadMessageViewModel> GetUserMessageHeadsAsViewModels(Guid userId)
+        {
+            List<HeadMessageViewModel> headMessageVMs = GetMessageHeadsFromContextForUser(userId);
+            return headMessageVMs;
+        }
+
+        private List<HeadMessageViewModel> GetMessageHeadsFromContextForUser(Guid userId)
+        {
+            var results = (from m in _context.Messages
+                    join ul in _context.UserListings
+                      on m.UserListingId equals ul.Id
+                    join u in _context.Users
+                      on m.SenderId equals u.Id
+                    where ul.UserId == userId
+
+                    select new HeadMessageViewModel
+                    {
+                        Id = ul.Id,
+                        SeekerOrLandListingId = (Guid)(ul.SeekerListingId != null ? ul.SeekerListingId : ul.LandListingId),
+                        TimeStamp = m.TimeStamp,
+                        SenderId = m.SenderId,
+                        SenderName = u.Name,
+                        IsViewed = m.IsViewed,
+                        Value = m.Value
+                    }).ToList();
+            results = UpdateMessageHeadTitles(results);
+            return results;
+        }
+
+        private List<HeadMessageViewModel> UpdateMessageHeadTitles(List<HeadMessageViewModel> results)
+        {
+            foreach (var item in results)
+            {
+                item.Title = _userListingRepository.GetListingTitleBySeekerOrLandListingId(item.SeekerOrLandListingId);
+            }
+            return results;
         }
 
         public int GetUnreadMessagesCount(Guid userId)

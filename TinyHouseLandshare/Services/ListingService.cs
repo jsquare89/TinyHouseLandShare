@@ -8,14 +8,17 @@ namespace TinyHouseLandshare.Services
         private readonly ISeekerListingRepository _seekerListingRepository;
         private readonly ILandListingRepository _landListingRepository;
         private readonly IUserListingRepository _userListingRepository;
+        private readonly IUserRepository _userRepository;
 
         public ListingService(ISeekerListingRepository seekerListingRepository,
                               ILandListingRepository landListingRepository,
-                              IUserListingRepository userListingRepository)
+                              IUserListingRepository userListingRepository,
+                              IUserRepository userRepository)
         {
             _seekerListingRepository = seekerListingRepository;
             _landListingRepository = landListingRepository;
             _userListingRepository = userListingRepository;
+            _userRepository = userRepository;
         }       
 
         public SeekerListing GetSeekerListing(Guid id)

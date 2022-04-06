@@ -28,6 +28,7 @@ builder.Services.AddScoped<IListingService, ListingService>();
 builder.Services.AddScoped<ISeekerListingRepository, SeekerListingRepository>();
 builder.Services.AddScoped<ILandListingRepository, LandListingRepository>();
 builder.Services.AddScoped<IUserListingRepository, UserListingRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IMessagingService, MessagingService>();
 
 var app = builder.Build();

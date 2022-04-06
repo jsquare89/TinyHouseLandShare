@@ -4,7 +4,7 @@ namespace TinyHouseLandshare.ViewModels
 {
     public class MessageInboxViewModel
     {
-        public IEnumerable<Message> headMessages { get; set; }
+        public IEnumerable<HeadMessageViewModel> headMessages { get; set; }
         public int UnreadMessageCount { get; set; }
     }
 }

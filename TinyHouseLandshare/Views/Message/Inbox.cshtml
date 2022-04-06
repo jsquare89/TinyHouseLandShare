@@ -3,21 +3,14 @@
     ViewData["Title"] = "Inbox";
 }
 
-<h1>Inbox</h1>
-
-@if(Model.UnreadMessageCount > 0)
-{
-    <div>
-        <h4>Unread Messages: @Model.UnreadMessageCount</h4>
-    </div>
-}
+<h1>Inbox (@Model.UnreadMessageCount)</h1>
 
 @foreach(var messageHead in Model.headMessages)
 {
     <div>
-        <h4>Listing Title: ... to be added (@messageHead.UserListingId)</h4>
-        <p>Message Timestamp: @messageHead.TimeStamp.LocalDateTime</p>
-        <p>Sender: @messageHead.SenderId (To be repalaced by name)</p>
+        <h4>Listing Title: @messageHead.Title</h4>
+        <p>Message Timestamp: @messageHead.TimeStamp.LocalDateTime.ToString("d")</p>
+        <p>Sender: @messageHead.SenderName</p>
         <p>Read: @messageHead.IsViewed</p>
         <h5>Message:</h5>
         <p>@messageHead.Value</p>

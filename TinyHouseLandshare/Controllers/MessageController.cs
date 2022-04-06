@@ -22,15 +22,34 @@ namespace TinyHouseLandshare.Controllers
 
         public IActionResult Inbox(Guid userId)
         {
-            var headMessages = _messagingService.GetUserMessageHeads(userId);
-            var unreadMessageCount = _messagingService.GetUnreadMessagesCount(userId);
+            //var headMessages = _messagingService.GetUserMessageHeads(userId);
+            //List<HeadMessageViewModel> headMessagesViewModel = new List<HeadMessageViewModel>();
+            //foreach(var headMessage in headMessages)
+            //{
+            //    var headMessageVM = MapHeadMessageToViewModel(headMessage);
+            //    headMessagesViewModel.Add(headMessageVM);
+            //}
             var viewModel = new MessageInboxViewModel
             {
-                headMessages = headMessages,
-                UnreadMessageCount = unreadMessageCount
+                headMessages = _messagingService.GetUserMessageHeadsAsViewModels(userId),
+                UnreadMessageCount = _messagingService.GetUnreadMessagesCount(userId)
             };
             return View(viewModel);
         }
+
+        //private HeadMessageViewModel MapHeadMessageToViewModel(Message message)
+        //{
+        //    return new HeadMessageViewModel
+        //    {
+        //        Id = message.Id,
+        //        Title = _listingService.GetListingTitle(message.UserListingId),
+        //        SenderId = message.SenderId,
+        //        SenderName = _listingService.GetListingSenderName(message.SenderId),
+        //        timeStamp = message.TimeStamp,
+        //        IsViewed = message.IsViewed,
+        //        Value = message.Value
+        //    };
+        //}
 
         public IActionResult Send(MessageViewModel messageViewModel)
         {
