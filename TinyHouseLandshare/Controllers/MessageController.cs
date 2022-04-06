@@ -61,5 +61,11 @@ namespace TinyHouseLandshare.Controllers
             }
             return BadRequest();
         }
+
+        public IActionResult Message(Guid id)
+        {
+            //var messageViewModels = new 
+            return View();
+        }
     }
 }

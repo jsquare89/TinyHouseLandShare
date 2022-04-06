@@ -38,13 +38,18 @@
                     <ul class="navbar-nav ml-auto">
                         @if(signInManager.IsSignedIn(User))
                         {
-                            <li class="nav-item">
-                                <form method="post" asp-action="Logout" asp-controller="Account">
+                            <li>@User.Identity.Name</li>
+                            <ul>
+                                <li>@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId })</li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></li>
+                                <li><form method="post" asp-action="Logout" asp-controller="Account">
                                     <button type="submit" class="nav-link btn btn-link py-0 text-dark" style="width:auto">
-                                        Logout @User.Identity.Name (@userId)
+                                        Logout
                                     </button>
-                                </form>
-                            </li>
+                                </form></li>
+                            </ul>
+
+                            
                         }
                         else
                         {

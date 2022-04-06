@@ -1,6 +1,7 @@
 ﻿@model MessageInboxViewModel
 @{
     ViewData["Title"] = "Inbox";
+    var messageMaxLength = 100;
 }
 
 <h1>Inbox (@Model.UnreadMessageCount)</h1>
@@ -8,11 +9,13 @@
 @foreach(var messageHead in Model.headMessages)
 {
     <div>
-        <h4>Listing Title: @messageHead.Title</h4>
-        <p>Message Timestamp: @messageHead.TimeStamp.LocalDateTime.ToString("d")</p>
-        <p>Sender: @messageHead.SenderName</p>
-        <p>Read: @messageHead.IsViewed</p>
-        <h5>Message:</h5>
-        <p>@messageHead.Value</p>
+        <h4>@messageHead.Title (@messageHead.SeekerOrLandListingId)</h4>
+        <p>From: @messageHead.SenderName | Read: @messageHead.IsViewed | @messageHead.TimeStamp.LocalDateTime.ToString("d")</p>
+        <p>@messageHead.Value.Substring(0, (@messageHead.Value.Length <messageMaxLength ? messageHead.Value.Length: messageMaxLength)) 
+            @if(messageHead.Value.Length > messageMaxLength) 
+            {
+                      <span>...</span>
+            }
+        </p>
     </div>
 }
