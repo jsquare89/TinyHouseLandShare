@@ -51,21 +51,59 @@ namespace TinyHouseLandshare.Controllers
         //    };
         //}
 
-        public IActionResult Send(MessageViewModel messageViewModel)
+        public IActionResult Send(MessageViewModel messageVM)
         {
             if (ModelState.IsValid)
             {
-                var listingId = _listingService.GetListingIdBySeekerOrLandListingId(messageViewModel.SeekerOrLandListingId);
-                _messagingService.SendMessage(messageViewModel.SenderId, listingId, messageViewModel.Message);
+                var listingId = _listingService.GetListingIdBySeekerOrLandListingId(messageVM.SeekerOrLandListingId);
+                _messagingService.SendInitialdMessage(messageVM.SenderId, messageVM.ReceiverId, listingId, messageVM.Message);
                 return RedirectToAction("Dashboard", "Account");
+            }
+            return BadRequest();
+        }
+
+        public IActionResult SendReply(ReplyMessageViewModel messageVM)
+        {
+            if (ModelState.IsValid)
+            {
+                _messagingService.SendReplyMessage(messageVM.OriginMessageId, messageVM.SenderId, messageVM.UserListingId, messageVM.Message);
+                return RedirectToAction("Message", "Message", new {id=messageVM.OriginMessageId});
             }
             return BadRequest();
         }
 
         public IActionResult Message(Guid id)
         {
-            //var messageViewModels = new 
-            return View();
+            var sender = _messagingService.GetOriginMessageSender(id);
+            var messages = _messagingService.GetMessagesByHeadId(id);
+            var viewMessageViewModel = new ViewMessageViewModel
+            {
+                OriginMessageId = id,
+                OrginMessageSenderId = sender.id,
+                OriginMessageSenderName = sender.name,
+                UserListingId = _messagingService.GetMessageUserListingId(id),
+                Messages = ConvertMessagesToMessageViewModel(messages)
+            };
+            return View(viewMessageViewModel);
         }
+
+        private IEnumerable<MessageViewModel> ConvertMessagesToMessageViewModel(IEnumerable<Message> messages)
+        {
+            var messageViewModelList = new List<MessageViewModel>();
+            foreach(var message in messages)
+            {
+                var messageViewModel = new MessageViewModel
+                {
+                    SenderId = message.SenderId,
+                    Message = message.Value,
+                    TimeStamp = message.TimeStamp
+                };
+
+                messageViewModelList.Add(messageViewModel);
+            }
+            return messageViewModelList;
+        }
+
+
     }
 }

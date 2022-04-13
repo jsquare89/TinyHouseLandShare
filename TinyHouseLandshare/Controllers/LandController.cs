@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Data;
@@ -15,16 +16,19 @@ namespace TinyHouseLandshare.Controllers
         private readonly ILandListingRepository _landListingRepository;
         private readonly IUserListingRepository _userListingRepository;
         private readonly UserManager<UserEntity> _userManager;
+        private readonly IMapper _mapper;
 
         public LandController(IListingService listingService,
                               ILandListingRepository landListingRepository,
                               IUserListingRepository userListingRepository,
-                              UserManager<UserEntity> userManager)
+                              UserManager<UserEntity> userManager,
+                              IMapper mapper)
         {
             _listingService = listingService;
             _landListingRepository = landListingRepository;
             _userListingRepository = userListingRepository;
             _userManager = userManager;
+            _mapper = mapper;
         }
 
         [Route("Land")]
@@ -40,13 +44,23 @@ namespace TinyHouseLandshare.Controllers
         public IActionResult Listing(Guid id)
         {
             var landListing = _listingService.GetLandListing(id);
-
             if(landListing is null)
             {
                 Response.StatusCode = 404;
                 return View("LandNotFound", id);
             }
-            return View(landListing);
+
+            var userListing = _userListingRepository.GetUserListingBySeekerOrLandListingId(id);
+            if(userListing is null)
+            {
+                Response.StatusCode = 404;
+                return View("LandNotFound", id);
+            }
+            var landListingVM = _mapper.Map<LandListingViewModel>(landListing);
+            landListingVM.ListerId = userListing.UserId ;
+            landListingVM.UserListingId = userListing.Id;
+
+            return View(landListingVM);
         }
 
         [HttpGet]

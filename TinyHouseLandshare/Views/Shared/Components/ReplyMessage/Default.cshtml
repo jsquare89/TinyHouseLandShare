@@ -1,0 +1,13 @@
+﻿@model ReplyMessageViewModel
+
+<h3>Reply</h3>
+<div>
+        <form method="post" asp-action="SendReply" asp-controller="Message">
+            @Html.HiddenFor(model => Model.OriginMessageId)
+            @Html.HiddenFor(model => Model.UserListingId)
+            @Html.HiddenFor(model => Model.SenderId)
+            <label>Message</label>
+            <textarea asp-for="Message" class="form-control"></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+</div>

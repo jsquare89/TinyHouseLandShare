@@ -65,3 +65,5 @@ C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Humanizer.dll
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\AutoMapper.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

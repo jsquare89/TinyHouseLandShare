@@ -120,5 +120,10 @@ namespace TinyHouseLandshare.Data
                    where sl.Id == id
                    select sl.Title;
         }
+
+        public UserListing? GetUserListingBySeekerOrLandListingId(Guid Id)
+        {
+            return _context.UserListings.Where(ul => ul.SeekerListingId.Equals(Id) || ul.LandListingId.Equals(Id)).FirstOrDefault();
+        }
     }
 }

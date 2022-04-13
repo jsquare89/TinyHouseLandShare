@@ -5,11 +5,11 @@ using TinyHouseLandshare.ViewModels;
 
 namespace TinyHouseLandshare.ViewComponents
 {
-    public class MessageViewComponent: ViewComponent
+    public class InitialMessageViewComponent: ViewComponent
     {
         private readonly IMessagingService _messagingService;
 
-        public MessageViewComponent(IMessagingService messagingService)
+        public InitialMessageViewComponent(IMessagingService messagingService)
         {
             _messagingService = messagingService;
         }

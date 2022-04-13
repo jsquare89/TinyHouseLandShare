@@ -12,6 +12,7 @@ namespace TinyHouseLandshare.Data
         IEnumerable<LandListing> GetUserLandListings(Guid userId);
         SeekerListing GetUserSeekerListing(Guid userId);
         Guid GetListingIdBySeekerOrLandListing(Guid Id);
+        UserListing? GetUserListingBySeekerOrLandListingId(Guid Id);
         string GetListingTitleBySeekerOrLandListingId(Guid id);
     }
 }

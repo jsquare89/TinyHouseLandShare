@@ -50,11 +50,13 @@ namespace TinyHouseLandshare.Services
                       on m.UserListingId equals ul.Id
                     join u in _context.Users
                       on m.SenderId equals u.Id
-                    where ul.UserId == userId
+                    where ul.UserId == userId || m.SenderId == userId
+                    orderby m.TimeStamp descending
 
                     select new HeadMessageViewModel
                     {
-                        Id = ul.Id,
+                        OriginMessageId = (Guid)(m.OriginMessageId == null? m.Id : m.OriginMessageId),
+                        MessageId = m.Id,
                         SeekerOrLandListingId = (Guid)(ul.SeekerListingId != null ? ul.SeekerListingId : ul.LandListingId),
                         TimeStamp = m.TimeStamp,
                         SenderId = m.SenderId,
@@ -80,9 +82,27 @@ namespace TinyHouseLandshare.Services
             return GetMessages(userId).Where(message => message.IsViewed.Equals(false)).Count();
         }
 
-        public Message SendMessage(Guid senderId,
-                                   Guid listingId,
-                                   string messageValue)
+        public Message SendInitialdMessage(Guid senderId, 
+                                           Guid receiverId,
+                                           Guid listingId,
+                                           string messageValue)
+        {
+            var message = new Message
+            {
+                SenderId = senderId,
+                ReceiverId = receiverId,
+                UserListingId = listingId,
+                TimeStamp = DateTimeOffset.UtcNow,
+                Value = messageValue,
+                IsViewed = false,
+            };
+
+            _context.Messages.Add(message);
+            _context.SaveChanges();
+            return message;
+        }
+
+        public Message SendReplyMessage(Guid originMessageId, Guid senderId, Guid listingId, string messageValue)
         {
             var message = new Message
             {
@@ -90,7 +110,8 @@ namespace TinyHouseLandshare.Services
                 UserListingId = listingId,
                 TimeStamp = DateTimeOffset.UtcNow,
                 Value = messageValue,
-                IsViewed = false
+                IsViewed = false,
+                OriginMessageId = originMessageId
             };
 
             _context.Messages.Add(message);
@@ -106,5 +127,28 @@ namespace TinyHouseLandshare.Services
             _context.SaveChanges();
             return message;
         }
+
+        public IEnumerable<Message> GetMessagesByHeadId(Guid headId)
+        {
+            var results = _context.Messages.
+                Where(m => m.Id.Equals(headId) || m.OriginMessageId.Equals(headId)).
+                OrderBy(m => m.TimeStamp);
+            return results;
+        }
+
+        public (Guid id, string name) GetOriginMessageSender(Guid messageId)
+        {
+            var senderId = _context.Messages.Find(messageId).SenderId;
+            var senderName = _context.Users.Find(senderId).Name;
+            return (senderId, senderName);
+        }
+
+        public Guid GetMessageUserListingId(Guid messageId)
+        {
+            var userListingId = _context.Messages.Find(messageId).UserListingId;
+            return userListingId;
+        }
+
+
     }
 }

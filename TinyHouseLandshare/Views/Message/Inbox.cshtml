@@ -9,7 +9,7 @@
 @foreach(var messageHead in Model.headMessages)
 {
     <div>
-        <h4>@messageHead.Title (@messageHead.SeekerOrLandListingId)</h4>
+        <h4><a asp-controller="message" asp-action="message" asp-route-id="@messageHead.OriginMessageId">@messageHead.Title</a></h4>
         <p>From: @messageHead.SenderName | Read: @messageHead.IsViewed | @messageHead.TimeStamp.LocalDateTime.ToString("d")</p>
         <p>@messageHead.Value.Substring(0, (@messageHead.Value.Length <messageMaxLength ? messageHead.Value.Length: messageMaxLength)) 
             @if(messageHead.Value.Length > messageMaxLength) 

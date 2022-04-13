@@ -15,7 +15,10 @@ namespace TinyHouseLandshare.Models
 
         [ForeignKey("UserId")]
         public ICollection<UserListing> UserListings { get; set; }
-        [ForeignKey("SenderId")]
-        public ICollection<Message> Messages { get; set; }
+
+        [InverseProperty(nameof(Message.Sender))]
+        public ICollection<Message> SentMessages { get; set; }
+        [InverseProperty(nameof(Message.Receiver))]
+        public ICollection<Message> RecievedMessages { get; set; }
     }
 }

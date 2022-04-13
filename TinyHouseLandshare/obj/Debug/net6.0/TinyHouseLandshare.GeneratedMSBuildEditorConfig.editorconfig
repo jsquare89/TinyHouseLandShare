@@ -111,8 +111,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vla2VyXFNlZWtlck5vdEZvdW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Shared/Components/Message/Default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVzc2FnZVxEZWZhdWx0LmNzaHRtbA==
+[C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Shared/Components/InitialMessage/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSW5pdGlhbE1lc3NhZ2VcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Shared/Components/ReplyMessage/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUmVwbHlNZXNzYWdlXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/CODE/Personal Projects/TinyHouseLandShare/TinyHouseLandshare/Views/Shared/Error.cshtml]

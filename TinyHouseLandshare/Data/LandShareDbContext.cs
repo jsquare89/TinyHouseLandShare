@@ -21,6 +21,18 @@ namespace TinyHouseLandshare.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Sender)
+                .WithMany(u => u.SentMessages)
+                .HasForeignKey(u => u.SenderId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Message>()
+               .HasOne(m => m.Receiver)
+               .WithMany(u => u.RecievedMessages)
+               .HasForeignKey(u => u.ReceiverId)
+               .OnDelete(DeleteBehavior.Restrict);
         }
 
     }

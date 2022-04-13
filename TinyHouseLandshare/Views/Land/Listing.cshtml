@@ -1,6 +1,6 @@
 ﻿@inject SignInManager<UserEntity> signInManager;
 @inject UserManager<UserEntity> userManager;
-@model LandListing
+@model LandListingViewModel
 @{
     ViewData["Title"] = "Land Listing";
     var userId = (userManager.GetUserId(User) is not null)? new Guid(@userManager.GetUserId(User)): Guid.Empty;
@@ -32,6 +32,6 @@
         @if (signInManager.IsSignedIn(User))
         {
             <div>
-                @await Component.InvokeAsync("Message", new {ListingId = @Model.Id, SenderId = userId })
+                @await Component.InvokeAsync("InitialMessage", new {ListingId = @Model.Id, SenderId = userId, RecieverId = @Model.ListerId })
             </div>
         }

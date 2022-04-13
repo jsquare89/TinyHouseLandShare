@@ -2,7 +2,8 @@
 {
     public class HeadMessageViewModel
     {
-        public Guid Id { get; set; }
+        public Guid OriginMessageId { get; set; }
+        public Guid MessageId { get; set; }
         public Guid SeekerOrLandListingId { get; set; }
         public string Title { get; set; }
         public DateTimeOffset TimeStamp { get; set; }
