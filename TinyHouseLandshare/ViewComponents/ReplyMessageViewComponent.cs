@@ -10,13 +10,17 @@ namespace TinyHouseLandshare.ViewComponents
 
         }
 
-        public IViewComponentResult Invoke(Guid originMessageId, Guid userListingId, Guid senderId)
+        public IViewComponentResult Invoke(Guid senderId,
+                                           Guid receiverId,
+                                           Guid userListingId,
+                                           Guid originMessageId)
         {
             ReplyMessageViewModel viewModel = new ReplyMessageViewModel()
             {
-                OriginMessageId = originMessageId,
-                UserListingId = userListingId,
                 SenderId = senderId,
+                ReceiverId = receiverId,
+                UserListingId = userListingId,
+                OriginMessageId = originMessageId,                
                 Message = ""
             };
             return View(viewModel);

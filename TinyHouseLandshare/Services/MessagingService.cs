@@ -50,7 +50,7 @@ namespace TinyHouseLandshare.Services
                       on m.UserListingId equals ul.Id
                     join u in _context.Users
                       on m.SenderId equals u.Id
-                    where ul.UserId == userId || m.SenderId == userId
+                    where m.ReceiverId == userId || m.SenderId == userId
                     orderby m.TimeStamp descending
 
                     select new HeadMessageViewModel
@@ -65,6 +65,7 @@ namespace TinyHouseLandshare.Services
                         Value = m.Value
                     }).ToList();
             results = UpdateMessageHeadTitles(results);
+            results = results.OrderByDescending(m => m.TimeStamp).GroupBy(m => m.OriginMessageId).Select(m => m.FirstOrDefault()).ToList();
             return results;
         }
 
@@ -84,14 +85,14 @@ namespace TinyHouseLandshare.Services
 
         public Message SendInitialdMessage(Guid senderId, 
                                            Guid receiverId,
-                                           Guid listingId,
+                                           Guid userListingId,
                                            string messageValue)
         {
             var message = new Message
             {
                 SenderId = senderId,
                 ReceiverId = receiverId,
-                UserListingId = listingId,
+                UserListingId = userListingId,
                 TimeStamp = DateTimeOffset.UtcNow,
                 Value = messageValue,
                 IsViewed = false,
@@ -102,12 +103,17 @@ namespace TinyHouseLandshare.Services
             return message;
         }
 
-        public Message SendReplyMessage(Guid originMessageId, Guid senderId, Guid listingId, string messageValue)
+        public Message SendReplyMessage(Guid senderId, 
+                                        Guid receiverId,
+                                        Guid userListingId,
+                                        string messageValue,
+                                        Guid originMessageId)
         {
             var message = new Message
             {
                 SenderId = senderId,
-                UserListingId = listingId,
+                ReceiverId = receiverId,
+                UserListingId = userListingId,
                 TimeStamp = DateTimeOffset.UtcNow,
                 Value = messageValue,
                 IsViewed = false,

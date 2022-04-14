@@ -9,11 +9,12 @@ namespace TinyHouseLandshare.Services
                                     Guid receiverId,
                                     Guid listingId,
                                     string messageValue);
-        Message SendReplyMessage(Guid originMessageId, 
-                                 Guid senderId, 
-                                 Guid listingId, 
-                                 string messageValue);
-        
+        Message SendReplyMessage(Guid senderId,
+                                 Guid receiverId,
+                                 Guid userListingId,
+                                 string messageValue,
+                                 Guid originMessageId);
+
         IEnumerable<Message> GetMessages(Guid userId);
         IEnumerable<Message> GetUserMessageHeads(Guid userId);
         IEnumerable<Message> GetMessagesByHeadId(Guid headId);

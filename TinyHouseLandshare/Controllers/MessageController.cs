@@ -55,7 +55,10 @@ namespace TinyHouseLandshare.Controllers
         {
             if (ModelState.IsValid)
             {
-                _messagingService.SendInitialdMessage(messageVM.SenderId, messageVM.ReceiverId, messageVM.UserListingId, messageVM.Message);
+                _messagingService.SendInitialdMessage(messageVM.SenderId, 
+                                                      messageVM.ReceiverId, 
+                                                      messageVM.UserListingId, 
+                                                      messageVM.Message);
                 return RedirectToAction("Dashboard", "Account");
             }
             return BadRequest();
@@ -65,7 +68,11 @@ namespace TinyHouseLandshare.Controllers
         {
             if (ModelState.IsValid)
             {
-                _messagingService.SendReplyMessage(messageVM.OriginMessageId, messageVM.SenderId, messageVM.UserListingId, messageVM.Message);
+                _messagingService.SendReplyMessage(messageVM.SenderId, 
+                                                   messageVM.ReceiverId, 
+                                                   messageVM.UserListingId,
+                                                   messageVM.Message, 
+                                                   messageVM.OriginMessageId);
                 return RedirectToAction("Message", "Message", new {id=messageVM.OriginMessageId});
             }
             return BadRequest();
@@ -78,7 +85,7 @@ namespace TinyHouseLandshare.Controllers
             var viewMessageViewModel = new ViewMessageViewModel
             {
                 OriginMessageId = id,
-                OrginMessageSenderId = sender.id,
+                OriginMessageSenderId = sender.id,
                 OriginMessageSenderName = sender.name,
                 UserListingId = _messagingService.GetMessageUserListingId(id),
                 Messages = ConvertMessagesToMessageViewModel(messages)

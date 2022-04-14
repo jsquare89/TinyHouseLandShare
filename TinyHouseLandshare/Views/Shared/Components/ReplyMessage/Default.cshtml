@@ -6,6 +6,7 @@
             @Html.HiddenFor(model => Model.OriginMessageId)
             @Html.HiddenFor(model => Model.UserListingId)
             @Html.HiddenFor(model => Model.SenderId)
+            @Html.HiddenFor(model => Model.ReceiverId)
             <label>Message</label>
             <textarea asp-for="Message" class="form-control"></textarea>
             <button type="submit" class="btn-primary">Send Message</button>
