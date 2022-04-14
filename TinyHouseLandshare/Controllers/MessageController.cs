@@ -55,8 +55,7 @@ namespace TinyHouseLandshare.Controllers
         {
             if (ModelState.IsValid)
             {
-                var listingId = _listingService.GetListingIdBySeekerOrLandListingId(messageVM.SeekerOrLandListingId);
-                _messagingService.SendInitialdMessage(messageVM.SenderId, messageVM.ReceiverId, listingId, messageVM.Message);
+                _messagingService.SendInitialdMessage(messageVM.SenderId, messageVM.ReceiverId, messageVM.UserListingId, messageVM.Message);
                 return RedirectToAction("Dashboard", "Account");
             }
             return BadRequest();

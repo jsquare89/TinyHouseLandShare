@@ -32,6 +32,6 @@
         @if (signInManager.IsSignedIn(User))
         {
             <div>
-                @await Component.InvokeAsync("InitialMessage", new {ListingId = @Model.Id, SenderId = userId, RecieverId = @Model.ListerId })
+                @await Component.InvokeAsync("InitialMessage", new {UserListingId = Model.UserListingId, SenderId = userId, ReceiverId = Model.ListerId})
             </div>
         }

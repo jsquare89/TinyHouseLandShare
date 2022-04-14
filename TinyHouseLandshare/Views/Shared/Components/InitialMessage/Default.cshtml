@@ -3,8 +3,9 @@
 <h3>Message User about this Listing</h3>
 <div>
         <form method="post" asp-action="Send" asp-controller="Message">
-            @Html.HiddenFor(model => Model.SeekerOrLandListingId)
-            @Html.HiddenFor(model => Model.SenderId)
+            @Html.HiddenFor(model => Model.UserListingId)
+            @Html.HiddenFor(model => Model.SenderId) 
+            @Html.HiddenFor(model => Model.ReceiverId)
             <label>Message</label>
             <textarea asp-for="Message" class="form-control"></textarea>
             <button type="submit" class="btn-primary">Send Message</button>

@@ -14,12 +14,13 @@ namespace TinyHouseLandshare.ViewComponents
             _messagingService = messagingService;
         }
 
-        public IViewComponentResult Invoke(Guid listingId, Guid senderId)
+        public IViewComponentResult Invoke(Guid userListingId, Guid senderId, Guid receiverId)
         {
             MessageViewModel viewModel = new MessageViewModel()
             {
-                SeekerOrLandListingId = listingId,
+                UserListingId = userListingId,
                 SenderId = senderId,
+                ReceiverId = receiverId,
                 Message = ""
             };
             return View(viewModel);
