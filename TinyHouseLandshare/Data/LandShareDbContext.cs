@@ -30,7 +30,7 @@ namespace TinyHouseLandshare.Data
 
             modelBuilder.Entity<Message>()
                .HasOne(m => m.Receiver)
-               .WithMany(u => u.RecievedMessages)
+               .WithMany(u => u.ReceivedMessages)
                .HasForeignKey(u => u.ReceiverId)
                .OnDelete(DeleteBehavior.Restrict);
         }

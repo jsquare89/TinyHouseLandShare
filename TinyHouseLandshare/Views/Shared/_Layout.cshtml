@@ -10,104 +10,106 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TinyHouseLandshare</title>
+    <!--=============== BOXICONS ===============-->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TinyHouseLandshare.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TinyHouseLandshare</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Sale" asp-action="Index">For Sale</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto">
-                        @if(signInManager.IsSignedIn(User))
-                        {
-                            <li>@User.Identity.Name</li>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index">Tiny House<br />Land Share</a>
+
+            <div class="nav__list">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="nav__link nav__link-fade-up">Home</a>
+                <a asp-area="" asp-controller="Sale" asp-action="Index" class="nav__link nav__link-fade-up">For Sale</a>
+                <a asp-area="" asp-controller="Home" asp-action="Contact" class="nav__link nav__link-fade-up">Contact</a>
+            </div>
+            
+
+            <div class="nav__user-management">
+                <a href="#" class="">
+                    <i class="bx bx-search nav__icon"></i>
+                </a>
+
+                <span>|</span>
+
+                @if(signInManager.IsSignedIn(User))
+                {
+                    <i class="bx bx-user"></i>
+                    <ul class="nav__links" style="padding: 0; margin: 0;">
+                        <li>@User.Identity.Name</li>
                             <ul>
-                                <li>@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId })</li>
+                                <li>@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class="nav-link text-dark"})</li>
                                 <li><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></li>
                                 <li><form method="post" asp-action="Logout" asp-controller="Account">
-                                    <button type="submit" class="nav-link btn btn-link py-0 text-dark" style="width:auto">
+                                    <button type="submit" style="width:auto">
                                         Logout
                                     </button>
                                 </form></li>
                             </ul>
-
-                            
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
-                            </li>
-                        }
                     </ul>
-                </div>
+                }
+                else
+                {
+                   <a asp-area="" asp-controller="Account" asp-action="Login" class="nav__button">Login</a>
+                }
             </div>
+
+            
         </nav>
+
+        
     </header>
-    <div class="container-fluid">
+
+  
+
+    <div class="features__container container">
         @if(User.IsInRole("Admin"))
         {
             <div>
-                @Html.ActionLink("Administrator Dahsboard", "Dashboard", "Admin")
+                @Html.ActionLink("Administrator Dahsboard", "Dashboard", "Admin", null , new { @class=""})
             </div>
             <div>
-                @Html.ActionLink("Approve Listings", "ApproveListing", "Admin")
+                @Html.ActionLink("Approve Listings", "ApproveListing", "Admin", null , new { @class=""})
             </div>
         }
         @if (signInManager.IsSignedIn(User))
         {
             <div>
-                @Html.ActionLink("Dashboard/Your Listings", "Dashboard", "Account")
+                @Html.ActionLink("Dashboard/Your Listings", "Dashboard", "Account", null , new { @class=""})
             </div>
             <div>
-                @Html.ActionLink("Message Inbox", "Inbox", "Message", new { userId = userId })
+                @Html.ActionLink("Message Inbox", "Inbox", "Message", new { userId = userId }, new { @class=""})
             </div>
         }
          <div>
-            @Html.ActionLink("Search Tiny House Owners", "search", "Seeker")
+            @Html.ActionLink("Search Tiny House Owners", "search", "Seeker", null , new { @class=""})
         </div>
         <div>
-            @Html.ActionLink("Search Land", "search", "Land")
+            @Html.ActionLink("Search Land", "search", "Land", null , new { @class=""})
         </div>
         <div>
-            @Html.ActionLink("Seeker Listings", "index", "Seeker")
+            @Html.ActionLink("Seeker Listings", "index", "Seeker", null , new { @class=""})
         </div>
         <div>
-            @Html.ActionLink("Land Listings", "index", "Land")
+            @Html.ActionLink("Land Listings", "index", "Land", null , new { @class=""})
         </div>
     </div>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    <div>
+        <main role="main" class="main__container container">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer class="footer text-muted">
+        <div class="footer__container container">
             &copy; 2022 - TinyHouseLandshare - <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

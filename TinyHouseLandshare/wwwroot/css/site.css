@@ -1,18 +1,245 @@
-html {
-  font-size: 14px;
+/*==================== GOOGLE FONTS ====================*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap');
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+    --header-height: 3rem;
+    --dark-green-color: hsl(146, 28%, 20%);
+    --medium-green-color: hsl(129, 18%, 40%);
+    --bright-green-color: hsl(129, 100%, 33%);
+    --off-green-color: hsl(168, 47%, 22%);
+    --light-green-color: hsl(96, 29%, 59%);
+    --lighter-green-color: hsl(98, 56%, 86%);
+    --yellow-color: hsl(42, 81%, 62%);
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+    --title-color: #000;
+    --text-color: #000;
+    --text-color-light: rgba(0, 0, 0, 0.685);
+    --input-color: #000;
+    --body-color: #FFFFFF;
+    --container-color: #000;
+    /*========== Font and typography ==========*/
+    --body-font: 'Rubik', sans-serif;
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    /*========== Margins Bottom ==========*/
+    /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+    :root {
+        --big-font-size: 3rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*==================== BASE ====================*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0 0 var(--header-height) 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+
+
+h1, h2, h3, h4 {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--title-color);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--bright-green-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*==================== LAYOUT ====================*/
+.container{
+    max-width: 1024px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.grid{
+    display: grid;
+    gap: 1.5rem;
+}
+
+.header{
+    width: 100%;
+    background-color: var(--white-color);
+    /*background-image: linear-gradient(to right, var(--off-green-color) , var(--light-green-color));*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .15) ;
+}
+
+/*==================== NAV ====================*/
+.nav{
+    position: relative;
+    max-width: 1140px;
+    display: flex;
+    align-items: center;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    
+}
+
+.nav__logo{
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    padding-left: var(--mb-1-5);
+    padding-right: var(--mb-1-5);
+}
+
+.nav__logo:hover{
+    color: var(--bright-green-color);
+    transition: .3s;
+}
+
+
+.nav__list{
+    display: flex;
+    column-gap: 1.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 2rem;
+    
+}
+
+.nav__link{
+    color: var(--text-color-light);
+    font-size: var(--small-font-size);
+    position: relative;
+    display: inline-block;
+
+}
+
+.nav__link:hover{
+    color: var(--bright-green-color);
+    opacity: 1;
+    
+}
+
+.nav__link::before {
+    transition: 300ms;
+    height: 2px;
+    content: "";
+    position: absolute;
+    background-color: var(--bright-green-color);
+  }
+
+.nav__link-fade-up::before {
+    width: 100%;
+    bottom: -10px;
+    opacity: 0;
+  }
+  
+.nav__link-fade-up:hover::before {
+    bottom: -3px;
+    opacity: 1;
+  }
+    
+.nav__user-management{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    right: 4rem;
+    top: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.nav__user-management a:hover{
+    color: var(--bright-green-color);
+    transition: .3s;
+}
+
+.nav__icon{
+    padding-right: .5rem;
+}
+
+.nav__button{
+    padding-left: .5rem;
+    color: #000;
+}
+
+.nav__search{
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+/*==================== Mobile Devices ====================*/
+
+/*==================== Medium Devices ====================*/
+
+
+/*==================== Large Devices ====================*/
+@media screen and (min-width: 1140px) {
+    
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .features__container{
+        padding-top: 6rem;
+    }
 }

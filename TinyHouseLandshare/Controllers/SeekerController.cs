@@ -87,12 +87,12 @@ namespace TinyHouseLandshare.Controllers
             };
 
 
-            _listingService.AddSeekerListing(seekerListing, LoggedInUserId());
+            _listingService.AddSeekerListing(seekerListing, GetLoggedInUserId());
 
             return RedirectToAction("Dashboard", "Account");
         }
 
-        private Guid LoggedInUserId()
+        private Guid GetLoggedInUserId()
         {
             return new Guid(_userManager.GetUserId(User));
         }

@@ -28,13 +28,13 @@ namespace TinyHouseLandshare.Controllers
         [HttpGet]
         public IActionResult ApproveListing()
         {
-            var seekerListingsViewModel = new ApproveListingViewModel
+            var approveListingsViewModel = new ApproveListingViewModel
             {
                 seekerListings = _listingService.GetAllUnapprovedSubmittedSeekerListings(),
                 landListings = _listingService.GetAllUnApprovedSubmittedLandListings()
             };
 
-            return View(seekerListingsViewModel);
+            return View(approveListingsViewModel);
         }
 
         [HttpPost]

@@ -84,7 +84,7 @@ namespace TinyHouseLandshare.Data
         public SeekerListing GetUserSeekerListing(Guid userId)
         {
             var listingId = _context.UserListings.
-                Where(l => l.UserId.Equals(userId)).
+                Where(l => l.UserId.Equals(userId) && l.SeekerListing != null).
                 Select(l => l.SeekerListingId).FirstOrDefault();
             var seekerListing = _context.SeekerListings.
                 Where(l => l.Id == listingId).FirstOrDefault();

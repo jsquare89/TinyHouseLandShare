@@ -19,6 +19,6 @@ namespace TinyHouseLandshare.Models
         [InverseProperty(nameof(Message.Sender))]
         public ICollection<Message> SentMessages { get; set; }
         [InverseProperty(nameof(Message.Receiver))]
-        public ICollection<Message> RecievedMessages { get; set; }
+        public ICollection<Message> ReceivedMessages { get; set; }
     }
 }

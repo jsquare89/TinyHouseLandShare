@@ -1,0 +1,36 @@
+far Background left
+#283839
+rgba(40,56,57,255)
+
+far Background Right
+#2d5445
+rgba(45,84,69,255)
+
+
+close background
+left
+#1d5048
+rgba(29,80,72,255)
+right
+#93b97d
+rgba(147,185,125,255)
+
+
+yellow highlight color 10%
+#eebb4d
+rgba(238,187,77,255)
+
+
+dark green
+#244030
+rgba(36,64,48,255)
+
+
+
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
+
+
+ <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
