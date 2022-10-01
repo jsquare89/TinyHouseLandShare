@@ -4,34 +4,34 @@
     ViewBag.Title = "User Registration";
 }
 
-<h1>User Registration</h1>
 
-<div class="row">
-    <div class="col-md-12">
-        <form method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name"></label>
-                <input asp-for="Name" class="form-control"/>
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control"/>
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password"></label>
-                <input type="password" asp-for="Password" class="form-control"/>
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConfirmPassword"></label>
-                <input type="password" asp-for="ConfirmPassword" class="form-control"/>
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+
+<div class="mx-auto px-6 py-4 rounded-lg drop-shadow-lg bg-white max-w-sm md:max-w-lg">
+    <form method="post" class="flex flex-col">
+        <div asp-validation-summary="All" class="text-red-600"></div>
+        <div class="flex flex-col my-2">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="bg-white p-2 border rounded-md drop-shadow-sm"/>
+            <span asp-validation-for="Name" class="text-red-600"></span>
+        </div>
+        <div class="flex flex-col my-2">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="bg-white p-2 border rounded-md drop-shadow-sm"/>
+            <span asp-validation-for="Email" class="text-red-600"></span>
+        </div>
+        <div class="flex flex-col my-2">
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password" class="bg-white p-2 border rounded-md drop-shadow-sm"/>
+            <span asp-validation-for="Password" class="text-red-600"></span>
+        </div>
+        <div class="flex flex-col my-2">
+            <label asp-for="ConfirmPassword"></label>
+            <input type="password" asp-for="ConfirmPassword" class="bg-white p-2 border rounded-md drop-shadow-sm"/>
+            <span asp-validation-for="ConfirmPassword" class="text-red-600"></span>
+        </div>
+        <button type="submit" class="py-2 px-6 mt-4 mb-2 ml-auto mr-auto rounded-md bg-green-800 text-white drop-shadow-md">Register</button>
+    </form>
+    <div class="flex justify-center pt-2">
+        <a class="underline" asp-area="" asp-controller="Account" asp-action="Login">Already Registered? Go to Login</a>
     </div>
-
 </div>

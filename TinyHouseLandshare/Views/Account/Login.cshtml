@@ -4,34 +4,34 @@
     ViewBag.Title = "User Login";
 }
 
-<h1>User Login</h1>
 
-<div class="row">
-    <div class="col-md-12">
-        <form method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control"/>
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password"></label>
-                <input type="password" asp-for="Password" class="form-control"/>
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label asp-for="RememberMe">
-                        <input asp-for="RememberMe" />
-                        @Html.DisplayNameFor(m => m.RememberMe)
-                    </label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-    </div>
-    <div>
-        <p>Don't have an account? <a class="text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a> </p>
+
+
+
+<div class="mx-auto px-6 py-4 rounded-lg drop-shadow-lg bg-white max-w-sm md:max-w-lg">
+    <form method="post" class="flex flex-col mb-4">
+        <div asp-validation-summary="All" class="text-red-600"></div>
+        <div class="flex flex-col my-2">
+            <label asp-for="Email" class="mb-1"></label>
+            <input asp-for="Email" class="bg-white p-2 border rounded-md drop-shadow-sm"/>
+            <span asp-validation-for="Email" class="text-red-600 my-1"></span>
+        </div>
+        <div class="flex flex-col my-2">
+            <label asp-for="Password" class="mb-1"></label>
+            <input type="password" asp-for="Password" class="bg-white p-2 border rounded-md drop-shadow-sm" />
+            <span asp-validation-for="Password" class="text-red-600 my-1"></span>
+        </div>
+            
+        <div class="my-2">
+            <label class="" asp-for="RememberMe">
+                <input type="checkbox" asp-for="RememberMe" class="h-4 w-4 align-middle" />
+                <span class="align-middle">@Html.DisplayNameFor(m => m.RememberMe)</span>
+            </label>
+        </div>
+        <button type="submit" class="py-2 px-6 ml-auto mr-auto rounded-md bg-green-800 text-white drop-shadow-md">Login</button>
+    </form>
+    <div class="flex flex-col items-center pt-2">
+        <a class="underline" asp-area="" asp-controller="Account" asp-action="ResetPassword">Forgot your Password?</a>
+        <a class="underline" asp-area="" asp-controller="Account" asp-action="Register">Don't have an account? Register</a>
     </div>
 </div>

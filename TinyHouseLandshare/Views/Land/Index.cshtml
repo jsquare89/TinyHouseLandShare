@@ -9,7 +9,7 @@
 
     @foreach(var listing in Model)
     {
-        <div>
+        <div class="">
             <img src="" title="seeker main image"/>
             <h1><a asp-controller="land" asp-action="listing" asp-route-id="@listing.Id" >@listing.Title</a></h1>
             <p>@listing.Location</p>

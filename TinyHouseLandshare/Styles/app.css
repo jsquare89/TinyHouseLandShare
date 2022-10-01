@@ -1,0 +1,10 @@
+﻿
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .header-nav-link {
+        @apply relative before:duration-300 hover:text-green-700 before:absolute before:bg-green-700 before:w-[100%] before:h-[2px] before:top-10 before:opacity-0 before:hover:top-6 before:hover:opacity-100;
+    }
+}

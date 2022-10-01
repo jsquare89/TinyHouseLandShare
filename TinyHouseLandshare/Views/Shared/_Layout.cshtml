@@ -12,60 +12,62 @@
     <title>@ViewData["Title"] - TinyHouseLandshare</title>
     <!--=============== BOXICONS ===============-->
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet' />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/TinyHouseLandshare.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
-<body>
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a class="nav__logo" asp-area="" asp-controller="Home" asp-action="Index">Tiny House<br />Land Share</a>
+<body class="h-[100vh] flex  flex-col">
+    <header class="bg-white md:drop-shadow-md " id="header">
+        <!-- Navbar -->
+        <nav class="relative container mx-auto px-6 py-3">
+            <!-- Flex container -->
+            <div class="flex items-center justify-between">
+                <!-- Nav Logo -->
+                <a class="text-xl text-bold mx-5 hover:text-green-700" asp-area="" asp-controller="Home" asp-action="Index">Tiny House<br />Land Share</a>
+                <!-- Menu Items -->
+                <div class="hidden space-x-6 pl-10 mr-auto md:flex">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="header-nav-link">Home</a>
+                    <a asp-area="" asp-controller="Sale" asp-action="Index" class="header-nav-link">For Sale</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Contact" class="header-nav-link">Contact</a>
+                </div>
 
-            <div class="nav__list">
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="nav__link nav__link-fade-up">Home</a>
-                <a asp-area="" asp-controller="Sale" asp-action="Index" class="nav__link nav__link-fade-up">For Sale</a>
-                <a asp-area="" asp-controller="Home" asp-action="Contact" class="nav__link nav__link-fade-up">Contact</a>
-            </div>
-            
+                <!-- Login & Links -->
+                <div class="px-6">
+                    <a href="#" class="">
+                        <i class="bx bx-search nav__icon"></i>
+                    </a>
 
-            <div class="nav__user-management">
-                <a href="#" class="">
-                    <i class="bx bx-search nav__icon"></i>
-                </a>
+                    <span>|</span>
 
-                <span>|</span>
-
-                @if(signInManager.IsSignedIn(User))
-                {
-                    <i class="bx bx-user"></i>
-                    <ul class="nav__links" style="padding: 0; margin: 0;">
-                        <li>@User.Identity.Name</li>
-                            <ul>
-                                <li>@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class="nav-link text-dark"})</li>
-                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></li>
-                                <li><form method="post" asp-action="Logout" asp-controller="Account">
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <i class="bx bx-user"></i>
+                        <ul class="" style="padding: 0; margin: 0;">
+                            <li>@User.Identity.Name</li>
+                            <li>@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class="nav-link text-dark"})</li>
+                            <li><a class="" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></li>
+                            <li>
+                                <form method="post" asp-action="Logout" asp-controller="Account">
                                     <button type="submit" style="width:auto">
                                         Logout
                                     </button>
-                                </form></li>
-                            </ul>
-                    </ul>
-                }
-                else
-                {
-                   <a asp-area="" asp-controller="Account" asp-action="Login" class="nav__button">Login</a>
-                }
+                                </form>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <a asp-area="" asp-controller="Account" asp-action="Login" class="nav__button">Login</a>
+                    }
+                </div>
+
             </div>
-
-            
-        </nav>
-
-        
+        </nav>  
     </header>
 
   
-
-    <div class="features__container container">
+    <!-- Features links -->
+    <div class="container mx-auto p-6">
         @if(User.IsInRole("Admin"))
         {
             <div>
@@ -98,20 +100,23 @@
         </div>
     </div>
 
-    <div>
-        <main role="main" class="main__container container">
+    <!-- Main - Render body -->
+    <div class="container mx-auto p-6">
+        <main role="main" class="">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="footer text-muted">
-        <div class="footer__container container">
-            &copy; 2022 - TinyHouseLandshare - <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+    <!-- Footer -->
+
+    <footer class="mt-auto bg-green-700">
+        <div class="container mx-auto px-6 py-10 justify-center flex text-white">
+            <span>&copy; 2022 - TinyHouseLandshare - <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></span>
         </div>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
