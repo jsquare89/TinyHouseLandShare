@@ -6,7 +6,7 @@
 
 
 
-<div class="mx-auto px-6 py-4 rounded-lg drop-shadow-lg bg-white max-w-sm md:max-w-lg">
+<div class="mx-auto px-6 py-4 rounded-sm drop-shadow-lg bg-white max-w-sm md:max-w-lg">
     <form method="post" class="flex flex-col">
         <div asp-validation-summary="All" class="text-red-600"></div>
         <div class="flex flex-col my-2">
@@ -29,7 +29,7 @@
             <input type="password" asp-for="ConfirmPassword" class="bg-white p-2 border rounded-md drop-shadow-sm"/>
             <span asp-validation-for="ConfirmPassword" class="text-red-600"></span>
         </div>
-        <button type="submit" class="py-2 px-6 mt-4 mb-2 ml-auto mr-auto rounded-md bg-green-800 text-white drop-shadow-md">Register</button>
+        <button type="submit" class="py-2 px-6 mt-4 mb-2 ml-auto mr-auto rounded-sm bg-green-700 hover:bg-green-800 text-white drop-shadow-md">Register</button>
     </form>
     <div class="flex justify-center pt-2">
         <a class="underline" asp-area="" asp-controller="Account" asp-action="Login">Already Registered? Go to Login</a>

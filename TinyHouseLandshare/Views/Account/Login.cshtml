@@ -8,7 +8,7 @@
 
 
 
-<div class="mx-auto px-6 py-4 rounded-lg drop-shadow-lg bg-white max-w-sm md:max-w-lg">
+<div class="mx-auto px-6 py-4 rounded-sm drop-shadow-lg bg-white max-w-sm md:max-w-lg">
     <form method="post" class="flex flex-col mb-4">
         <div asp-validation-summary="All" class="text-red-600"></div>
         <div class="flex flex-col my-2">
@@ -28,7 +28,7 @@
                 <span class="align-middle">@Html.DisplayNameFor(m => m.RememberMe)</span>
             </label>
         </div>
-        <button type="submit" class="py-2 px-6 ml-auto mr-auto rounded-md bg-green-800 text-white drop-shadow-md">Login</button>
+        <button type="submit" class="py-2 px-6 ml-auto mr-auto rounded-sm bg-green-700 hover:bg-green-800 text-white drop-shadow-md">Login</button>
     </form>
     <div class="flex flex-col items-center pt-2">
         <a class="underline" asp-area="" asp-controller="Account" asp-action="ResetPassword">Forgot your Password?</a>

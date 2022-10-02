@@ -4,13 +4,13 @@
     ViewBag.Title = "Search Land";
 }
 
-<div>
-    <h1>@ViewBag.Title</h1>
+<div class="bg-green-700 p-6 mx-auto text-white rounded-sm drop-shadow-lg max-w-4xl ">
     <form method="post">
          <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Location">Location</label>
-                <select name="Location" asp-for="Location">
+         <div class="flex flex-col items-center md:justify-left md:flex-row">
+            <div class="flex flex-col py-2">
+                <label asp-for="Location" class="">Location</label>
+                <select name="Location" asp-for="Location" class="px-2 py-1 text-black w-64">
                     <option value="Any">Any</option>
                     <option value="Vancouver">Vancouver</option>
                     <option value="Langley">Langley</option>
@@ -19,26 +19,30 @@
                     <option value="Victoria">Victoria</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label asp-for="waterConnection">Water Connection</label>
-                <input type="checkbox" asp-for="waterConnection" class="">
+            <div class="flex flex-row flex-wrap my-6 mx-4 md:text-right">
+                <div class="w-full sm:w-1/2">
+                    <label asp-for="waterConnection">Water</label>
+                    <input type="checkbox" asp-for="waterConnection" class="">
+                </div>
+                <div class="w-full sm:w-1/2">
+                    <label asp-for="petsAllowed">Pets Allowed</label>
+                    <input type="checkbox" asp-for="petsAllowed" class="">
+                </div>
+                <div class="w-full sm:w-1/2">
+                    <label asp-for="electricalConnection">Electrical</label>
+                    <input type="checkbox" asp-for="electricalConnection" class="">
+                </div>
+                <div class="w-full sm:w-1/2">
+                    <label asp-for="childFriendly">Child Friendly</label>
+                    <input type="checkbox" asp-for="childFriendly" class="">
+                </div>
+                <div class="w-full sm:w-1/2">
+                    <label asp-for="wifiConnection">Internet</label>
+                    <input type="checkbox" asp-for="wifiConnection" class="">
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="electricalConnection">Electrical Connection</label>
-                <input type="checkbox" asp-for="electricalConnection" class="">
-            </div>
-            <div class="form-group">
-                <label asp-for="wifiConnection">Wifi Connection</label>
-                <input type="checkbox" asp-for="wifiConnection" class="">
-            </div>
-            <div class="form-group">
-                <label asp-for="petsAllowed">Pets Allowed</label>
-                <input type="checkbox" asp-for="petsAllowed" class="">
-            </div>
-            <div class="form-group">
-                <label asp-for="childFriendly">Child Friendly</label>
-                <input type="checkbox" asp-for="childFriendly" class="">
-            </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="py-2 px-6 text-bold text-white bg-green-800 shadow-md rounded-sm border border-white hover:bg-green-900">Search</button>
+        </div>
+           
     </form>
 </div>

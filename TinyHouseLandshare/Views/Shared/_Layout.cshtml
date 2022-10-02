@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body class="h-[100vh] flex  flex-col">
-    <header class="bg-white md:drop-shadow-md " id="header">
+    <header class="bg-white drop-shadow-md" id="header">
         <!-- Navbar -->
         <nav class="relative container mx-auto px-6 py-3">
             <!-- Flex container -->
@@ -33,17 +33,11 @@
 
                 <!-- Login & Links -->
                 <div class="px-6">
-                    <a href="#" class="">
-                        <i class="bx bx-search nav__icon"></i>
-                    </a>
-
-                    <span>|</span>
-
                     @if (signInManager.IsSignedIn(User))
                     {
                         <i class="bx bx-user"></i>
                         <ul class="" style="padding: 0; margin: 0;">
-                            <li>@User.Identity.Name</li>
+                            <li>Welcome, @User.Identity.Name</li>
                             <li>@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class="nav-link text-dark"})</li>
                             <li><a class="" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></li>
                             <li>
@@ -57,7 +51,7 @@
                     }
                     else
                     {
-                        <a asp-area="" asp-controller="Account" asp-action="Login" class="nav__button">Login</a>
+                        <a asp-area="" asp-controller="Account" asp-action="Login" class="px-4 py-2 text-white rounded-sm bg-green-700 hover:bg-green-800 drop-shadow-sm">Login</a>
                     }
                 </div>
 
@@ -66,9 +60,25 @@
     </header>
 
   
-    <!-- Features links -->
-    <div class="container mx-auto p-6">
-        @if(User.IsInRole("Admin"))
+    <!-- BASE NAV: Features links & Search box -->
+    <div class="bg-green-700 drop-shadow-md">
+        <div class="container mx-auto py-1 md:py-2 px-6">
+            <div class="flex flex-col items-center md:flex-row md:justify-left"> 
+                @Html.ActionLink("Seeker Listings", "index", "Seeker", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white"})
+                @Html.ActionLink("Land Listings", "index", "Land", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white"})
+                @Html.ActionLink("Search Home Owners", "search", "Seeker", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white"})
+                @Html.ActionLink("Search Land", "search", "Land", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white active:border-white"})
+               
+                @*<a href="#" class="px-4 py-2 bg-green-700 text-white">
+                    Search <i class="bx bx-search nav__icon"></i>
+                </a>*@
+            </div>         
+        </div>
+    </div>
+
+    <!-- User Features & Links -->
+    <div>
+        @if (User.IsInRole("Admin"))
         {
             <div>
                 @Html.ActionLink("Administrator Dahsboard", "Dashboard", "Admin", null , new { @class=""})
@@ -86,22 +96,10 @@
                 @Html.ActionLink("Message Inbox", "Inbox", "Message", new { userId = userId }, new { @class=""})
             </div>
         }
-         <div>
-            @Html.ActionLink("Search Tiny House Owners", "search", "Seeker", null , new { @class=""})
-        </div>
-        <div>
-            @Html.ActionLink("Search Land", "search", "Land", null , new { @class=""})
-        </div>
-        <div>
-            @Html.ActionLink("Seeker Listings", "index", "Seeker", null , new { @class=""})
-        </div>
-        <div>
-            @Html.ActionLink("Land Listings", "index", "Land", null , new { @class=""})
-        </div>
     </div>
 
     <!-- Main - Render body -->
-    <div class="container mx-auto p-6">
+    <div class="container mx-auto px-6 py-10">
         <main role="main" class="">
             @RenderBody()
         </main>
