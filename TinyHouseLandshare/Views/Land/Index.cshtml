@@ -14,12 +14,29 @@
             <a asp-controller="land" asp-action="listing" asp-route-id="@listing.Id">
                 <div class="flex flex-col align-center m-4 p-6 hover:duration-300 shadow-md hover:shadow-green-700/10 hover:shadow-xl hover:bg-green-100 ">
                     <img src="img/placeholder-image.png" title="seeker main image" class="mx-auto mb-6 rounded-md border border-black w-40 h-40"/>
-                    <h1>@listing.Title</h1>
+                    <h1 class="text-xl">@listing.Title</h1>
                     <p>@listing.Location</p>
                     <p>Post created on: @listing.CreatedTime.Date</p>
                     <p>Date Available: @listing.AvailableDate</p>
                     <p>House Size: @listing.LotSize</p>
                     <p>Foundation Size: @listing.FoundationSize</p>
+                    <div class="flex flex-row text-black">
+                        <div class="py-1.5 px-2 border border-slate-200 bg-green-500 rounded-sm">
+                            <i class="fa-solid fa-droplet "></i>
+                        </div>
+                        <div class="py-1.5 px-2 border border-slate-200 bg-green-500 rounded-sm">
+                            <i class="fa-solid fa-plug-circle-bolt "></i>
+                        </div>
+                        <div class="py-1.5 px-2 border border-slate-200 bg-green-500 rounded-sm">
+                            <i class="fa-solid fa-wifi "></i>
+                        </div>
+                        <div class="py-1.5 px-2 w-8 border border-slate-200 bg-red-400 rounded-sm">
+                            <i class="fa-solid fa-shield-dog "></i>
+                        </div>
+                        <div class="py-1.5 px-2 border border-slate-200 bg-green-500 rounded-sm">
+                            <i class="fa-solid fa-children"></i>
+                        </div>
+                    </div>
                 </div>
             </a>
         }
