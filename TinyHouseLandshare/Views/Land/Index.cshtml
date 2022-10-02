@@ -3,22 +3,27 @@
     ViewData["Title"] = "Land Listings";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Land Listings</h1>
-    <p>See all land listings in North America.</p>
+<div class="p-6">
+    <h1 class="">Land Listings</h1>
+    <p class="pb-4">See all land listings in North America.</p>
 
-    @foreach(var listing in Model)
-    {
-        <div class="">
-            <img src="" title="seeker main image"/>
-            <h1><a asp-controller="land" asp-action="listing" asp-route-id="@listing.Id" >@listing.Title</a></h1>
-            <p>@listing.Location</p>
-            <p>Post created on: @listing.CreatedTime.Date</p>
-            <p>Date Available: @listing.AvailableDate</p>
-            <p>House Size: @listing.LotSize</p>
-            <p>Foundation Size: @listing.FoundationSize</p>
-        </div>
-    }
+    <div>
+        @foreach(var listing in Model)
+        {
+            <!-- Listing Card -->
+            <a asp-controller="land" asp-action="listing" asp-route-id="@listing.Id">
+                <div class="flex flex-col align-center m-4 p-6 hover:duration-300 shadow-md hover:shadow-green-700/10 hover:shadow-xl hover:bg-green-100 ">
+                    <img src="img/placeholder-image.png" title="seeker main image" class="mx-auto mb-6 rounded-md border border-black w-40 h-40"/>
+                    <h1>@listing.Title</h1>
+                    <p>@listing.Location</p>
+                    <p>Post created on: @listing.CreatedTime.Date</p>
+                    <p>Date Available: @listing.AvailableDate</p>
+                    <p>House Size: @listing.LotSize</p>
+                    <p>Foundation Size: @listing.FoundationSize</p>
+                </div>
+            </a>
+        }
+    </div>
 </div>
 
 

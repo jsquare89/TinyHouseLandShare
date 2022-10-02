@@ -25,6 +25,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\img\placeholder-image.png" />
+  </ItemGroup>
+
 	<Target Name="CheckForNpm" BeforeTargets="NpmInstall">
 		<Exec Command="npm -v" ContinueOnError="true">
 			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
