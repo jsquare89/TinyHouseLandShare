@@ -3,9 +3,9 @@
     ViewData["Title"] = "Land Listings";
 }
 
-<div class="p-6">
-    <h1 class="">Land Listings</h1>
-    <p class="pb-4">See all land listings in North America.</p>
+<div class="">
+    <h1 class="text-center text-xl font-semibold">Land Listings</h1>
+    <p class="text-center pb-4">See all land listings in North America.</p>
 
     <div class="flex flex-row flex-wrap justify-center">
         @foreach(var listing in Model)
@@ -14,8 +14,8 @@
             <a asp-controller="land" asp-action="listing" asp-route-id="@listing.Id">
                 
                 <div class="flex flex-col align-center m-4 p-6 max-w-md h-[calc(100vh/2.7)] hover:duration-300 shadow-md hover:shadow-xl hover:bg-green-50 ">
-                    <div class="absolute border border-gray-200 px-3 py-2">$@listing.Price.ToString("N0") / @listing.PayPeriod</div>
-                    <img src="img/placeholder-image.png" title="seeker main image" class="mx-auto mb-4 rounded-sm border border-gray-200 "/>
+                    <div class="absolute border border-gray-200 px-3 py-2 font-semibold bg-white">$@listing.Price.ToString("N0") / @listing.PayPeriod</div>
+                    <img src="img/placeholder-image.png" title="seeker main image" class="bg-white mx-auto mb-4 rounded-sm border border-gray-200 "/>
                     <h1 class="text-l">@listing.Title and this  longer there is more title to this than meets the eye</h1>
 
                     <div class="flex flex-row flex-wrap justify-between  pb-2 font-light">
@@ -24,35 +24,35 @@
                     <div class="flex flex-row text-black justify-between items-end">
                         <span class="text-base font-light">Listed: @listing.CreatedTime.Date.ToString("MMM dd")</span>
                         <div class="flex flex-row">
-                            <div class="relative flex flex-col items-center group py-1.5 px-2 border border-slate-200 bg-green-500 rounded-sm">
+                            <div class="relative flex flex-col items-center group w-8 h-8 border border-gray-200 bg-green-200 rounded-sm">
                                 <div class="tooltip">
                                     <span class="tooltip-top">Water</span>
                                     <div class="w-3 h-3 -mt-2 rotate-45 bg-black"></div>
                                 </div>
                                 <i class="fa-solid fa-droplet my-auto py-1"></i>
                             </div>
-                            <div class="relative flex flex-col items-center group py-1.5 px-2 border border-slate-200 bg-green-500 rounded-sm">
+                            <div class="relative flex flex-col items-center group w-8 h-8 border border-gray-200 bg-green-200 rounded-sm">
                                 <div class="tooltip">
                                     <span class="tooltip-top">Electricity</span>
                                     <div class="w-3 h-3 -mt-2 rotate-45 bg-black"></div>
                                 </div>
                                 <i class="fa-solid fa-plug-circle-bolt my-auto py-1"></i>
                             </div>
-                            <div class="relative flex flex-col items-center group py-1.5 px-2 border border-slate-200 bg-green-500 rounded-sm">
+                            <div class="relative flex flex-col items-center group w-8 h-8 border border-gray-200 bg-green-200 rounded-sm">
                                 <div class="tooltip">
                                     <span class="tooltip-top">Internet/Wifi</span>
                                     <div class="w-3 h-3 -mt-2 rotate-45 bg-black"></div>
                                 </div>
                                 <i class="fa-solid fa-wifi my-auto py-1"></i>
                             </div>
-                            <div class="relative flex flex-col items-center group py-1.5 px-2 border border-slate-200 bg-green-500 rounded-sm">
+                            <div class="relative flex flex-col items-center group w-8 h-8 border border-gray-200 bg-gray-100 rounded-sm">
                                 <div class="tooltip">
                                     <span class="tooltip-top">Pets Allowed</span>
                                     <div class="w-3 h-3 -mt-2 rotate-45 bg-black"></div>
                                 </div>
                                 <i class="fa-solid fa-shield-dog my-auto py-1"></i>
                             </div>
-                            <div class="relative flex flex-col items-center group py-1.5 px-2 border border-slate-200 bg-green-500 rounded-sm">
+                            <div class="relative flex flex-col items-center group w-8 h-8 border border-gray-200 bg-green-200 rounded-sm">
                                 <div class="tooltip">
                                     <span class="tooltip-top">Child Friendly</span>
                                     <div class="w-3 h-3 -mt-2 rotate-45 bg-black"></div>
