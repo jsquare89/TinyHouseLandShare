@@ -7,4 +7,12 @@
     .header-nav-link {
         @apply relative before:duration-300 hover:text-green-700 before:absolute before:bg-green-700 before:w-[100%] before:h-[2px] before:top-10 before:opacity-0 before:hover:top-6 before:hover:opacity-100;
     }
+
+    .tooltip {
+        @apply absolute bottom-4 flex flex-col items-center hidden mb-6 group-hover:flex;
+    }
+
+    .tooltip-top {
+        @apply relative z-10 p-2 text-xs leading-none text-white whitespace-nowrap bg-black shadow-lg;
+    }
 }
