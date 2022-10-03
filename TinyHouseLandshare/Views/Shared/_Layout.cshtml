@@ -39,6 +39,7 @@
                         <i class="bx bx-user"></i>
                         <ul class="" style="padding: 0; margin: 0;">
                             <li>Welcome, @User.Identity.Name</li>
+                            <li><a class="" asp-area="" asp-controller="Account" asp-action="Dashboard">Dashboard</a></li>
                             <li>@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class="nav-link text-dark"})</li>
                             <li><a class="" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></li>
                             <li>
@@ -78,7 +79,7 @@
     </div>
 
     <!-- User Features & Links -->
-    <div>
+    <div class="container mx-auto px-6 py-6">
         @if (User.IsInRole("Admin"))
         {
             <div>

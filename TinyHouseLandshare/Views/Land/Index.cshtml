@@ -13,7 +13,7 @@
             <!-- Listing Card -->
             <a asp-controller="land" asp-action="listing" asp-route-id="@listing.Id">
                 
-                <div class="flex flex-col align-center m-4 p-6 max-w-md hover:duration-300 shadow-md hover:shadow-xl hover:bg-green-50 ">
+                <div class="flex flex-col align-center m-4 p-6 max-w-md hover:duration-300 shadow-md hover:shadow-xl ">
                     <div class="absolute border border-gray-200 px-3 py-2 font-semibold bg-white">$@listing.Price.ToString("N0") / @listing.PayPeriod</div>
                     <img src="img/placeholder-image.png" title="seeker main image" class="bg-white mx-auto mb-4 rounded-sm border border-gray-200 "/>
                     <h1 class="text-l text-center line-clamp-2">@listing.Title </h1>

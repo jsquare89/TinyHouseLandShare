@@ -3,120 +3,151 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Dashboard</h1>
+<div class="flex flex-col text-center">
+    <h1 class="text-xl">Dashboard</h1>
     <br />
     @if (Model.SeekerListing is null)
     {
-        <P>
-            @Html.ActionLink("Create Seeker Listing", "createlisting", "seeker")
-        </P>
+        @Html.ActionLink("Create Seeker Listing", "createlisting", "seeker", null, new {@class="mx-auto m-4 px-4 py-2 text-white bg-green-700 rounded-sm duration-300 hover:bg-green-800"})
+        
     }
-    <P>
-        @Html.ActionLink("Create Land Listing", "createlisting", "Land")
-    </P>
+    @Html.ActionLink("Create Land Listing", "createlisting", "Land", null, new {@class="mx-auto m-4 px-4 py-2 text-white bg-green-700 rounded-sm duration-300 hover:bg-green-800"})
 </div>
 
 
 <div class="text-center">
-    <h1 class="display-4">Your Listings</h1>
-    <p>View your listings below</p>
 
-    @if(Model.SeekerListing is not null)
-    {
-        <div>
-            <h3>Seeker Listing</h3>
-            <img src="" title="seeker main image"/>
-            <h4><a asp-controller="seeker" asp-action="listing" asp-route-id="@Model.SeekerListing.Id" >@Model.SeekerListing.Title</a></h4>
-            <p>@Model.SeekerListing.Id</p>
-            <p>@Model.SeekerListing.CreatedTime.Date</p>
-            <p>@Model.SeekerListing.Status</p>
-            <p>Submitted: @Model.SeekerListing.Submitted</p>
-            <p>Approved: @Model.SeekerListing.Approved</p>
-
-            @Html.ActionLink("Edit", 
-                              "EditListing", 
-                              "Seeker", 
-                              new{ Model.SeekerListing.Id}, 
-                              new{ @class="btn btn-info"})
-            @if(Model.SeekerListing.Submitted is false)
-            {
-                @Html.ActionLink("Submit for Approval", 
-                              "SubmitApproval", 
-                              "Seeker", 
-                              new{ Model.SeekerListing.Id}, 
-                              new{ @class="btn btn-warning"})
-            }
-            else
-            {
-                if(Model.SeekerListing.Approved is false)
-                {
-                   <button type="button" class="btn btn-secondary" disabled>Submit for Approval</button>
-                }
-            }
-
-            @Html.ActionLink("Delete", 
-                              "DeleteListing", 
-                              "Seeker", 
-                              new{ Model.SeekerListing.Id}, 
-                              new{ @class="btn btn-danger"})
-                
-            <br/>
-        </div>
-    }
-    else
-    {
-        <div>
-            <p>There is no seeker listing to show</p>
-        </div>
-    }
-
-    @if(Model.LandListings.Any() is true)
-    {
-        <div>
-            <br/>
-            <h3>Land Listings</h3>
-            <p>loop land listings and show here</p>
-            @foreach(var landListing in Model.LandListings)
-            {
-                <div>
-                    <img src="" title="land main image"/>
-                    <h4><a asp-controller="land" asp-action="listing" asp-route-id="@landListing.Id" >@landListing.Title</a></h4>
-                    <p>@landListing.Id</p>
-                    <p>@landListing.CreatedTime.Date</p>
-                    <p>@landListing.Status</p>
-                    <p>Submitted: @landListing.Submitted</p>
-                    <p>Approved: @landListing.Approved</p>
-                </div>
+    <div class="border border-gray-200">
+        @if(Model.SeekerListing is not null)
+        {
+        
+                <h3>Seeker Listing</h3>
+                <img src="" title="seeker main image"/>
+                <h4><a asp-controller="seeker" asp-action="listing" asp-route-id="@Model.SeekerListing.Id" >@Model.SeekerListing.Title</a></h4>
+                <p>@Model.SeekerListing.Id</p>
+                <p>@Model.SeekerListing.CreatedTime.Date</p>
+                <p>@Model.SeekerListing.Status</p>
+                <p>Submitted: @Model.SeekerListing.Submitted</p>
+                <p>Approved: @Model.SeekerListing.Approved</p>
 
                 @Html.ActionLink("Edit", 
-                              "EditListing", 
-                              "Land", 
-                              new{ landListing.Id}, 
-                              new{ @class="btn btn-info"})
-                @if(landListing.Submitted is false && landListing.Approved is false)
+                                  "EditListing", 
+                                  "Seeker", 
+                                  new{ Model.SeekerListing.Id}, 
+                                  new{ @class="btn btn-info"})
+                @if(Model.SeekerListing.Submitted is false)
                 {
-                    @Html.ActionLink("Submit for Approval",
-                                      "SubmitApproval",
-                                      "Land",
-                                      new { landListing.Id },
-                                      new { @class = "btn btn-warning"})
-                    ;
+                    @Html.ActionLink("Submit for Approval", 
+                                  "SubmitApproval", 
+                                  "Seeker", 
+                                  new{ Model.SeekerListing.Id}, 
+                                  new{ @class="btn btn-warning"})
                 }
                 else
                 {
-                    if(landListing.Approved is false)
+                    if(Model.SeekerListing.Approved is false)
                     {
-                        <button type="button" class="btn btn-secondary" disabled>Submit for Approval</button>
+                       <button type="button" class="btn btn-secondary" disabled>Submit for Approval</button>
                     }
                 }
-                
+
                 @Html.ActionLink("Delete", 
-                              "DeleteListing", 
-                              "Land", 
-                              new{ landListing.Id}, 
-                              new{ @class="btn btn-danger"})
-                <br />
+                                  "DeleteListing", 
+                                  "Seeker", 
+                                  new{ Model.SeekerListing.Id}, 
+                                  new{ @class="btn btn-danger"})
+        }
+        else
+        {
+                <p>There is no seeker listing to show</p>
+        }
+    </div>
+
+    @if(Model.LandListings.Any() is true)
+    {
+        <h1 class="text-xl m-4">Land Listings</h1>
+        <div class="flex flex-row flex-wrap justify-center">
+            @foreach(var landListing in Model.LandListings)
+            {
+                <!-- Land Listing Card -->
+                <div class="bg-white p-6 drop-shadow-md">
+                    <img src="~/img/placeholder-image.png" class="w-60 bg-green-100 mx-auto mb-4" title="land main image"/>
+                    <a asp-controller="land" asp-action="listing" asp-route-id="@landListing.Id">@landListing.Title <br/>(@landListing.Id)</a>
+                  
+                    <p>@landListing.CreatedTime.Date.ToString("MMM dd yyyy")</p>
+                    <h1>Status</h1>
+                    <p>@landListing.Status</p>
+                    
+                    <div class="flex flex-col">
+                        @if (landListing.Submitted)
+                        {
+                            <div>
+                                <i class="fa-solid fa-circle-check text-green-500"></i>
+                                <span>Submitted</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div>
+                                <i class="fa-sharp fa-solid fa-circle-exclamation text-yellow-500"></i>
+                                <span>"Pending Submission"</span>
+                            </div>
+                        }
+                        @if (landListing.Approved)
+                        {
+                            <div>
+                                <i class="fa-solid fa-circle-check text-green-500"></i>
+                                <span>Approved</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div>
+                                <i class="fa-sharp fa-solid fa-circle-exclamation text-yellow-500"></i>
+                                <span>Not Yet Approved</span>
+                            </div>
+                        }
+                        @if (landListing.Status == "Posted")
+                        {
+                            <div>
+                                <i class="fa-solid fa-circle-check text-green-500"></i>
+                                <span>Posted</span>
+                            </div>
+                        }
+                    </div>
+
+                    
+                    <div class="flex flex-row">
+                        @Html.ActionLink("Edit",
+                                         "EditListing",
+                                         "Land",
+                                         new{ landListing.Id},
+                                         new{ @class="mx-auto m-4 px-4 py-2 text-white bg-yellow-500 rounded-sm duration-300 hover:bg-yellow-600"})
+                        @if (landListing.Submitted is false && landListing.Approved is false)
+                        {
+                            @Html.ActionLink("Submit for Approval",
+                                             "SubmitApproval",
+                                             "Land",
+                                             new { landListing.Id },
+                                             new { @class = "mx-auto m-4 px-4 py-2 text-white bg-green-700 rounded-sm duration-300 hover:bg-green-800"})
+                        }
+                        else
+                        {
+                            if (landListing.Approved is false)
+                            {
+                                <button type="button" class="mx-auto m-4 px-4 py-2 text-white bg-green-700 rounded-sm duration-300 hover:bg-green-800" disabled>Submit for Approval</button>
+                            }
+                        }
+
+                        @Html.ActionLink("Delete",
+                                         "DeleteListing",
+                                         "Land",
+                                         new{ landListing.Id},
+                                         new{ @class="mx-auto m-4 px-4 py-2 text-white bg-red-700 rounded-sm duration-300 hover:bg-red-800"})
+                    </div>
+                </div>
+
+                
             }
         </div>
     }
