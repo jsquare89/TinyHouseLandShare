@@ -128,6 +128,22 @@ namespace TinyHouseLandshare.Controllers
                 Title = landListing.Title,
                 Location = landListing.Location,
                 Details = landListing.Details,
+                State = landListing.State,
+                Country = landListing.Country,
+                MapLocation = landListing.MapLocation,
+                Price = landListing.Price,
+                PayPeriod = landListing.PayPeriod,
+                LotSize = landListing.LotSize,
+                LandType = landListing.LandType,
+                FoundationSize = landListing.FoundationSize,
+                SiteFoundation = landListing.SiteFoundation,
+                DrivewayFoundation = landListing.DrivewayFoundation,
+                Privacy = landListing.Privacy,
+                WaterConnection = landListing.WaterConnection,
+                ElectricalConnection = landListing.ElectricalConnection,
+                WifiConnection = landListing.WifiConnection,
+                Pets = landListing.Pets,
+                ChildFriendly = landListing.ChildFriendly 
             };
             return View(landListingViewModel);
         }
@@ -141,11 +157,31 @@ namespace TinyHouseLandshare.Controllers
                 var landListing = _listingService.GetLandListing(model.Id);
                 landListing.Title = model.Title;
                 landListing.Location = model.Location;
+                landListing.State = model.State;
+                landListing.Country = model.Country;
                 landListing.Details = model.Details;
+                landListing.MapLocation = model.MapLocation;
+                landListing.Price = model.Price;
+                landListing.PayPeriod = model.PayPeriod;
+                landListing.LotSize = model.LotSize;
+                landListing.LandType = model.LandType;
+                landListing.FoundationSize = model.FoundationSize;
+                landListing.SiteFoundation = model.SiteFoundation;
+                landListing.DrivewayFoundation = model.DrivewayFoundation;
+                landListing.Privacy = model.Privacy;
+                landListing.WaterConnection = model.WaterConnection;
+                landListing.ElectricalConnection = model.ElectricalConnection;
+                landListing.WifiConnection = model.WifiConnection;
+                landListing.Pets = landListing.Pets;
+                landListing.ChildFriendly = landListing.ChildFriendly;
+
+
+                
+
                 landListing.ModifiedTime = DateTimeOffset.UtcNow;
                 landListing.Approved = false;
                 landListing.Submitted = false;
-                landListing.Status = "Edited Draft - Unapproved";
+                landListing.Status = "Edited Draft";
 
                 _listingService.UpdateLandListing(landListing);
                 return RedirectToAction("Dashboard", "Account");
@@ -167,7 +203,7 @@ namespace TinyHouseLandshare.Controllers
         {
             var landListing = _listingService.GetLandListing(id);
             landListing.Submitted = true;
-            landListing.Status = "Submitted for approval";
+            landListing.Status = "Submitted";
             _listingService.UpdateLandListing(landListing);
             return RedirectToAction("Dashboard", "Account");
         }

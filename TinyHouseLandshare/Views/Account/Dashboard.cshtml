@@ -73,12 +73,27 @@
                 <div class="bg-white p-6 drop-shadow-md">
                     <img src="~/img/placeholder-image.png" class="w-60 bg-green-100 mx-auto mb-4" title="land main image"/>
                     <a asp-controller="land" asp-action="listing" asp-route-id="@landListing.Id">@landListing.Title <br/>(@landListing.Id)</a>
-                  
+                    <p>@landListing.Location, @landListing.State, @landListing.Country</p>
                     <p>@landListing.CreatedTime.Date.ToString("MMM dd yyyy")</p>
                     <h1>Status</h1>
-                    <p>@landListing.Status</p>
                     
                     <div class="flex flex-col">
+                       
+                        @if (landListing.Status == "Edited Draft")
+                        {
+                            <div>
+                                <i class="fa-solid fa-circle-check text-yellow-500"></i>
+                                <span>Edited Draft</span>
+                            </div>
+                        }
+                        else if (landListing.Status == "Submitted")
+                        {
+                            @*<div>
+                                <i class="fa-solid fa-circle-check text-yellow-500"></i>
+                                <span>Pending Approval</span>
+                            </div>*@
+                        }
+
                         @if (landListing.Submitted)
                         {
                             <div>
@@ -90,7 +105,7 @@
                         {
                             <div>
                                 <i class="fa-sharp fa-solid fa-circle-exclamation text-yellow-500"></i>
-                                <span>"Pending Submission"</span>
+                                <span>Pending Submission</span>
                             </div>
                         }
                         @if (landListing.Approved)
@@ -107,6 +122,7 @@
                                 <span>Not Yet Approved</span>
                             </div>
                         }
+
                         @if (landListing.Status == "Posted")
                         {
                             <div>
@@ -114,6 +130,7 @@
                                 <span>Posted</span>
                             </div>
                         }
+                        
                     </div>
 
                     
@@ -145,9 +162,7 @@
                                          new{ landListing.Id},
                                          new{ @class="mx-auto m-4 px-4 py-2 text-white bg-red-700 rounded-sm duration-300 hover:bg-red-800"})
                     </div>
-                </div>
-
-                
+                </div> 
             }
         </div>
     }

@@ -37,19 +37,17 @@
                     @if (signInManager.IsSignedIn(User))
                     {
                         <i class="bx bx-user"></i>
-                        <ul class="" style="padding: 0; margin: 0;">
-                            <li>Welcome, @User.Identity.Name</li>
-                            <li><a class="" asp-area="" asp-controller="Account" asp-action="Dashboard">Dashboard</a></li>
-                            <li>@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class="nav-link text-dark"})</li>
-                            <li><a class="" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></li>
-                            <li>
+                            <span class="px-2 py-2">Welcome, @User.Identity.Name</span>
+                            <span class="px-2 py-2"><a class="" asp-area="" asp-controller="Account" asp-action="Dashboard">Dashboard</a></span>
+                            <span class="px-2 py-2">@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class=""})</span>
+                            <span class="px-2 py-2"><a class="" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></span>
+                            <span class="px-2 py-2">
                                 <form method="post" asp-action="Logout" asp-controller="Account">
                                     <button type="submit" style="width:auto">
                                         Logout
                                     </button>
                                 </form>
-                            </li>
-                        </ul>
+                            </span>
                     }
                     else
                     {
