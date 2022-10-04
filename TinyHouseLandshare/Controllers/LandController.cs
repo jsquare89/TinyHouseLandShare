@@ -82,7 +82,7 @@ namespace TinyHouseLandshare.Controllers
                 Location = model.Location,
                 Details = model.Details,
                 CreatedTime = timeStamp,
-                MapLocation = "coords go here",
+                MapLocation = "",
                 Price = 600,
                 PayPeriod = "month",
                 AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
@@ -157,26 +157,26 @@ namespace TinyHouseLandshare.Controllers
                 var landListing = _listingService.GetLandListing(model.Id);
                 landListing.Title = model.Title;
                 landListing.Location = model.Location;
-                landListing.State = model.State;
-                landListing.Country = model.Country;
-                landListing.Details = model.Details;
-                landListing.MapLocation = model.MapLocation;
-                landListing.Price = model.Price;
-                landListing.PayPeriod = model.PayPeriod;
-                landListing.LotSize = model.LotSize;
-                landListing.LandType = model.LandType;
-                landListing.FoundationSize = model.FoundationSize;
-                landListing.SiteFoundation = model.SiteFoundation;
-                landListing.DrivewayFoundation = model.DrivewayFoundation;
-                landListing.Privacy = model.Privacy;
-                landListing.WaterConnection = model.WaterConnection;
-                landListing.ElectricalConnection = model.ElectricalConnection;
-                landListing.WifiConnection = model.WifiConnection;
-                landListing.Pets = landListing.Pets;
-                landListing.ChildFriendly = landListing.ChildFriendly;
 
+                // need to update these buts its causing exception
+                //landListing.State = model.State;
+                //landListing.Country = model.Country;
+                //landListing.Details = model.Details;
+                //landListing.MapLocation = model.MapLocation;
+                //landListing.Price = model.Price;
+                //landListing.PayPeriod = model.PayPeriod;
+                //landListing.LotSize = model.LotSize;
+                //landListing.LandType = model.LandType;
+                //landListing.FoundationSize = model.FoundationSize;
+                //landListing.SiteFoundation = model.SiteFoundation;
+                //landListing.DrivewayFoundation = model.DrivewayFoundation;
+                //landListing.Privacy = model.Privacy;
+                //landListing.WaterConnection = model.WaterConnection;
+                //landListing.ElectricalConnection = model.ElectricalConnection;
+                //landListing.WifiConnection = model.WifiConnection;
+                //landListing.Pets = landListing.Pets;
+                //landListing.ChildFriendly = landListing.ChildFriendly;
 
-                
 
                 landListing.ModifiedTime = DateTimeOffset.UtcNow;
                 landListing.Approved = false;

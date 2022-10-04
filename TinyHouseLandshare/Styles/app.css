@@ -15,4 +15,16 @@
     .tooltip-top {
         @apply relative z-10 p-2 text-xs leading-none text-white whitespace-nowrap bg-black shadow-lg;
     }
+
+    .input-box {
+        @apply my-1 p-2 border border-gray-200;
+    }
+
+    .btn{
+        @apply py-2 px-4 rounded-sm shadow-md;
+    }
+
+    .btn-primary{
+        @apply text-white bg-green-700;
+    }
 }
