@@ -41,22 +41,17 @@
                             <button class="flex w-10 h-10 ml-2 my-auto text-white font-semibold bg-green-700 rounded-sm hover:bg-green-800 duration-300 shadow-md"><i class="bx bx-user m-auto"></i></button>
                         </div>
 
-                        <div class="absolute z-10 top-[calc(100%+.25rem)] rounded-sm duration-300 shadow-md p-4 bg-green-100">
-                            <div class="flex justify-center">
-                                <span class="px-2 py-2"><a class="" asp-area="" asp-controller="Account" asp-action="Dashboard">Dashboard</a></span>
-                            </div>
-                            <div class="flex justify-center">
-                                <span class="px-2 py-2">@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class=""})</span>
-                            </div>
-                            <div class="flex justify-center">
-                                <span class="px-2 py-2"><a class="" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></span>
-                            </div>
-                            <div class="flex justify-center">
-                                <form method="post" asp-action="Logout" asp-controller="Account">
+                        <div class="absolute z-10 top-[calc(100%+.25rem)] flex flex-col rounded-sm duration-300 shadow-md p-4 bg-white">
+                            
+                                <a class="mx-auot px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700" asp-area="" asp-controller="Account" asp-action="Dashboard">Dashboard</a>
+                                @Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class="mx-auto px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700"})
+                                <a class="mx-auto px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a>
+                                <div class="py-1"></div>
+                                <form method="post" asp-action="Logout" asp-controller="Account" class="mx-auto">
                                     @*<button type="submit" class="bg-blue-500">Logout</button>*@
-                                    <a onclick="this.parentNode.submit()" class="">Logout</a>
+                                    <a onclick="this.parentNode.submit()" class="!text-black hover:!text-green-700 cursor-pointer px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700">Logout</a>
                                 </form>
-                            </div>
+                            
                         </div>
                     }
                     else
