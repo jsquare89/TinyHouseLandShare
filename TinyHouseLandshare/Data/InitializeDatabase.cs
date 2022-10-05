@@ -10,7 +10,7 @@
 
                 try
                 {
-                    SeedData.InitializeAsync(services).Wait();
+                    SeedData.InitializeAsync();
                 }
                 catch (Exception ex)
                 {

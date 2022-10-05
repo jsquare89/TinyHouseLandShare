@@ -6,30 +6,26 @@ namespace TinyHouseLandshare.ViewModels
     public class LandListingViewModel
     {
         public Guid Id { get; set; }
-        [Required(ErrorMessage = "Title required.")]
+        [Required(ErrorMessage = "Title required. Please enter a title.")]
+        [MaxLength(100)]
         public string Title { get; set; }
-        [Required(ErrorMessage = "Details required.")]
+        [Required(ErrorMessage = "Details required. Please enter some details about your listing.")]
+        [MaxLength(2000)]
         public string Details { get; set; }
         [Required(ErrorMessage = "Location required.")]
         public string Location { get; set; }
+        [MaxLength(2)]
         public string State { get; set; }
         [MaxLength(3)]
         public string Country { get; set; }
         public DateTimeOffset CreatedTime { get; set; }
         public DateTimeOffset ModifiedTime { get; set; }
-        [MaxLength(100)]
-        public string MapLocation { get; set; }
         [Precision(7, 2)]
+        [Required(ErrorMessage = "Price required. Please enter a number")]
         public decimal Price { get; set; }
-        [MaxLength(25)]
-        public string PayPeriod { get; set; }
         public DateTimeOffset AvailableDate { get; set; }
         [MaxLength(25)]
-        public string LotSize { get; set; }
-        [MaxLength(25)]
         public string LandType { get; set; }
-        [MaxLength(25)]
-        public string FoundationSize { get; set; }
         [MaxLength(25)]
         public string SiteFoundation { get; set; }
         [MaxLength(25)]
@@ -39,10 +35,9 @@ namespace TinyHouseLandshare.ViewModels
         public bool ElectricalConnection { get; set; }
         public bool Parking { get; set; }
         public bool ChildFriendly { get; set; }
-        public bool Pets { get; set; }
-        public bool SmokingPermitted { get; set; }
-        [MaxLength(25)]
-        public string Privacy { get; set; }
+        public bool PetFriendly { get; set; }
+        public bool NoSmoking { get; set; }
+        public bool Private { get; set; }
 
 
 

@@ -5,9 +5,9 @@ namespace TinyHouseLandshare.Data
 {
     public class SeedData
     {
-        private static UserEntity tempUser;
+        private static UserEntity _tempUser;
 
-        public static async Task InitializeAsync(IServiceProvider services)
+        public static void InitializeAsync()
         {
             //await AddTestUsers(
             //    services.GetRequiredService<RoleManager<UserRoleEntity>>(),
@@ -45,11 +45,8 @@ namespace TinyHouseLandshare.Data
                 CreatedTime = DateTimeOffset.UtcNow,
                 MapLocation = "coords go here",
                 Price = 600,
-                PayPeriod = "monthly",
                 AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
                 LandType = "Residential",
-                LotSize = "20x40ft 800sqft",
-                FoundationSize = "12x30ft",
                 SiteFoundation = "concrete",
                 DrivewayFoundation = "gravel",
                 WifiConnection = true,
@@ -57,9 +54,8 @@ namespace TinyHouseLandshare.Data
                 ElectricalConnection = true,
                 Parking = true,
                 ChildFriendly = false,
-                Pets = false,
-                SmokingPermitted = false,
-                Privacy = "True",
+                PetFriendly = false,
+                NoSmoking = false,
                 Approved = true,
                 Status = "published",
                 Submitted = true
@@ -153,7 +149,7 @@ namespace TinyHouseLandshare.Data
                     adminRoleName,
                     userManager); ;
 
-                tempUser = await CreateUserWithRole(
+                _tempUser = await CreateUserWithRole(
                     new UserEntity
                     {
                         Id = new Guid("b12797b7-67a4-4418-9b81-ee52fc12a7a0"),
@@ -170,10 +166,10 @@ namespace TinyHouseLandshare.Data
 
         }
 
-        private static async Task AddUserListingForApproval(LandShareDbContext context)
+        private static void AddUserListingForApproval(LandShareDbContext context)
         {
             // Adds seeker listing for temp user
-            SeekerListing newSeekerListing = new SeekerListing
+            SeekerListing newSeekerListing = new()
             {
                 Title = "Tiny House seeking approval lol",
                 Details = "Details go here lorem ipsem...",
@@ -197,10 +193,10 @@ namespace TinyHouseLandshare.Data
 
             context.SeekerListings.Add(newSeekerListing);
 
-            UserListing userListing = new UserListing
+            UserListing userListing = new()
             {
                 Id = new Guid(),
-                UserId = tempUser.Id,
+                UserId = _tempUser.Id,
                 SeekerListingId = newSeekerListing.Id,
                 LandListingId = null
             };
@@ -223,11 +219,8 @@ namespace TinyHouseLandshare.Data
                     CreatedTime = DateTimeOffset.UtcNow,
                     MapLocation = "coords go here",
                     Price = 800,
-                    PayPeriod = "monthly",
                     AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
                     LandType = "Rural",
-                    LotSize = "20x40ft 800sqft",
-                    FoundationSize = "12x30ft",
                     SiteFoundation = "concrete",
                     DrivewayFoundation = "gravel",
                     WifiConnection = true,
@@ -235,9 +228,9 @@ namespace TinyHouseLandshare.Data
                     ElectricalConnection = true,
                     Parking = true,
                     ChildFriendly = true,
-                    Pets = true,
-                    SmokingPermitted = true,
-                    Privacy = "True",
+                    PetFriendly = true,
+                    NoSmoking = true,
+                    Private = true,
                     Approved = true,
                     Status = "posted",
                     Submitted = true
@@ -248,7 +241,7 @@ namespace TinyHouseLandshare.Data
             var userListing2 = new UserListing
             {
                 Id = new Guid(),
-                UserId = tempUser.Id,
+                UserId = _tempUser.Id,
                 SeekerListingId = null,
                 LandListingId = newLandListing.Id
             };

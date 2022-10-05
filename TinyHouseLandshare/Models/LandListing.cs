@@ -5,19 +5,13 @@ namespace TinyHouseLandshare.Models
 {
     public class LandListing: Listing
     {
-        [MaxLength(100)]
+        [MaxLength(50)]
         public string MapLocation { get; set; }
         [Precision(7,2)]
         public decimal Price { get; set; }
-        [MaxLength(25)]
-        public string PayPeriod { get; set; }
         public DateTimeOffset AvailableDate { get; set; }
         [MaxLength(25)]
-        public string LotSize { get; set; }
-        [MaxLength(25)]
         public string LandType { get; set; }
-        [MaxLength(25)]
-        public string FoundationSize { get; set; }
         [MaxLength(25)]
         public string SiteFoundation { get; set; }
         [MaxLength(25)]
@@ -27,10 +21,9 @@ namespace TinyHouseLandshare.Models
         public bool ElectricalConnection { get; set; }
         public bool Parking { get; set; }
         public bool ChildFriendly { get; set; }
-        public bool Pets { get; set; }
-        public bool SmokingPermitted { get; set; }
-        [MaxLength(25)]
-        public string Privacy { get; set; }
+        public bool PetFriendly { get; set; }
+        public bool NoSmoking { get; set; }
+        public bool Private { get; set; }
 
 
         public UserListing UserListing { get; set; }

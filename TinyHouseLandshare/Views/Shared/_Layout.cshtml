@@ -24,7 +24,7 @@
             <!-- Flex container -->
             <div class="flex items-center justify-between">
                 <!-- Nav Logo -->
-                <a class="text-xl text-bold mx-5 hover:duration-300 hover:text-green-700 drop-shadow-md hover:drop-shadow-lg" asp-area="" asp-controller="Home" asp-action="Index">Tiny House<br />Land Share</a>
+                <a class="text-xl text-bold mx-5 hover:duration-300 hover:text-green-700" asp-area="" asp-controller="Home" asp-action="Index">Tiny House<br />Land Share</a>
                 <!-- Menu Items -->
                 <div class="hidden space-x-6 pl-10 mr-auto md:flex">
                     <a asp-area="" asp-controller="Home" asp-action="Index" class="header-nav-link">Home</a>
@@ -33,21 +33,31 @@
                 </div>
 
                 <!-- Login & Links -->
-                <div class="px-6">
+                <div class="relative flex flex-col px-6">
                     @if (signInManager.IsSignedIn(User))
                     {
-                        <i class="bx bx-user"></i>
-                            <span class="px-2 py-2">Welcome, @User.Identity.Name</span>
-                            <span class="px-2 py-2"><a class="" asp-area="" asp-controller="Account" asp-action="Dashboard">Dashboard</a></span>
-                            <span class="px-2 py-2">@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class=""})</span>
-                            <span class="px-2 py-2"><a class="" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></span>
-                            <span class="px-2 py-2">
+                        <div class="flex flex-row align-middle">
+                            <span class="my-auto"> Welcome, @User.Identity.Name</span>
+                            <button class="flex w-10 h-10 ml-2 my-auto text-white font-semibold bg-green-700 rounded-sm hover:bg-green-800 duration-300 shadow-md"><i class="bx bx-user m-auto"></i></button>
+                        </div>
+
+                        <div class="absolute z-10 top-[calc(100%+.25rem)] rounded-sm duration-300 shadow-md p-4 bg-green-100">
+                            <div class="flex justify-center">
+                                <span class="px-2 py-2"><a class="" asp-area="" asp-controller="Account" asp-action="Dashboard">Dashboard</a></span>
+                            </div>
+                            <div class="flex justify-center">
+                                <span class="px-2 py-2">@Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class=""})</span>
+                            </div>
+                            <div class="flex justify-center">
+                                <span class="px-2 py-2"><a class="" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a></span>
+                            </div>
+                            <div class="flex justify-center">
                                 <form method="post" asp-action="Logout" asp-controller="Account">
-                                    <button type="submit" style="width:auto">
-                                        Logout
-                                    </button>
+                                    @*<button type="submit" class="bg-blue-500">Logout</button>*@
+                                    <a onclick="this.parentNode.submit()" class="">Logout</a>
                                 </form>
-                            </span>
+                            </div>
+                        </div>
                     }
                     else
                     {
@@ -61,7 +71,7 @@
 
   
     <!-- BASE NAV: Features links & Search box -->
-    <div class="bg-green-700 drop-shadow-md">
+    <div class="bg-green-700 drop-shadow-md -z-10">
         <div class="container mx-auto py-1 md:py-2 px-6">
             <div class="flex flex-col items-center md:flex-row md:justify-left"> 
                 @Html.ActionLink("Seeker Listings", "index", "Seeker", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white"})

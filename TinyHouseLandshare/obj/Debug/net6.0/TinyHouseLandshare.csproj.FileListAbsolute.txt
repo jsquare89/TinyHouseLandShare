@@ -6,9 +6,6 @@ C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.MvcApplicationPartsAssemblyInfo.cache
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.RazorAssemblyInfo.cache
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.RazorAssemblyInfo.cs
-C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.dll
-C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\refint\TinyHouseLandshare.dll
-C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.pdb
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\appsettings.Development.json
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\appsettings.json
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\bin\Debug\net6.0\package-lock.json
@@ -67,5 +64,8 @@ C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\scopedcss\bundle\TinyHouseLandshare.styles.css
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\scopedcss\projectbundle\TinyHouseLandshare.bundle.scp.css
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.csproj.CopyComplete
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\refint\TinyHouseLandshare.dll
+C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.pdb
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\TinyHouseLandshare.genruntimeconfig.cache
 C:\CODE\Personal Projects\TinyHouseLandShare\TinyHouseLandshare\obj\Debug\net6.0\ref\TinyHouseLandshare.dll

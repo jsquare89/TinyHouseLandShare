@@ -30,12 +30,12 @@ namespace TinyHouseLandshare.Data
 
         public IEnumerable<LandListing> GetAllLandListings()
         {
-            return _context.LandListings;
+            return _context.LandListings.OrderByDescending(landlisting => landlisting.ModifiedTime);
         }
 
         public IEnumerable<LandListing> GetAllApprovedLandListings()
         {
-            return _context.LandListings.Where(landListing => landListing.Approved.Equals(true));
+            return GetAllLandListings().Where(landListing => landListing.Approved.Equals(true));
         }
 
         public IEnumerable<LandListing> GetAllUnApprovedSubmittedLandListings()
@@ -64,7 +64,7 @@ namespace TinyHouseLandshare.Data
                 landListing.WaterConnection.Equals(landSearch.waterConnection) &&
                 landListing.ElectricalConnection.Equals(landSearch.electricalConnection) &&
                 landListing.WifiConnection.Equals(landSearch.wifiConnection) &&
-                landListing.Pets.Equals(landSearch.petsAllowed) &&
+                landListing.PetFriendly.Equals(landSearch.petsAllowed) &&
                 landListing.ChildFriendly.Equals(landSearch.childFriendly));
             }
             return GetAllApprovedLandListings().Where(landListing =>
@@ -72,7 +72,7 @@ namespace TinyHouseLandshare.Data
                 landListing.WaterConnection.Equals(landSearch.waterConnection) &&
                 landListing.ElectricalConnection.Equals(landSearch.electricalConnection) &&
                 landListing.WifiConnection.Equals(landSearch.wifiConnection) &&
-                landListing.Pets.Equals(landSearch.petsAllowed) &&
+                landListing.PetFriendly.Equals(landSearch.petsAllowed) &&
                 landListing.ChildFriendly.Equals(landSearch.childFriendly));
         }
     }

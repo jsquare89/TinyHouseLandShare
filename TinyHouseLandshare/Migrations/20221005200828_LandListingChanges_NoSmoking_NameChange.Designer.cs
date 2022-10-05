@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TinyHouseLandshare.Data;
 
@@ -11,9 +12,10 @@ using TinyHouseLandshare.Data;
 namespace TinyHouseLandshare.Migrations
 {
     [DbContext(typeof(LandShareDbContext))]
-    partial class LandShareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221005200828_LandListingChanges_NoSmoking_NameChange")]
+    partial class LandListingChanges_NoSmoking_NameChange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

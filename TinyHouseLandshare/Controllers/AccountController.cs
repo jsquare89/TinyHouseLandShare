@@ -14,7 +14,6 @@ namespace TinyHouseLandshare.Controllers
         private readonly UserManager<UserEntity> _userManager;
         private readonly SignInManager<UserEntity> _signInManager;
         private readonly IListingService _listingService;
-        private readonly IUserListingRepository _userListingRepository;
 
         public AccountController(UserManager<UserEntity> userManager, 
                                  SignInManager<UserEntity> signInManager,

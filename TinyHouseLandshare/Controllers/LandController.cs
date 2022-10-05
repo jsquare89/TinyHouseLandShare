@@ -74,6 +74,10 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult CreateListing(LandListingViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
             var timeStamp = DateTimeOffset.UtcNow;
             var landListing = new LandListing
@@ -82,33 +86,29 @@ namespace TinyHouseLandshare.Controllers
                 Location = model.Location,
                 Details = model.Details,
                 CreatedTime = timeStamp,
+                ModifiedTime = timeStamp,
+                Price = model.Price,
                 MapLocation = "",
-                Price = 600,
-                PayPeriod = "month",
-                AvailableDate = new DateTimeOffset(2022, 04, 1, 0, 0, 0, TimeSpan.Zero),
-                LotSize = "20x40ft 800sqft",
-                LandType = "Commercial",
-                FoundationSize = "12x30ft",
-                SiteFoundation = "concrete",
-                DrivewayFoundation = "gravel",
-                WifiConnection = true,
-                WaterConnection = true,
-                ElectricalConnection = true,
-                Parking = true,
-                ChildFriendly = true,
-                Pets = true,
-                SmokingPermitted = false,
-                Privacy = "True",
+                AvailableDate = model.AvailableDate,
+                LandType = model.LandType,
+                SiteFoundation = model.SiteFoundation,
+                DrivewayFoundation = model.DrivewayFoundation,
+                WifiConnection = model.WifiConnection,
+                WaterConnection = model.WaterConnection,
+                ElectricalConnection = model.ElectricalConnection,
+                Parking = model.Parking,
+                ChildFriendly = model.ChildFriendly,
+                PetFriendly = model.PetFriendly,
+                NoSmoking = model.NoSmoking,
+                Private = model.Private,
+                Status = "Draft",
                 Approved = false,
-                Status = "draft",
                 Submitted = false,
-                Country = "CA",
-                State = "BC",
-                ModifiedTime = timeStamp
+                Country = model.Country,
+                State = model.State
             };
 
-            _listingService.AddLandListing(landListing, LoggedInUserId());          
-
+            _listingService.AddLandListing(landListing, LoggedInUserId());
             return RedirectToAction("Dashboard", "Account");
         }
 
@@ -130,20 +130,20 @@ namespace TinyHouseLandshare.Controllers
                 Details = landListing.Details,
                 State = landListing.State,
                 Country = landListing.Country,
-                MapLocation = landListing.MapLocation,
                 Price = landListing.Price,
-                PayPeriod = landListing.PayPeriod,
-                LotSize = landListing.LotSize,
+                AvailableDate = landListing.AvailableDate,
+                ModifiedTime = landListing.ModifiedTime,
                 LandType = landListing.LandType,
-                FoundationSize = landListing.FoundationSize,
                 SiteFoundation = landListing.SiteFoundation,
                 DrivewayFoundation = landListing.DrivewayFoundation,
-                Privacy = landListing.Privacy,
+                Private = landListing.Private,
                 WaterConnection = landListing.WaterConnection,
                 ElectricalConnection = landListing.ElectricalConnection,
                 WifiConnection = landListing.WifiConnection,
-                Pets = landListing.Pets,
-                ChildFriendly = landListing.ChildFriendly 
+                PetFriendly = landListing.PetFriendly,
+                ChildFriendly = landListing.ChildFriendly ,
+                NoSmoking = landListing.NoSmoking,
+                Parking = landListing.Parking
             };
             return View(landListingViewModel);
         }
@@ -157,26 +157,23 @@ namespace TinyHouseLandshare.Controllers
                 var landListing = _listingService.GetLandListing(model.Id);
                 landListing.Title = model.Title;
                 landListing.Location = model.Location;
-
-                // need to update these buts its causing exception
-                //landListing.State = model.State;
-                //landListing.Country = model.Country;
-                //landListing.Details = model.Details;
-                //landListing.MapLocation = model.MapLocation;
-                //landListing.Price = model.Price;
-                //landListing.PayPeriod = model.PayPeriod;
-                //landListing.LotSize = model.LotSize;
-                //landListing.LandType = model.LandType;
-                //landListing.FoundationSize = model.FoundationSize;
-                //landListing.SiteFoundation = model.SiteFoundation;
-                //landListing.DrivewayFoundation = model.DrivewayFoundation;
-                //landListing.Privacy = model.Privacy;
-                //landListing.WaterConnection = model.WaterConnection;
-                //landListing.ElectricalConnection = model.ElectricalConnection;
-                //landListing.WifiConnection = model.WifiConnection;
-                //landListing.Pets = landListing.Pets;
-                //landListing.ChildFriendly = landListing.ChildFriendly;
-
+                landListing.State = model.State;
+                landListing.Country = model.Country;
+                landListing.Details = model.Details;
+                landListing.MapLocation = "";
+                landListing.AvailableDate = model.AvailableDate;
+                landListing.Price = model.Price;
+                landListing.LandType = model.LandType;
+                landListing.SiteFoundation = model.SiteFoundation;
+                landListing.DrivewayFoundation = model.DrivewayFoundation;
+                landListing.WaterConnection = model.WaterConnection;
+                landListing.ElectricalConnection = model.ElectricalConnection;
+                landListing.WifiConnection = model.WifiConnection;
+                landListing.PetFriendly = model.PetFriendly;
+                landListing.ChildFriendly = model.ChildFriendly;
+                landListing.NoSmoking = model.NoSmoking;
+                landListing.Private = model.Private;
+                landListing.Parking = model.Parking;
 
                 landListing.ModifiedTime = DateTimeOffset.UtcNow;
                 landListing.Approved = false;

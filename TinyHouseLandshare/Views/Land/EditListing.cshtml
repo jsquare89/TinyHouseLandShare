@@ -4,6 +4,110 @@
     ViewBag.Title = "Edit Land Listing";
 }
 
+<div class="mx-auto p-6 max-w-4xl flex flex-col shadow-md">
+    <h1 class="text-xl text-center">Create Land Listing</h1>
+    <form method="post" class="flex flex-col">
+        <div asp-validation-summary="All" class="text-red-500"></div>
+        <div class="flex flex-row space-x-4 flex-wrap">
+            <div class="flex flex-col mb-2">
+                <label asp-for="Price">Price*</label>
+                <input asp-for="Price" onkeypress="if(event.keyCode<48 || event.keyCode>57)event.returnValue=false;" class="input-box w-32 rounded-sm" />
+                <span asp-validation-for="Price" class="text-red-500"></span>
+            </div>
+            <div class="flex flex-col mb-2">
+                <label asp-for="AvailableDate">Available*</label>
+                <input asp-for="AvailableDate" type="date" class="input-box w-42 rounded-sm" />
+                <span asp-validation-for="AvailableDate" class="text-red-500"></span>
+            </div>
+        </div>
+
+        <div class="flex flex-col mb-2">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="input-box" />
+            <span asp-validation-for="Title" class="text-red-500"></span>
+        </div>
+
+        <div class="flex flex-col mb-2">
+            <label asp-for="Location"></label>
+            <input asp-for="Location" class="input-box" />
+            <span asp-validation-for="Location" class="text-red-500"></span>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label asp-for="State"></label>
+            <input asp-for="State" class="input-box" />
+            <span asp-validation-for="State" class="text-red-500"></span>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label asp-for="Country"></label>
+            <input asp-for="Country" class="input-box" />
+            <span asp-validation-for="Country" class="text-red-500"></span>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label asp-for="Details"></label>
+            <textarea asp-for="Details" rows="6" class="input-box h-auto"></textarea>
+            <span asp-validation-for="Details" class="text-red-500"></span>
+        </div>
+
+        <div class="flex flex-col mb-2">
+            <label asp-for="LandType"></label>
+            <input asp-for="LandType" class="input-box" />
+            <span asp-validation-for="LandType" class="text-red-500"></span>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label asp-for="SiteFoundation">Site Foundation</label>
+            <input asp-for="SiteFoundation" class="input-box" />
+            <span asp-validation-for="SiteFoundation" class="text-red-500"></span>
+        </div>
+        <div class="flex flex-col mb-2">
+            <label asp-for="DrivewayFoundation">Site Foundation</label>
+            <input asp-for="DrivewayFoundation" class="input-box" />
+            <span asp-validation-for="DrivewayFoundation" class="text-red-500"></span>
+        </div>
+
+        <div class="mb-4">
+            <h1 class="my-2 text-green-700 text-xl">Amenties Available</h1>
+            <div class="flex flex-row mb-2">
+                <input asp-for="WaterConnection" type="checkbox" class="mr-2" />
+                <label asp-for="WaterConnection">Water Connection</label>
+            </div>
+            <div class="flex flex-row mb-2">
+                <input asp-for="ElectricalConnection" type="checkbox" class="mr-2" />
+                <label asp-for="ElectricalConnection">Electrical Connection</label>
+            </div>
+            <div class="flex flex-row mb-2">
+                <input asp-for="WifiConnection" type="checkbox" class="mr-2" />
+                <label asp-for="WifiConnection">Internet/Wifi Connection</label>
+            </div>
+            <div class="flex flex-row mb-2">
+                <input asp-for="PetFriendly" type="checkbox" class="mr-2" />
+                <label asp-for="PetFriendly">Pet Friendly</label>
+            </div>
+            <div class="flex flex-row mb-2">
+                <input asp-for="ChildFriendly" type="checkbox" class="mr-2" />
+                <label asp-for="ChildFriendly">Child Friendly</label>
+            </div>
+            <div class="flex flex-row mb-2">
+                <input asp-for="NoSmoking" type="checkbox" class="mr-2" />
+                <label asp-for="NoSmoking">Non Smoking</label>
+            </div>
+            <div class="flex flex-row mb-2">
+                <input asp-for="Parking" class="mr-2" />
+                <label asp-for="Parking">Parking</label>
+            </div>
+            <div class="flex flex-row mb-2">
+                <input asp-for="Private" class="mr-2" />
+                <label asp-for="Private">Private</label>
+            </div>
+        </div>
+
+        <label for="file">Upload Image:</label>
+        <input type="file" name="file" id="file" />
+        <input type="submit" value="Upload Image" class="mx-auto btn btn-primary" />
+        <button type="submit" class="py-2 px-4 mx-auto my-4 w-48 text-white bg-green-700 rounded-sm shadow-md">Submit Edit</button>
+        @*<button type="submit" class="ml-auto mt-2 btn btn-primary">Create</button>*@
+    </form>
+</div>
+@*
 <div class="flex flex-col shadow-md p-6 max-w-3xl">
     <h1 class="text-center">Edit Land Listing</h1>
     <form method="post" class="flex flex-col">
@@ -35,11 +139,6 @@
             <span asp-validation-for="Details" class="text-red-500"></span>
         </div>
         <div class="flex flex-col">
-            <label asp-for="MapLocation">Map Location</label>
-            <input asp-for="MapLocation" class="my-1 p-2 border border-gray-200" />
-            <span asp-validation-for="MapLocation" class="text-red-500"></span>
-        </div>
-        <div class="flex flex-col">
             <label asp-for="LotSize">Lot Size</label>
             <input asp-for="LotSize" class="my-1 p-2 border border-gray-200" />
             <span asp-validation-for="LotSize" class="text-red-500"></span>
@@ -50,19 +149,9 @@
             <span asp-validation-for="Price" class="text-red-500"></span>
         </div>
         <div class="flex flex-col">
-            <label asp-for="PayPeriod">Pay Period</label>
-            <input asp-for="PayPeriod" class="my-1 p-2 border border-gray-200" />
-            <span asp-validation-for="PayPeriod" class="text-red-500"></span>
-        </div>
-        <div class="flex flex-col">
             <label asp-for="LandType">Land Type</label>
             <input asp-for="LandType" class="my-1 p-2 border border-gray-200" />
             <span asp-validation-for="LandType" class="text-red-500"></span>
-        </div>
-        <div class="flex flex-col">
-            <label asp-for="FoundationSize">Foundation Size</label>
-            <input asp-for="FoundationSize" class="my-1 p-2 border border-gray-200" />
-            <span asp-validation-for="FoundationSize" class="text-red-500"></span>
         </div>
         <div class="flex flex-col">
             <label asp-for="SiteFoundation">Site Foundation</label>
@@ -70,15 +159,10 @@
             <span asp-validation-for="SiteFoundation" class="text-red-500"></span>
         </div>
         <div class="flex flex-col">
-            <label asp-for="DrivewayFoundation">Driveway Foundation</label>
-            <input asp-for="DrivewayFoundation" class="my-1 p-2 border border-gray-200" />
-            <span asp-validation-for="DrivewayFoundation" class="text-red-500"></span>
-        </div>
-        <div class="flex flex-col">
-            <label asp-for="Privacy"></label>
-            <input asp-for="Privacy" class="my-1 p-2 border border-gray-200" />
-            <span asp-validation-for="Privacy" class="text-red-500"></span>
+            <label asp-for="Private"></label>
+            <input asp-for="Private" class="my-1 p-2 border border-gray-200" />
+            <span asp-validation-for="Private" class="text-red-500"></span>
         </div>
         <button type="submit" class="py-2 px-4 mx-auto my-4 w-48 text-white bg-green-700 rounded-sm shadow-md">Submit Edit</button>
     </form>
-</div>
+</div>*@

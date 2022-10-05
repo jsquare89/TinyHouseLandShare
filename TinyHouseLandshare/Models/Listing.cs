@@ -8,7 +8,7 @@ namespace TinyHouseLandshare.Models
         public Guid Id { get; set; }
         [MaxLength(100)]
         public string Title { get; set; }
-        [MaxLength(512)]
+        [MaxLength(2000)]
         public string Details { get; set; }
         [MaxLength(50)]
         public string Location { get; set; }

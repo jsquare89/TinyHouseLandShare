@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TinyHouseLandshare.Data;
 
@@ -11,9 +12,10 @@ using TinyHouseLandshare.Data;
 namespace TinyHouseLandshare.Migrations
 {
     [DbContext(typeof(LandShareDbContext))]
-    partial class LandShareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221005190522_LandListingChanges")]
+    partial class LandListingChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,9 +181,6 @@ namespace TinyHouseLandshare.Migrations
                     b.Property<DateTimeOffset>("ModifiedTime")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<bool>("NoSmoking")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("Parking")
                         .HasColumnType("bit");
 
@@ -199,6 +198,9 @@ namespace TinyHouseLandshare.Migrations
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
+
+                    b.Property<bool>("SmokingFriendly")
+                        .HasColumnType("bit");
 
                     b.Property<string>("State")
                         .IsRequired()

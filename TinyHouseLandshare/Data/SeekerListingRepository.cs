@@ -17,14 +17,16 @@ namespace TinyHouseLandshare.Data
             return seekerListing;
         }
 
-        public SeekerListing Delete(Guid id)
+        public SeekerListing? Delete(Guid id)
         {
-            SeekerListing seekerListing = _context.SeekerListings.Find(id);
+
+            SeekerListing? seekerListing = _context.SeekerListings.Find(id);
 
             if(seekerListing is not null)
             {
                 _context.SeekerListings.Remove(seekerListing);
                 _context.SaveChanges();
+                
             }
             return seekerListing;
         }
