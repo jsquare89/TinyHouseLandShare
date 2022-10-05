@@ -20,11 +20,21 @@
             <span asp-validation-for="Location" class="text-red-500"></span>
         </div>
         <div class="flex flex-col mb-2">
+            <label asp-for="State"></label>
+            <input asp-for="State" class="input-box" />
+            <span asp-validation-for="State" class="text-red-500"></span>
+        </div>
+        <div class="flex flex-col mb-2">
             <label asp-for="Details"></label>
-            <textarea asp-for="Details" class="input-box"></textarea>
+            <textarea asp-for="Details" rows="6" class="input-box h-auto"></textarea>
             <span asp-validation-for="Details" class="text-red-500"></span>
         </div>
 
+        <div class="flex flex-col mb-2">
+            <label asp-for="Price"></label>
+            <input asp-for="Price" class="input-box w-32 rounded-sm" />
+            <span asp-validation-for="Price" class="text-red-500"></span>
+        </div>
 
         <h1 class="my-2 text-green-700 text-xl">Amenties Available</h1>
         <div class="flex flex-row mb-2">
