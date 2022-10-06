@@ -3,7 +3,7 @@
     ViewData["Title"] = "Approve Listings";
 }
 
-<div class="text-center">
+<div class="container mx-auto p-6">
     <h1 class="display-4">Approve Listings</h1>
     @if(@Model.seekerListings.Any() == false)
     {
@@ -12,19 +12,20 @@
 
     @foreach(var listing in @Model.seekerListings)
     {
-        <div>
-            <h4>@listing.Title</h4>
+        <div class="flex flex-col my-4">
+            <h1 class="text-l font-semibold">@listing.Title</h1>
             <p>Location: @listing.Location</p>
             <p>Created Time: @listing.CreatedTime</p>
             <p>Details: @listing.Details</p>
             <p>House size: @listing.HouseSize</p>
             <p>Occutpant count: @listing.OccupantCount</p>
+
             <p>Submitted: @listing.Submitted</p>
             <p>Status: @listing.Status</p>
             <p>Approved: @listing.Approved</p>
-        </div>
+        
         <form method="post" asp-controller="Admin" asp-action="ApproveSeekerListing">
-            <button class="btn btn-success" formmethod="post" asp-action="ApproveSeekerListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
+            <button class="btn btn-primary" formmethod="post" asp-action="ApproveSeekerListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
         </form>
         
         @Html.ActionLink("Reject", 
@@ -32,6 +33,7 @@
                          "Admin", 
                          new { @listing.Id }, 
                          new { @class="btn btn-danger"});
+        </div>
     }
 
 
@@ -42,28 +44,41 @@
 
     @foreach(var listing in @Model.landListings)
     {
-        <div>
-            <h4>@listing.Title</h4>
-            <p>Location: @listing.Location</p>
-            <p>Created Time: @listing.CreatedTime</p>
+        <div class="flex flex-col my-4 max-w-md p-4 shadow-md">
+            <img src="~/img/placeholder-image.png" class="bg-green-200 mb-2"/>
+            <p>User: </p>
+            <h4>@listing.Title.FirstCharToUpper()</h4>
+            <p>Price: $@listing.Price.ToString("N0")</p>
+            <p>Location: @listing.Location, @listing.State, @listing.Country</p>
+            <p>Available Date: @listing.AvailableDate.ToString("MMM dd yyyy")</p>
+            <p>Created Date: @listing.CreatedTime.ToString("MMM dd yyyy")</p>
+            <p>Modified Date: @listing.ModifiedTime.ToString("MMM dd yyyy")</p>
             <p>Details: @listing.Details</p>
             <p>Land Type: @listing.LandType</p>
+            <p>Site Foundation: @listing.SiteFoundation</p>
+            <p>Driveway Foundation: @listing.DrivewayFoundation</p>
+            <br>
             <p>Submitted: @listing.Submitted</p>
             <p>Status: @listing.Status</p>
             <p>Approved: @listing.Approved</p>
+
+            <div class="flex flex-row flex-wrap gap-x-4 gap-y-1 mt-4">
+            @await Component.InvokeAsync("Features", new {waterConnection = listing.WaterConnection,
+                                                          electricalConnection = listing.ElectricalConnection,
+                                                          wifiConnection = listing.WifiConnection,
+                                                          parking = listing.Parking,
+                                                          petFriendly = listing.PetFriendly,
+                                                          childFriendly = listing.ChildFriendly,
+                                                          isPrivate = listing.Private,
+                                                          NoSmoking = listing.NoSmoking})
+            </div>
+           
+            <form method="post" asp-controller="Admin" asp-action="ApproveLandListing" class="flex flex-row justify-between mt-6">
+                <button class="btn bg-red-500" formmethod="post" asp-action="RejectLandListing" asp-controller="Admin" asp-route-id="@listing.Id">Reject</button>
+                <button class="btn bg-green-500" formmethod="post" asp-action="ApproveLandListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
+            </form>
         </div>
-        <form method="post" asp-controller="Admin" asp-action="ApproveLandListing">
-            <button class="btn btn-success" formmethod="post" asp-action="ApproveLandListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
-        </form>
-        
-        @Html.ActionLink("Reject", 
-                         "ApproveListing", 
-                         "Admin", 
-                         new { @listing.Id }, 
-                         new { @class="btn btn-danger"});
     }
-
-
 
 </div>
 

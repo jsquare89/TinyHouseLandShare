@@ -38,8 +38,9 @@ namespace TinyHouseLandshare.ViewModels
         public bool PetFriendly { get; set; }
         public bool NoSmoking { get; set; }
         public bool Private { get; set; }
-
-
+        public string Status { get; set; }
+        public bool Approved { get; set; }
+        public bool Submitted { get; set; }
 
         public Guid ListerId { get; set; }
         public Guid UserListingId { get; set; }

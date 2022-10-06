@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.Features;
 using TinyHouseLandshare.Models;
 using TinyHouseLandshare.ViewModels;
 

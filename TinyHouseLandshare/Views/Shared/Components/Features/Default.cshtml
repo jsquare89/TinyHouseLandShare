@@ -1,0 +1,60 @@
+﻿@model FeaturesComponentViewModel
+
+@if (Model.WaterConnection)
+{
+    <div>
+        <i class="fa-sharp fa-solid fa-circle-check text-green-500"></i>
+        Water
+    </div>
+}
+@if (Model.ElectricalConnection)
+{
+    <div>
+        <i class="fa-sharp fa-solid fa-circle-check text-green-500"></i>
+        Electrical
+    </div>
+}
+@if (Model.WifiConnection)
+{
+    <div>
+        <i class="fa-sharp fa-solid fa-circle-check text-green-500"></i>
+        Internet/Wifi
+    </div>
+}
+@if (Model.PetFriendly)
+{
+    <div>
+        <i class="fa-sharp fa-solid fa-circle-check text-green-500"></i>
+        Pets Allowed
+    </div>
+}
+@if (Model.ChildFriendly)
+{
+    <div>
+        <i class="fa-sharp fa-solid fa-circle-check text-green-500"></i>
+        Child Friendly
+    </div>
+}
+
+@if (Model.Parking)
+{
+    <div>
+        <i class="fa-sharp fa-solid fa-circle-check text-green-500"></i>
+        Parking
+    </div>
+}
+@if (Model.NoSmoking)
+{
+    <div>
+        <i class="fa-sharp fa-solid fa-circle-xmark text-red-500"></i>
+        No Smoking
+    </div>
+}
+
+@if (Model.Private)
+{
+    <div>
+        <i class="fa-sharp fa-solid fa-circle-check text-green-500"></i>
+        Private
+    </div>
+}

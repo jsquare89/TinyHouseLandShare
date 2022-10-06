@@ -93,6 +93,12 @@
                                     <i class="fa-solid fa-circle-check text-yellow-500"></i>
                                     <span>Pending Approval</span>
                                 </div>*@
+                            }else if(landListing.Status.StartsWith("Rejected"))
+                            {
+                                 <div>
+                                    <i class="fa-sharp fa-solid fa-circle-exclamation text-yellow-500"></i>
+                                    <span>Rejected, please revise</span>
+                                </div>
                             }
 
                             @if (landListing.Submitted)
@@ -133,7 +139,6 @@
                             }
                         
                         </div>
-
                     
                         <div class="flex flex-row justify-center">
                             @if (landListing.Submitted is false && landListing.Approved is false)
@@ -146,7 +151,7 @@
                             }
                             else
                             {
-                                if (landListing.Approved is false)
+                                if (landListing.Approved is false && landListing.Status.StartsWith("Rejected"))
                                 {
                                     <button type="button" class=" m-2 px-4 py-2 text-white bg-green-700 shadow-md rounded-sm duration-300 hover:bg-green-800" disabled>Submit for Approval</button>
                                 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Data;
 using TinyHouseLandshare.Services;
@@ -10,10 +11,12 @@ namespace TinyHouseLandshare.Controllers
     public class AdminController : Controller
     {
         private readonly IListingService _listingService;
+        private readonly IMapper _mapper;
 
-        public AdminController(IListingService listingService)
+        public AdminController(IListingService listingService, IMapper mapper)
         {
             _listingService = listingService;
+            _mapper = mapper;
         }
         public IActionResult Index()
         {
@@ -31,7 +34,7 @@ namespace TinyHouseLandshare.Controllers
             var approveListingsViewModel = new ApproveListingViewModel
             {
                 seekerListings = _listingService.GetAllUnapprovedSubmittedSeekerListings(),
-                landListings = _listingService.GetAllUnApprovedSubmittedLandListings()
+                landListings = _mapper.Map<IEnumerable<LandListingViewModel>>(_listingService.GetAllUnApprovedSubmittedLandListings())
             };
 
             return View(approveListingsViewModel);
@@ -54,7 +57,7 @@ namespace TinyHouseLandshare.Controllers
         }
 
         [HttpPost]
-        public IActionResult ApproveLandListing(Guid id)
+        public IActionResult RejectLandListing(Guid id)
         {
             if (id == Guid.Empty)
             {
@@ -62,8 +65,9 @@ namespace TinyHouseLandshare.Controllers
             }
 
             var listing = _listingService.GetLandListing(id);
-            listing.Approved = true;
-            listing.Status = "Posted";
+            listing.Approved = false;
+            listing.Submitted = false;
+            listing.Status = "Rejected";
             _listingService.UpdateLandListing(listing);
 
             return RedirectToAction("ApproveListing", "Admin");

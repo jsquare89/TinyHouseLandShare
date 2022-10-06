@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Pf0TcyS+3Z3vefHKMditQQGlHG39B1831Ie5YyoE1bQ9PmED+vX6Ai8mURpfy6iwsLZFnzAr89tbOJyvyu1OUw==",
+  "dgSpecHash": "FUb1UZnfwX1rFQ48WKIFvzhZvVsZIOwAEUEifxSDJJAO4X/x5n/RDZaw8KxMmBxN3GKJ5hNtq4bS0V+Aol+SXQ==",
   "success": true,
   "projectFilePath": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\TinyHouseLandshare.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Jarred\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
-    "C:\\Users\\Jarred\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\Jarred\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Jarred\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Jarred\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Jarred\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Jarred\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
