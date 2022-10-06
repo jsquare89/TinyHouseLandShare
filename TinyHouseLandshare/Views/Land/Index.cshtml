@@ -4,8 +4,7 @@
 }
 
 <div class="">
-    <h1 class="text-center text-xl font-semibold">Land Listings</h1>
-    <p class="text-center pb-4">See all land listings in North America.</p>
+    <h1 class="text-center text-xl font-semibold">Land Listings - Lists Land Listings in USA & Canada</h1>
 
     <div class="flex flex-row flex-wrap">
         @foreach(var listing in Model)
@@ -15,7 +14,7 @@
                     <div class="flex flex-col m-2 w-full bg-white hover:duration-300 shadow-md hover:shadow-xl ">
                         <a asp-controller="land" asp-action="listing" asp-route-id="@listing.Id" class="flex flex-col p-4 grow">
                         <div class="absolute border border-gray-200 px-3 py-2 font-semibold bg-white">$@listing.Price.ToString("N0")</div>
-                        <img src="img/placeholder-image.png" title="seeker main image" class="bg-white mx-auto mb-4 rounded-sm border border-gray-200 "/>
+                        <img src="img/placeholder-image.png" title="lang listing main image" class="bg-white mx-auto mb-4 rounded-sm border border-gray-200 "/>
                         <h1 class="text-l text-center line-clamp-2">@listing.Title </h1>
                         <p class="text-base font-light mb-2 mr-2 text-center">@listing.Location, @listing.State, @listing.Country</p>
                         <div class="grow"></div>

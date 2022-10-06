@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Data;
@@ -13,13 +14,19 @@ namespace TinyHouseLandshare.Controllers
     public class SeekerController : Controller
     {
         private readonly IListingService _listingService;
+        private readonly IUserListingRepository _userListingRepository;
         private readonly UserManager<UserEntity> _userManager;
+        private readonly IMapper _mapper;
 
         public SeekerController(IListingService listingService,
-                                UserManager<UserEntity> userManager)
+                                IUserListingRepository userListingRepository,
+                                UserManager<UserEntity> userManager,
+                                IMapper mapper)
         {
             _listingService = listingService;
+            _userListingRepository = userListingRepository;
             _userManager = userManager;
+            _mapper = mapper;
         }
         
         [Route("")]
@@ -44,7 +51,17 @@ namespace TinyHouseLandshare.Controllers
                 return View("SeekerNotFound", id);
 
             }
-            return View(seekerListing);
+            var userListing = _userListingRepository.GetUserListingBySeekerOrLandListingId(id);
+            if (userListing is null)
+            {
+                Response.StatusCode = 404;
+                return View("LandNotFound", id);
+            }
+            var seekerListingViewModel = _mapper.Map<SeekerListingViewModel>(seekerListing);
+            seekerListingViewModel.ListerId = userListing.UserId;
+            seekerListingViewModel.UserListingId = userListing.Id;
+
+            return View(seekerListingViewModel);
         }
 
         [HttpGet]
@@ -69,15 +86,13 @@ namespace TinyHouseLandshare.Controllers
                 CreatedTime = timeStamp,
                 HouseSize = "",
                 OccupantCount = 0,
-                WifiConnectionRequired = false,
+                InternetConnectionRequired = false,
                 WaterConnectionRequired = false,
                 ElectricalConnectionRequired = false,
                 PreferedLandType = "Residential",
                 ParkingRequired = false,
                 ChildFriendlyRequired = false,
                 PetsRequired = false,
-                Smoker = false,
-                Privacy = "Community",
                 Approved = false,
                 Status = "draft",
                 Submitted = false,

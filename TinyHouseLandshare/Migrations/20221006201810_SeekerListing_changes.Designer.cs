@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TinyHouseLandshare.Data;
 
@@ -11,9 +12,10 @@ using TinyHouseLandshare.Data;
 namespace TinyHouseLandshare.Migrations
 {
     [DbContext(typeof(LandShareDbContext))]
-    partial class LandShareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221006201810_SeekerListing_changes")]
+    partial class SeekerListing_changes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -304,9 +306,6 @@ namespace TinyHouseLandshare.Migrations
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
-                    b.Property<bool>("InternetConnectionRequired")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -348,6 +347,9 @@ namespace TinyHouseLandshare.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("WaterConnectionRequired")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("WifiConnectionRequired")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");

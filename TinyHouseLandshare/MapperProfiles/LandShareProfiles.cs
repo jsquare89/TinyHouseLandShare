@@ -11,6 +11,7 @@ namespace TinyHouseLandshare.Profiles
         {
             // Source -> Target
             CreateMap<LandListing, LandListingViewModel>();
+            CreateMap<SeekerListing, SeekerListingViewModel>();
         }
     }
 }

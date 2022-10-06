@@ -9,9 +9,7 @@
 
 <div class="mx-auto max-w-3xl bg-white p-6 drop-shadow-md">
         <img src="~/img/placeholder-image.png" title="Land main image" class="bg-green-50 w-full md:w-4/5 mx-auto mb-4 rounded-sm border border-gray-200 " />
-
-
-    <p class="font-light">Listed: @Model.CreatedTime.Date.ToString("MMM dd yyyy") | Updated: @Model.ModifiedTime.Date.ToString("MMM dd yyyy")</p>
+        <p class="font-light">Listed: @Model.CreatedTime.Date.ToString("MMM dd yyyy") | Updated: @Model.ModifiedTime.Date.ToString("MMM dd yyyy")</p>
         <h1 class="text-xl font-semibold">@Model.Title.FirstCharToUpper()</h1>
         <p>$@Model.Price.ToString("N0")</p>
         <p>@Model.Location, @Model.State, @Model.Country.FirstCharToUpper()</p>
@@ -97,23 +95,23 @@
         }*@
      </div>
 
-        <div class="flex flex-col mx-4 mt-10 mb-4 p-4  border border-green-700 shadow-md rounded-sm  ">
+    <div class="flex flex-col mx-4 mt-10 mb-4 p-4  border border-green-700 shadow-md rounded-sm  ">
 
-            <h1 class="mb-2 text-center text-lg font-semibold">Message owner about this listing</h1>
-            @if (signInManager.IsSignedIn(User))
-            {
-                @await Component.InvokeAsync("InitialMessage", new {UserListingId = Model.UserListingId, SenderId = userId, ReceiverId = Model.ListerId})
+        <h1 class="mb-2 text-center text-lg font-semibold">Message owner about this listing</h1>
+        @if (signInManager.IsSignedIn(User))
+        {
+            @await Component.InvokeAsync("InitialMessage", new {UserListingId = Model.UserListingId, SenderId = userId, ReceiverId = Model.ListerId})
                 
-            }
-            else
-            {
-                <p class="text-center">Login to message</p>
-                <div class="my-2 flex flex-row flex-wrap gap-x-2 justify-center ">
-                    <a asp-area="" asp-controller="Account" asp-action="Login" class="px-4 py-2 w-32 text-white  rounded-sm bg-green-700 hover:bg-green-800 drop-shadow-sm hover:drop-shadow-md hover:duration-300">Login</a>
-                    <a asp-area="" asp-controller="Account" asp-action="Register" class="px-4 py-2 w-32 text-white rounded-sm bg-green-700 hover:bg-green-800 drop-shadow-sm hover:drop-shadow-md hover:duration-300">Register</a>
-                </div>
-            }
-        </div>
-        </div>
+        }
+        else
+        {
+            <p class="text-center">Login to message</p>
+            <div class="my-2 flex flex-row flex-wrap gap-x-2 justify-center ">
+                <a asp-area="" asp-controller="Account" asp-action="Login" class="px-4 py-2 w-32 text-white  rounded-sm bg-green-700 hover:bg-green-800 drop-shadow-sm hover:drop-shadow-md hover:duration-300">Login</a>
+                <a asp-area="" asp-controller="Account" asp-action="Register" class="px-4 py-2 w-32 text-white rounded-sm bg-green-700 hover:bg-green-800 drop-shadow-sm hover:drop-shadow-md hover:duration-300">Register</a>
+            </div>
+        }
+    </div>
+</div>
 
         
