@@ -1,7 +1,9 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.Metrics;
 using TinyHouseLandshare.Data;
 using TinyHouseLandshare.Models;
 using TinyHouseLandshare.Services;
@@ -75,32 +77,19 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult CreateListing(SeekerListingViewModel model)
         {
-            // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
-
-            var timeStamp = DateTimeOffset.UtcNow;
-            var seekerListing = new SeekerListing
+            if (!ModelState.IsValid)
             {
-                Title = model.Title,
-                Location = model.Location,
-                Details = model.Details,
-                CreatedTime = timeStamp,
-                HouseSize = "",
-                OccupantCount = 0,
-                InternetConnectionRequired = false,
-                WaterConnectionRequired = false,
-                ElectricalConnectionRequired = false,
-                PreferedLandType = "Residential",
-                ParkingRequired = false,
-                ChildFriendlyRequired = false,
-                PetsRequired = false,
-                Approved = false,
-                Status = "draft",
-                Submitted = false,
-                Country = "CA",
-                State = "BC",
-                ModifiedTime = timeStamp
-            };
-
+                // TODO: set response 404 and return error invalid data entered
+                return View();
+            }
+            var timeStamp = DateTimeOffset.UtcNow;
+            var seekerListing = _mapper.Map<SeekerListing>(model);
+            seekerListing.Approved = false;
+            seekerListing.Status = "Draft";
+            seekerListing.Submitted = false;
+            seekerListing.Approved = false;
+            seekerListing.CreatedTime = timeStamp;
+            seekerListing.ModifiedTime = timeStamp;
 
             _listingService.AddSeekerListing(seekerListing, GetLoggedInUserId());
 
@@ -116,14 +105,12 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult EditListing(Guid id)
         {
-            var seekerListing = _listingService.GetSeekerListing(id);
-            var seekerListingViewModel = new SeekerListingViewModel
+            var seekerListingViewModel = _mapper.Map<SeekerListingViewModel>(_listingService.GetSeekerListing(id));
+            if(seekerListingViewModel is null)
             {
-                Id= id,
-                Title = seekerListing.Title,
-                Location = seekerListing.Location,
-                Details = seekerListing.Details,
-            };
+                Response.StatusCode = 404;
+                return View("SeekerNotFound", id);
+            }
             return View(seekerListingViewModel);
         }
 

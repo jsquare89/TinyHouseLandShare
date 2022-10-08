@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TinyHouseLandshare.Data;
 
@@ -11,9 +12,10 @@ using TinyHouseLandshare.Data;
 namespace TinyHouseLandshare.Migrations
 {
     [DbContext(typeof(LandShareDbContext))]
-    partial class LandShareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221006215215_SeekerListing_petfriendly_field_name_change")]
+    partial class SeekerListing_petfriendly_field_name_change
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -321,10 +323,10 @@ namespace TinyHouseLandshare.Migrations
                     b.Property<bool>("ParkingRequired")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("PetFriendlyRequired")
+                    b.Property<bool>("PetFriendllyRequired")
                         .HasColumnType("bit");
 
-                    b.Property<string>("PreferredLandType")
+                    b.Property<string>("PreferedLandType")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");

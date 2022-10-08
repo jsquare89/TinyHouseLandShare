@@ -67,7 +67,7 @@ namespace TinyHouseLandshare.Data
                 seekerListing.WaterConnectionRequired.Equals(seekerSearch.waterConnection) &&
                 seekerListing.ElectricalConnectionRequired.Equals(seekerSearch.electricalConnection) &&
                 seekerListing.InternetConnectionRequired.Equals(seekerSearch.wifiConnection) &&
-                seekerListing.PetsRequired.Equals(seekerSearch.petsAllowed) &&
+                seekerListing.PetFriendlyRequired.Equals(seekerSearch.petsAllowed) &&
                 seekerListing.ChildFriendlyRequired.Equals(seekerSearch.childFriendly));
             }
             return GetAllApprovedSeekerListings().Where(seekerListing =>
@@ -75,7 +75,7 @@ namespace TinyHouseLandshare.Data
                 seekerListing.WaterConnectionRequired.Equals(seekerSearch.waterConnection) &&
                 seekerListing.ElectricalConnectionRequired.Equals(seekerSearch.electricalConnection) &&
                 seekerListing.InternetConnectionRequired.Equals(seekerSearch.wifiConnection) &&
-                seekerListing.PetsRequired.Equals(seekerSearch.petsAllowed) &&
+                seekerListing.PetFriendlyRequired.Equals(seekerSearch.petsAllowed) &&
                 seekerListing.ChildFriendlyRequired.Equals(seekerSearch.childFriendly));
         }
     }
