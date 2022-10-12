@@ -15,10 +15,11 @@
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/TinyHouseLandshare.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="javascrtip" href="~/js//site.js" />
     <script src="https://kit.fontawesome.com/c295d27c9d.js" crossorigin="anonymous"></script>
 </head>
 <body class="h-[100vh] flex  flex-col">
-    <header class="bg-white drop-shadow-md" id="header">
+    <header class="bg-white shadow-md" id="header">
         <!-- Navbar -->
         <nav class="relative container mx-auto px-6 py-3">
             <!-- Flex container -->
@@ -33,15 +34,16 @@
                 </div>
 
                 <!-- Login & Links -->
-                <div class="relative flex flex-col px-6">
+                <div class="relative flex flex-col  items-end">
                     @if (signInManager.IsSignedIn(User))
                     {
                         <div class="flex flex-row align-middle">
-                            <span class="my-auto"> Welcome, @User.Identity.Name</span>
-                            <button class="flex w-10 h-10 ml-2 my-auto text-white font-semibold bg-green-700 rounded-sm hover:bg-green-800 duration-300 shadow-md"><i class="bx bx-user m-auto"></i></button>
+                            <a class="my-auto" asp-area="" asp-controller="Account" asp-action="Dashboard">
+                                <span > Welcome, @User.Identity.Name</span>
+                            </a>
+                            <button id="menu-button" class="hidden sm:flex w-10 h-10 ml-2 my-auto text-white font-semibold bg-green-700 rounded-sm hover:bg-green-800 duration-300 shadow-md"><i class="bx bx-user m-auto"></i></button>
                         </div>
-
-                        <div class="@*absolute*@ z-10 top-[calc(100%+.25rem)] flex flex-col rounded-sm duration-300 shadow-md p-4 bg-white">
+                        <div id="user-menu" class="absolute hidden max-w-[80%] z-10 top-[calc(100%+.25rem)] flex flex-col rounded-sm duration-300 shadow-md p-4 bg-white">
                             
                                 <a class="text-center px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700" asp-area="" asp-controller="Account" asp-action="Dashboard">Dashboard</a>
                                 @Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class="text-center px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700"})
@@ -52,6 +54,7 @@
                                 </form>
                             
                         </div>
+
                     }
                     else
                     {
@@ -61,25 +64,25 @@
 
             </div>
         </nav>  
+            <!-- BASE NAV: Features links & Search box -->
+            <div class="bg-green-700 drop-shadow-md z-0">
+                <div class="container mx-auto py-1 md:py-2 px-6">
+                    <div class="flex flex-col items-center md:flex-row md:justify-left">
+                        @Html.ActionLink("Seeker Listings", "index", "Seeker", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white"})
+                        @Html.ActionLink("Land Listings", "index", "Land", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white"})
+                        @Html.ActionLink("Search Home Owners", "search", "Seeker", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white"})
+                        @Html.ActionLink("Search Land", "search", "Land", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white active:border-white"})
+
+                        @*<a href="#" class="px-4 py-2 bg-green-700 text-white">
+                        Search <i class="bx bx-search nav__icon"></i>
+                        </a>*@
+                    </div>
+                </div>
+            </div>
     </header>
 
   
-    <!-- BASE NAV: Features links & Search box -->
-    <div class="bg-green-700 drop-shadow-md z-0">
-        <div class="container mx-auto py-1 md:py-2 px-6">
-            <div class="flex flex-col items-center md:flex-row md:justify-left"> 
-                @Html.ActionLink("Seeker Listings", "index", "Seeker", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white"})
-                @Html.ActionLink("Land Listings", "index", "Land", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white"})
-                @Html.ActionLink("Search Home Owners", "search", "Seeker", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white"})
-                @Html.ActionLink("Search Land", "search", "Land", null , new { @class="px-4 py-2 text-white rounded-sm border border-green-700 hover:duration-300 hover:border-white active:border-white"})
-               
-                @*<a href="#" class="px-4 py-2 bg-green-700 text-white">
-                    Search <i class="bx bx-search nav__icon"></i>
-                </a>*@
-            </div>         
-        </div>
-    </div>
-
+   
     <!-- User Features & Links -->
     <div class="container mx-auto px-6 py-6">
         @if (User.IsInRole("Admin"))

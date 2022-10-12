@@ -31,14 +31,6 @@
                 <button class="btn bg-red-500" formmethod="post" asp-action="RejectSeekerListing" asp-controller="Admin" asp-route-id="@listing.Id">Reject</button>
                 <button class="btn bg-green-500" formmethod="post" asp-action="ApproveSeekerListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
             </form>
-        
-@*        @Html.ActionLink("Reject", 
-                         "ApproveListing", 
-                         "Admin", 
-                         new { @listing.Id }, 
-                         new { @class="btn btn-danger"});
-*@
-
         </div>
     }
 
