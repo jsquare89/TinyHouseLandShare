@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.Metrics;
 using TinyHouseLandshare.Data;
+using TinyHouseLandshare.Migrations;
 using TinyHouseLandshare.Models;
 using TinyHouseLandshare.Services;
 using TinyHouseLandshare.ViewModels;
@@ -118,21 +119,17 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult EditListing(SeekerListingViewModel model)
         {
-            // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
             if (ModelState.IsValid)
             {
-                var seekerListing = _listingService.GetSeekerListing(model.Id);
-                seekerListing.Title = model.Title;
-                seekerListing.Location = model.Location;
-                seekerListing.Details = model.Details;
+                var seekerListing = _mapper.Map<SeekerListing>(model);
                 seekerListing.ModifiedTime = DateTimeOffset.UtcNow;
-                seekerListing.Status = "Edited - Unapproved";
+                seekerListing.Status = "Edited";
                 seekerListing.Submitted = false;
                 seekerListing.Approved = false;
-
                 _listingService.UpdateSeekerListing(seekerListing);
                 return RedirectToAction("Dashboard", "Account");
             }
+            // TODO: return error view
             return View();
         }
 
@@ -148,7 +145,7 @@ namespace TinyHouseLandshare.Controllers
         {
             var seekerListing = _listingService.GetSeekerListing(id);
             seekerListing.Submitted = true;
-            seekerListing.Status = "Submitted for approval";
+            seekerListing.Status = "";
             _listingService.UpdateSeekerListing(seekerListing);
             return RedirectToAction("Dashboard", "Account");
         }

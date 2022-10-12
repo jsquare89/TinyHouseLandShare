@@ -17,49 +17,57 @@
 <div class="">
 
     <h1 class="text-xl m-4">Seeker Listing</h1>
-    <div class="flex flex-col sm:flex-row sm:max-w-3xl border border-gray-50 shadow-md items-center space-x-4 p-4">
+    <div class="flex flex-col sm:flex-row sm:max-w-3xl border border-gray-50 shadow-md  space-x-4 p-4">
         @if(Model.SeekerListing is not null)
         {
-                <div>
-                    <img src="~/img/placeholder-image.png" class="w-80 border border-gray-200 bg-green-100" title="seeker main image"/>
-                </div>
-                <div>
-                    <h1><a asp-controller="seeker" asp-action="listing" asp-route-id="@Model.SeekerListing.Id" >@Model.SeekerListing.Title</a></h1>
-                    <p>@Model.SeekerListing.Id</p>
-                    <p>@Model.SeekerListing.CreatedTime.Date</p>
-                </div>
-                <div>
-                    <p>@Model.SeekerListing.Status</p>
-                    <p>Submitted: @Model.SeekerListing.Submitted</p>
-                    <p>Approved: @Model.SeekerListing.Approved</p>
-                    <div>
+                
+                <img src="~/img/placeholder-image.png" class="w-80 border border-gray-200 bg-green-100" title="seeker main image"/>
+                
+                <div class="flex flex-col">
+                    <div class="flex flex-row ">
+                        <div>
+                            <h1><a asp-controller="seeker" asp-action="listing" asp-route-id="@Model.SeekerListing.Id" >@Model.SeekerListing.Title</a></h1>
+                            <p>@Model.SeekerListing.Id</p>
+                            <p>@Model.SeekerListing.Location, @Model.SeekerListing.State, @Model.SeekerListing.Country</p>
+                            <p>Created: @Model.SeekerListing.CreatedTime.Date.ToString("MMM dd yyyy")</p>
+                            <p>Modified: @Model.SeekerListing.ModifiedTime.Date.ToString("MMM dd yyyy")</p>
+                        </div>
+                        <div>
+                            <p>@Model.SeekerListing.Status</p>
+                            <p>Submitted: @Model.SeekerListing.Submitted</p>
+                            <p>Approved: @Model.SeekerListing.Approved</p>
+                        </div>
+                    </div>
+                    <div class="grow"> </div>
+                    <div class="flex flex-row">
                         @Html.ActionLink("Edit", 
                                           "EditListing", 
                                           "Seeker", 
-                                          new{ Model.SeekerListing.Id}, 
-                                          new{ @class="btn btn-info"})
+                                          new{ Model.SeekerListing.Id},
+                                          new{ @class="m-2 px-4 py-2 text-white bg-yellow-500 shadow-md rounded-sm duration-300 hover:bg-yellow-600"})
                         @if(Model.SeekerListing.Submitted is false)
                         {
                             @Html.ActionLink("Submit for Approval", 
                                           "SubmitApproval", 
                                           "Seeker", 
-                                          new{ Model.SeekerListing.Id}, 
-                                          new{ @class="btn btn-warning"})
+                                          new{ Model.SeekerListing.Id},
+                                          new{ @class="m-2 px-4 py-2 text-white bg-green-700 shadow-md rounded-sm duration-300 hover:bg-green-800"})
                         }
                         else
                         {
-                            if(Model.SeekerListing.Approved is false)
+                            @*if(Model.SeekerListing.Approved is false)
                             {
-                               <button type="button" class="btn btn-secondary" disabled>Submit for Approval</button>
-                            }
+                            <button type="button" class="m-2 px-4 py-2 text-white bg-green-700 shadow-md rounded-sm duration-300 hover:bg-green-800" disabled>Submit for Approval2</button>
+                            }*@
                         }
 
                         @Html.ActionLink("Delete", 
                                           "DeleteListing", 
                                           "Seeker", 
-                                          new{ Model.SeekerListing.Id}, 
-                                          new{ @class="btn btn-danger"})
+                                          new{ Model.SeekerListing.Id},
+                new{ @class="m-2 px-4 py-2 text-white bg-red-700 shadow-md  rounded-sm duration-300 hover:bg-red-800"})
                         </div>
+                    
                 </div>
         }
         else

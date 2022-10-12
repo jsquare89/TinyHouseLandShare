@@ -103,8 +103,13 @@
         <label for="file">Upload Image:</label>
         <input type="file" name="file" id="file" />
         <input type="submit" value="Upload Image" class="mx-auto btn btn-primary" />
+
+        
+        <input asp-for="Status" type="hidden"/>
+
         <button type="submit" class="py-2 px-4 mx-auto my-4 w-48 text-white bg-green-700 rounded-sm shadow-md">Submit Edit</button>
         @*<button type="submit" class="ml-auto mt-2 btn btn-primary">Create</button>*@
+
     </form>
 </div>
 @*
