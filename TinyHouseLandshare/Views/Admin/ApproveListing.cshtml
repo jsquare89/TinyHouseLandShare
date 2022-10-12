@@ -12,10 +12,13 @@
 
     @foreach(var listing in @Model.seekerListings)
     {
-        <div class="flex flex-col my-4">
-            <h1 class="text-l font-semibold">@listing.Title</h1>
-            <p>Location: @listing.Location</p>
-            <p>Created Time: @listing.CreatedTime</p>
+        <div class="flex flex-col my-4 max-w-md p-4 shadow-md">
+            <img src="~/img/placeholder-image.png" class="bg-green-200 mb-2" />
+            <p>User: </p>
+            <h2 class="text-l font-semibold">@listing.Title.FirstCharToUpper()</h2>
+            <p>Location: @listing.Location, @listing.State, @listing.Country</p>
+            <p>Created Date: @listing.CreatedTime.ToString("MMM dd yyyy")</p>
+            <p>Modified Date: @listing.ModifiedTime.ToString("MMM dd yyyy")</p>
             <p>Details: @listing.Details</p>
             <p>House size: @listing.HouseSize</p>
             <p>Occutpant count: @listing.OccupantCount</p>
@@ -23,16 +26,19 @@
             <p>Submitted: @listing.Submitted</p>
             <p>Status: @listing.Status</p>
             <p>Approved: @listing.Approved</p>
+
+            <form method="post" asp-controller="Admin" asp-action="ApproveSeekerListing" class="flex flex-row justify-between mt-6">
+                <button class="btn bg-red-500" formmethod="post" asp-action="RejectSeekerListing" asp-controller="Admin" asp-route-id="@listing.Id">Reject</button>
+                <button class="btn bg-green-500" formmethod="post" asp-action="ApproveSeekerListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
+            </form>
         
-        <form method="post" asp-controller="Admin" asp-action="ApproveSeekerListing">
-            <button class="btn btn-primary" formmethod="post" asp-action="ApproveSeekerListing" asp-controller="Admin" asp-route-id="@listing.Id">Approve</button>
-        </form>
-        
-        @Html.ActionLink("Reject", 
+@*        @Html.ActionLink("Reject", 
                          "ApproveListing", 
                          "Admin", 
                          new { @listing.Id }, 
                          new { @class="btn btn-danger"});
+*@
+
         </div>
     }
 

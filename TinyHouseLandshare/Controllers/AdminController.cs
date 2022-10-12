@@ -57,6 +57,39 @@ namespace TinyHouseLandshare.Controllers
         }
 
         [HttpPost]
+        public IActionResult RejectSeekerListing(Guid id)
+        {
+            if (id == Guid.Empty)
+            {
+                return BadRequest();
+            }
+
+            var listing = _listingService.GetSeekerListing(id);
+            listing.Approved = false;
+            listing.Submitted = false;
+            listing.Status = "Rejected";
+            _listingService.UpdateSeekerListing(listing);
+
+            return RedirectToAction("ApproveListing", "Admin");
+        }
+
+        [HttpPost]
+        public IActionResult ApproveLandListing(Guid id)
+        {
+            if (id == Guid.Empty)
+            {
+                return BadRequest();
+            }
+
+            var listing = _listingService.GetLandListing(id);
+            listing.Approved = true;
+            listing.Status = "Posted";
+            _listingService.UpdateLandListing(listing);
+
+            return RedirectToAction("ApproveListing", "Admin");
+        }
+
+        [HttpPost]
         public IActionResult RejectLandListing(Guid id)
         {
             if (id == Guid.Empty)
