@@ -17,18 +17,21 @@ namespace TinyHouseLandshare.Controllers
         private readonly IUserListingRepository _userListingRepository;
         private readonly UserManager<UserEntity> _userManager;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public LandController(IListingService listingService,
                               ILandListingRepository landListingRepository,
                               IUserListingRepository userListingRepository,
                               UserManager<UserEntity> userManager,
-                              IMapper mapper)
+                              IMapper mapper,
+                              IWebHostEnvironment webHostEnvironment)
         {
             _listingService = listingService;
             _landListingRepository = landListingRepository;
             _userListingRepository = userListingRepository;
             _userManager = userManager;
             _mapper = mapper;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [Route("Land")]
@@ -78,18 +81,18 @@ namespace TinyHouseLandshare.Controllers
             {
                 return View(model);
             }
-            // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
-            
-
+  
             var landListing = _mapper.Map<LandListing>(model);
-            landListing = UpdateLandListingWithDefaults( landListing);
-
+            landListing = UpdateLandListingWithCreateDefaults( landListing);
             landListing = _listingService.AddLandListing(landListing, LoggedInUserId());
-            SaveMainImageToFile(model.MainImage, landListing.Id, landListing.UserListing.UserId);
+            if(model.MainImage is not null)
+            {
+                SaveMainImageToFile(model.MainImage, landListing.Id, landListing.UserListing.UserId);
+            }
             return RedirectToAction("Dashboard", "Account");
         }
 
-        private static LandListing UpdateLandListingWithDefaults(LandListing landListing)
+        private static LandListing UpdateLandListingWithCreateDefaults(LandListing landListing)
         {
             var timeStamp = DateTimeOffset.UtcNow;
             landListing.CreatedTime = timeStamp;
@@ -104,12 +107,39 @@ namespace TinyHouseLandshare.Controllers
         private void SaveMainImageToFile(IFormFile mainImage, Guid listingId, Guid userId)
         {
             // TODO: implement rename and save images to file
+            
+            
+            var folderPath = GetFolderPath(listingId, userId);
+            var fileName = GetNewFileName(Path.GetExtension(mainImage.FileName), listingId, userId);
+            var filePath = Path.Combine(folderPath, fileName);
+            mainImage.CopyTo(new FileStream(filePath, FileMode.Create));
 
-            // check if directory exists. if not create directory. if yes continue
+        }
 
-            // rename mainImage for storage, userId_ListingId_1.jpg/png
+        private string GetNewFileName(string extention, Guid listingId, Guid userId)
+        {
+            //TODO: check folder and get next fileIndex for fileName if images exist else start at 1
+            var fileIndex = 1;
+            return userId + "_" + listingId + "_" + fileIndex + extention;
+        }
 
-            // save image to file
+        private string GetFolderPath(Guid listingId, Guid userId)
+        {
+            string baseFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "listing_images");
+            var uniqueFolderName = Path.Combine( baseFilePath, userId.ToString(), listingId.ToString());
+            try
+            {
+                if (Directory.Exists(uniqueFolderName))
+                {
+                    return uniqueFolderName;
+                }
+                Directory.CreateDirectory(uniqueFolderName);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return uniqueFolderName;
         }
 
         private Guid LoggedInUserId()
