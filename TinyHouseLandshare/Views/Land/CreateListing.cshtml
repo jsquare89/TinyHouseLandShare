@@ -6,7 +6,7 @@
 
 <div class="mx-auto p-6 max-w-4xl flex flex-col shadow-md">
     <h1 class="text-xl text-center">Create Land Listing</h1>
-    <form method="post" class="flex flex-col">
+    <form asp-action="CreateListing" enctype="multipart/form-data" method="post" class="flex flex-col">
         <div asp-validation-summary="All" class="text-red-500"></div>
         <div class="flex flex-row space-x-4 flex-wrap">
             <div class="flex flex-col mb-2">
@@ -59,7 +59,7 @@
             <span asp-validation-for="SiteFoundation" class="text-red-500"></span>
         </div>
         <div class="flex flex-col mb-2">
-            <label asp-for="DrivewayFoundation">Site Foundation</label>
+            <label asp-for="DrivewayFoundation">Driveway Foundation</label>
             <input asp-for="DrivewayFoundation" class="input-box" />
             <span asp-validation-for="DrivewayFoundation" class="text-red-500"></span>
         </div>
@@ -101,8 +101,8 @@
         </div>
 
         <label for="file">Upload Image:</label>
-        <input type="file" name="file" id="file" />
-        <input type="submit" value="Upload Image" class="mx-auto btn btn-primary" />
+        <input asp-for="MainImage" id="MainImage" />
+      @*  <input type="submit" value="Upload Image" class="mx-auto btn btn-primary" />*@
         
         <button type="submit" class="ml-auto mt-2 btn btn-primary">Create</button>
     </form>

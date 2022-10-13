@@ -79,37 +79,37 @@ namespace TinyHouseLandshare.Controllers
                 return View(model);
             }
             // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
-            var timeStamp = DateTimeOffset.UtcNow;
-            var landListing = new LandListing
-            {
-                Title = model.Title,
-                Location = model.Location,
-                Details = model.Details,
-                CreatedTime = timeStamp,
-                ModifiedTime = timeStamp,
-                Price = model.Price,
-                MapLocation = "",
-                AvailableDate = model.AvailableDate,
-                LandType = model.LandType,
-                SiteFoundation = model.SiteFoundation,
-                DrivewayFoundation = model.DrivewayFoundation,
-                WifiConnection = model.WifiConnection,
-                WaterConnection = model.WaterConnection,
-                ElectricalConnection = model.ElectricalConnection,
-                Parking = model.Parking,
-                ChildFriendly = model.ChildFriendly,
-                PetFriendly = model.PetFriendly,
-                NoSmoking = model.NoSmoking,
-                Private = model.Private,
-                Status = "Draft",
-                Approved = false,
-                Submitted = false,
-                Country = model.Country,
-                State = model.State
-            };
+            
 
-            _listingService.AddLandListing(landListing, LoggedInUserId());
+            var landListing = _mapper.Map<LandListing>(model);
+            landListing = UpdateLandListingWithDefaults( landListing);
+
+            landListing = _listingService.AddLandListing(landListing, LoggedInUserId());
+            SaveMainImageToFile(model.MainImage, landListing.Id, landListing.UserListing.UserId);
             return RedirectToAction("Dashboard", "Account");
+        }
+
+        private static LandListing UpdateLandListingWithDefaults(LandListing landListing)
+        {
+            var timeStamp = DateTimeOffset.UtcNow;
+            landListing.CreatedTime = timeStamp;
+            landListing.ModifiedTime = timeStamp;
+            landListing.MapLocation = "";
+            landListing.Status = "Draft";
+            landListing.Approved = false;
+            landListing.Submitted = false;
+            return landListing;
+        }
+
+        private void SaveMainImageToFile(IFormFile mainImage, Guid listingId, Guid userId)
+        {
+            // TODO: implement rename and save images to file
+
+            // check if directory exists. if not create directory. if yes continue
+
+            // rename mainImage for storage, userId_ListingId_1.jpg/png
+
+            // save image to file
         }
 
         private Guid LoggedInUserId()
