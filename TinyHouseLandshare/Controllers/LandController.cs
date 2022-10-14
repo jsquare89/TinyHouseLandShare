@@ -38,7 +38,16 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            var landListings = _listingService.GetApprovedLandListings();
+            var landL = _listingService.GetApprovedLandListings();
+            var landListings = _mapper.Map<IEnumerable<LandListingViewModel>>(landL);
+
+            foreach (var landListing in landListings)
+            {
+                // should get fileName from database. userId_listingId_index.extention. check to see if path exists then populate view model
+                var fileName = _imageHandler.GetFileName( landListing.ListerId, landListing.Id, ".jpg");
+                landListing.ImageSrc = _imageHandler.GetImageSrc(landListing.ListerId, landListing.Id, fileName);
+            }
+
             return View(landListings);
         }
 
@@ -59,11 +68,14 @@ namespace TinyHouseLandshare.Controllers
                 Response.StatusCode = 404;
                 return View("LandNotFound", id);
             }
-            var landListingVM = _mapper.Map<LandListingViewModel>(landListing);
-            landListingVM.ListerId = userListing.UserId ;
-            landListingVM.UserListingId = userListing.Id;
+            var landListingViewModel = _mapper.Map<LandListingViewModel>(landListing);
+            landListingViewModel.ListerId = userListing.UserId ;
+            landListingViewModel.UserListingId = userListing.Id;
 
-            return View(landListingVM);
+            var fileName = _imageHandler.GetImageFileName(landListingViewModel.ListerId, landListingViewModel.Id, "1", ".jpg");
+            landListingViewModel.ImageSrc = _imageHandler.GetImageSrc(userListing.UserId, landListing.Id, fileName);
+
+            return View(landListingViewModel);
         }
 
         [HttpGet]
@@ -88,7 +100,6 @@ namespace TinyHouseLandshare.Controllers
             if(model.MainImage is not null)
             {
                 _imageHandler.SaveImageToStorage(model.MainImage, landListing.UserListing.UserId, landListing.Id);
-                //SaveMainImageToFile(model.MainImage, landListing.Id, landListing.UserListing.UserId);
             }
             return RedirectToAction("Dashboard", "Account");
         }
@@ -104,40 +115,6 @@ namespace TinyHouseLandshare.Controllers
             landListing.Submitted = false;
             return landListing;
         }
-
-        //private void SaveMainImageToFile(IFormFile mainImage, Guid listingId, Guid userId)
-        //{
-        //    var folderPath = GetFolderPath(listingId, userId);
-        //    var fileName = GetNewFileName(Path.GetExtension(mainImage.FileName), listingId, userId);
-        //    var filePath = Path.Combine(folderPath, fileName);
-        //    mainImage.CopyTo(new FileStream(filePath, FileMode.Create));
-        //}
-
-        //private string GetNewFileName(string extention, Guid listingId, Guid userId)
-        //{
-        //    //TODO: check folder and get next fileIndex for fileName if images exist else start at 1
-        //    var fileIndex = 1;
-        //    return userId + "_" + listingId + "_" + fileIndex + extention;
-        //}
-
-        //private string GetFolderPath(Guid listingId, Guid userId)
-        //{
-        //    string baseFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "listing_images");
-        //    var uniqueFolderName = Path.Combine( baseFilePath, userId.ToString(), listingId.ToString());
-        //    try
-        //    {
-        //        if (Directory.Exists(uniqueFolderName))
-        //        {
-        //            return uniqueFolderName;
-        //        }
-        //        Directory.CreateDirectory(uniqueFolderName);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //    }
-        //    return uniqueFolderName;
-        //}
 
         private Guid LoggedInUserId()
         {

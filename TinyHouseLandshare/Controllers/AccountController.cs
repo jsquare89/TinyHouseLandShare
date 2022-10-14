@@ -17,19 +17,19 @@ namespace TinyHouseLandshare.Controllers
         private readonly SignInManager<UserEntity> _signInManager;
         private readonly IListingService _listingService;
         private readonly IMapper _mapper;
-        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly IImageHandlerService _imageHandler;
 
         public AccountController(UserManager<UserEntity> userManager, 
                                  SignInManager<UserEntity> signInManager,
                                  IListingService listingService,
                                  IMapper mapper,
-                                 IWebHostEnvironment webHostEnvironment)
+                                 IImageHandlerService imageHandler)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _listingService = listingService;
             _mapper = mapper;
-            _webHostEnvironment = webHostEnvironment;
+            _imageHandler = imageHandler;
         }
 
 
@@ -122,33 +122,12 @@ namespace TinyHouseLandshare.Controllers
 
             foreach(var landListing in userListings.LandListings)
             {
-                var folderPath = GenerateFolderPath(landListing.Id, userId);
-                var fileName = Path.Combine(folderPath, GetNewFileName(".jpg" , landListing.Id, userId));
-                if (System.IO.File.Exists(fileName))
-                {
-                    landListing.ImageUrl = "/listing_images/" + userId + "/" + landListing.Id + "/" + userId + "_" + landListing.Id + "_1.jpg";
-                }
-                else
-                {
-                    landListing.ImageUrl = null;
-                }
+                // should get fileName from database. userId_listingId_index.extention. check to see if path exists then populate view model
+                var fileName = _imageHandler.GetFileName( userId, landListing.Id, ".jpg");
+                landListing.ImageSrc = _imageHandler.GetImageSrc(userId, landListing.Id, fileName);      
             }
-
             return View(userListings);
         }
 
-        private string GetNewFileName(string extention, Guid listingId, Guid userId)
-        {
-            //TODO: check folder and get next fileIndex for fileName if images exist else start at 1
-            var fileIndex = 1;
-            return userId + "_" + listingId + "_" + fileIndex + extention;
-        }
-
-        private string GenerateFolderPath(Guid listingId, Guid userId)
-        {
-            string baseFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "listing_images");
-            var uniqueFolderName = Path.Combine(baseFilePath, userId.ToString(), listingId.ToString());
-            return uniqueFolderName;
-        }
     }
 }

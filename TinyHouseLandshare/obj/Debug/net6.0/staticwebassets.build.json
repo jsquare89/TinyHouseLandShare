@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r3IUgNQcgvtEfVZDBjhtFOk9VjmLGUfIzDbutZQKUnU=",
+  "Hash": "FFNbWK05pTYv0ts9f0dBttRzX9WeeFl+n+dERbzvsxQ=",
   "Source": "TinyHouseLandshare",
   "BasePath": "_content/TinyHouseLandshare",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1672c110-496d-452c-2f4f-08daae2d6104\\ca073980-4320-49d6-a248-f6d537e0078f_1672c110-496d-452c-2f4f-08daae2d6104_1.jpg",
+      "SourceId": "TinyHouseLandshare",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "BasePath": "_content/TinyHouseLandshare",
+      "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/1672c110-496d-452c-2f4f-08daae2d6104/ca073980-4320-49d6-a248-f6d537e0078f_1672c110-496d-452c-2f4f-08daae2d6104_1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1672c110-496d-452c-2f4f-08daae2d6104\\ca073980-4320-49d6-a248-f6d537e0078f_1672c110-496d-452c-2f4f-08daae2d6104_1.jpg"
     },
     {
       "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1aea816c-fc3e-4e4c-2c26-08daad728641\\ca073980-4320-49d6-a248-f6d537e0078f_1aea816c-fc3e-4e4c-2c26-08daad728641_1.jpg",

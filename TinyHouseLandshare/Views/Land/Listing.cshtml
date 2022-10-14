@@ -8,7 +8,16 @@
 
 
 <div class="mx-auto max-w-3xl bg-white p-6 drop-shadow-md">
-        <img src="~/img/placeholder-image.png" title="Land main image" class="bg-green-50 w-full md:w-4/5 mx-auto mb-4 rounded-sm border border-gray-200 " />
+
+        @if (Model.ImageSrc is not null)
+        {
+            <img src="@Model.ImageSrc" class="bg-green-50 w-full md:w-4/5 mx-auto mb-4 rounded-sm border border-gray-200 " title="land main image" />
+
+        }
+        else
+        {
+            <img src="~/img/placeholder-image.png" class="bg-green-50 w-full md:w-4/5 mx-auto mb-4 rounded-sm border border-gray-200 " title="land main image" />
+        }
         <p class="font-light">Listed: @Model.CreatedTime.Date.ToString("MMM dd yyyy") | Updated: @Model.ModifiedTime.Date.ToString("MMM dd yyyy")</p>
         <h1 class="text-xl font-semibold">@Model.Title.FirstCharToUpper()</h1>
         <p>$@Model.Price.ToString("N0")</p>
