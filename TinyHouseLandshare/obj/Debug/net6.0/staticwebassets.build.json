@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KaF2LLUzJRIwezOU6NW0Oeh+CEXddvl0ESC9+OVH5NQ=",
+  "Hash": "r3IUgNQcgvtEfVZDBjhtFOk9VjmLGUfIzDbutZQKUnU=",
   "Source": "TinyHouseLandshare",
   "BasePath": "_content/TinyHouseLandshare",
   "Mode": "Default",
@@ -1086,6 +1086,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1aea816c-fc3e-4e4c-2c26-08daad728641\\ca073980-4320-49d6-a248-f6d537e0078f_1aea816c-fc3e-4e4c-2c26-08daad728641_1.jpg",
+      "SourceId": "TinyHouseLandshare",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "BasePath": "_content/TinyHouseLandshare",
+      "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/1aea816c-fc3e-4e4c-2c26-08daad728641/ca073980-4320-49d6-a248-f6d537e0078f_1aea816c-fc3e-4e4c-2c26-08daad728641_1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1aea816c-fc3e-4e4c-2c26-08daad728641\\ca073980-4320-49d6-a248-f6d537e0078f_1aea816c-fc3e-4e4c-2c26-08daad728641_1.jpg"
+    },
+    {
+      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\c479c303-a6fc-464a-9cd0-08daae167f5e\\ca073980-4320-49d6-a248-f6d537e0078f_c479c303-a6fc-464a-9cd0-08daae167f5e_1.jpg",
+      "SourceId": "TinyHouseLandshare",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "BasePath": "_content/TinyHouseLandshare",
+      "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/c479c303-a6fc-464a-9cd0-08daae167f5e/ca073980-4320-49d6-a248-f6d537e0078f_c479c303-a6fc-464a-9cd0-08daae167f5e_1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\c479c303-a6fc-464a-9cd0-08daae167f5e\\ca073980-4320-49d6-a248-f6d537e0078f_c479c303-a6fc-464a-9cd0-08daae167f5e_1.jpg"
     }
   ]
 }

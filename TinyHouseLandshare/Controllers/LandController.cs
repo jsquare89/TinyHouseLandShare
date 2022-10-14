@@ -17,21 +17,21 @@ namespace TinyHouseLandshare.Controllers
         private readonly IUserListingRepository _userListingRepository;
         private readonly UserManager<UserEntity> _userManager;
         private readonly IMapper _mapper;
-        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly IImageHandlerService _imageHandler;
 
         public LandController(IListingService listingService,
                               ILandListingRepository landListingRepository,
                               IUserListingRepository userListingRepository,
                               UserManager<UserEntity> userManager,
                               IMapper mapper,
-                              IWebHostEnvironment webHostEnvironment)
+                              IImageHandlerService imageHandler)
         {
             _listingService = listingService;
             _landListingRepository = landListingRepository;
             _userListingRepository = userListingRepository;
             _userManager = userManager;
             _mapper = mapper;
-            _webHostEnvironment = webHostEnvironment;
+            _imageHandler = imageHandler;
         }
 
         [Route("Land")]
@@ -87,7 +87,8 @@ namespace TinyHouseLandshare.Controllers
             landListing = _listingService.AddLandListing(landListing, LoggedInUserId());
             if(model.MainImage is not null)
             {
-                SaveMainImageToFile(model.MainImage, landListing.Id, landListing.UserListing.UserId);
+                _imageHandler.SaveImageToStorage(model.MainImage, landListing.UserListing.UserId, landListing.Id);
+                //SaveMainImageToFile(model.MainImage, landListing.Id, landListing.UserListing.UserId);
             }
             return RedirectToAction("Dashboard", "Account");
         }
@@ -104,43 +105,39 @@ namespace TinyHouseLandshare.Controllers
             return landListing;
         }
 
-        private void SaveMainImageToFile(IFormFile mainImage, Guid listingId, Guid userId)
-        {
-            // TODO: implement rename and save images to file
-            
-            
-            var folderPath = GetFolderPath(listingId, userId);
-            var fileName = GetNewFileName(Path.GetExtension(mainImage.FileName), listingId, userId);
-            var filePath = Path.Combine(folderPath, fileName);
-            mainImage.CopyTo(new FileStream(filePath, FileMode.Create));
+        //private void SaveMainImageToFile(IFormFile mainImage, Guid listingId, Guid userId)
+        //{
+        //    var folderPath = GetFolderPath(listingId, userId);
+        //    var fileName = GetNewFileName(Path.GetExtension(mainImage.FileName), listingId, userId);
+        //    var filePath = Path.Combine(folderPath, fileName);
+        //    mainImage.CopyTo(new FileStream(filePath, FileMode.Create));
+        //}
 
-        }
+        //private string GetNewFileName(string extention, Guid listingId, Guid userId)
+        //{
+        //    //TODO: check folder and get next fileIndex for fileName if images exist else start at 1
+        //    var fileIndex = 1;
+        //    return userId + "_" + listingId + "_" + fileIndex + extention;
+        //}
 
-        private string GetNewFileName(string extention, Guid listingId, Guid userId)
-        {
-            //TODO: check folder and get next fileIndex for fileName if images exist else start at 1
-            var fileIndex = 1;
-            return userId + "_" + listingId + "_" + fileIndex + extention;
-        }
-
-        private string GetFolderPath(Guid listingId, Guid userId)
-        {
-            string baseFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "listing_images");
-            var uniqueFolderName = Path.Combine( baseFilePath, userId.ToString(), listingId.ToString());
-            try
-            {
-                if (Directory.Exists(uniqueFolderName))
-                {
-                    return uniqueFolderName;
-                }
-                Directory.CreateDirectory(uniqueFolderName);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return uniqueFolderName;
-        }
+        //private string GetFolderPath(Guid listingId, Guid userId)
+        //{
+        //    string baseFilePath = Path.Combine(_webHostEnvironment.WebRootPath, "listing_images");
+        //    var uniqueFolderName = Path.Combine( baseFilePath, userId.ToString(), listingId.ToString());
+        //    try
+        //    {
+        //        if (Directory.Exists(uniqueFolderName))
+        //        {
+        //            return uniqueFolderName;
+        //        }
+        //        Directory.CreateDirectory(uniqueFolderName);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //    return uniqueFolderName;
+        //}
 
         private Guid LoggedInUserId()
         {

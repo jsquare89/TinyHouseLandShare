@@ -30,6 +30,7 @@ builder.Services.AddScoped<ILandListingRepository, LandListingRepository>();
 builder.Services.AddScoped<IUserListingRepository, UserListingRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IMessagingService, MessagingService>();
+builder.Services.AddScoped<IImageHandlerService, ImageHandlerService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

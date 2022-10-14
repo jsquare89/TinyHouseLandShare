@@ -42,6 +42,7 @@ namespace TinyHouseLandshare.ViewModels
         public bool Approved { get; set; }
         public bool Submitted { get; set; }
 
+        public string? ImageUrl { get; set; }
         public IFormFile? MainImage { get; set; }
 
         public Guid ListerId { get; set; }
