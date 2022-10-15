@@ -45,6 +45,11 @@
                         </div>
                         <div id="user-menu" class="absolute hidden max-w-[80%] z-10 top-[calc(100%+.25rem)] flex flex-col rounded-sm duration-300 shadow-md p-4 bg-white">
                             
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    @Html.ActionLink("Admin Dashboard", "Dashboard", "Admin", null , new { @class="text-center px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700"})
+                                    @Html.ActionLink("Approve Listings", "ApproveListing", "Admin", null , new { @class="text-center px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700"})
+                                }
                                 <a class="text-center px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700" asp-area="" asp-controller="Account" asp-action="Dashboard">Dashboard</a>
                                 @Html.ActionLink("Inbox", "Inbox", "Message", new { userId = userId }, new { @class="text-center px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700"})
                                 <a class="text-center px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a>
@@ -52,6 +57,7 @@
                                     @*<button type="submit" class="bg-blue-500">Logout</button>*@
                                     <a onclick="this.parentNode.submit()" class="w-full text-center !text-black hover:!text-green-700 cursor-pointer px-4 py-2 bg-white border border-white hover:border-green-700 hover:text-green-700">Logout</a>
                                 </form>
+
                             
                         </div>
 
@@ -80,30 +86,6 @@
                 </div>
             </div>
     </header>
-
-  
-   
-    <!-- User Features & Links -->
-    <div class="container mx-auto px-6 py-6">
-        @if (User.IsInRole("Admin"))
-        {
-            <div>
-                @Html.ActionLink("Administrator Dahsboard", "Dashboard", "Admin", null , new { @class=""})
-            </div>
-            <div>
-                @Html.ActionLink("Approve Listings", "ApproveListing", "Admin", null , new { @class=""})
-            </div>
-        }
-        @if (signInManager.IsSignedIn(User))
-        {
-            <div>
-                @Html.ActionLink("Dashboard/Your Listings", "Dashboard", "Account", null , new { @class=""})
-            </div>
-            <div>
-                @Html.ActionLink("Message Inbox", "Inbox", "Message", new { userId = userId }, new { @class=""})
-            </div>
-        }
-    </div>
 
     <!-- Main - Render body -->
     <div class="container mx-auto px-6 py-10">
