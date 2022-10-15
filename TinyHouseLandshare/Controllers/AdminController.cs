@@ -12,11 +12,15 @@ namespace TinyHouseLandshare.Controllers
     {
         private readonly IListingService _listingService;
         private readonly IMapper _mapper;
+        private readonly IImageHandlerService _imageHandler;
 
-        public AdminController(IListingService listingService, IMapper mapper)
+        public AdminController(IListingService listingService, 
+                               IMapper mapper,
+                               IImageHandlerService imageHandler)
         {
             _listingService = listingService;
             _mapper = mapper;
+            _imageHandler = imageHandler;
         }
         public IActionResult Index()
         {
@@ -36,6 +40,13 @@ namespace TinyHouseLandshare.Controllers
                 seekerListings = _listingService.GetAllUnapprovedSubmittedSeekerListings(),
                 landListings = _mapper.Map<IEnumerable<LandListingViewModel>>(_listingService.GetAllUnApprovedSubmittedLandListings())
             };
+
+            foreach (var landListing in approveListingsViewModel.landListings)
+            {
+                // should get fileName from database. userId_listingId_index.extention. check to see if path exists then populate view model
+                var fileName = _imageHandler.GetFileName(landListing.ListerId, landListing.Id, ".jpg");
+                landListing.ImageSrc = _imageHandler.GetImageSrc(landListing.ListerId, landListing.Id, fileName);
+            }
 
             return View(approveListingsViewModel);
         }

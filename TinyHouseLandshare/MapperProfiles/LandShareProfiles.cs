@@ -10,7 +10,9 @@ namespace TinyHouseLandshare.Profiles
         public LandShareProfiles()
         {
             // Source -> Target
-            CreateMap<LandListing, LandListingViewModel>();
+            CreateMap<LandListing, LandListingViewModel>()
+                .ForMember(dst => dst.ListerId,
+                           src => src.MapFrom(src => src.UserListing.UserId));
             CreateMap<SeekerListing, SeekerListingViewModel>();
             CreateMap<LandListingViewModel, LandListing>();
             CreateMap<SeekerListingViewModel, SeekerListing>();

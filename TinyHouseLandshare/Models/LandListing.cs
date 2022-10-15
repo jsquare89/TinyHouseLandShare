@@ -27,6 +27,5 @@ namespace TinyHouseLandshare.Models
 
 
         public UserListing UserListing { get; set; }
-
     }
 }

@@ -38,17 +38,16 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            var landL = _listingService.GetApprovedLandListings();
-            var landListings = _mapper.Map<IEnumerable<LandListingViewModel>>(landL);
+            var landListingViewModels = _mapper.Map<IEnumerable<LandListingViewModel>>(_listingService.GetApprovedLandListings());
 
-            foreach (var landListing in landListings)
+            foreach (var landListing in landListingViewModels)
             {
                 // should get fileName from database. userId_listingId_index.extention. check to see if path exists then populate view model
                 var fileName = _imageHandler.GetFileName( landListing.ListerId, landListing.Id, ".jpg");
                 landListing.ImageSrc = _imageHandler.GetImageSrc(landListing.ListerId, landListing.Id, fileName);
             }
 
-            return View(landListings);
+            return View(landListingViewModels);
         }
 
         [Route("Land/{id}")]

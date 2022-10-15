@@ -1,4 +1,5 @@
-﻿using TinyHouseLandshare.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using TinyHouseLandshare.Models;
 
 namespace TinyHouseLandshare.Data
 {
@@ -30,7 +31,7 @@ namespace TinyHouseLandshare.Data
 
         public IEnumerable<LandListing> GetAllLandListings()
         {
-            return _context.LandListings.OrderByDescending(landlisting => landlisting.ModifiedTime);
+            return _context.LandListings.Include("UserListing").OrderByDescending(landlisting => landlisting.ModifiedTime);
         }
 
         public IEnumerable<LandListing> GetAllApprovedLandListings()
@@ -40,7 +41,7 @@ namespace TinyHouseLandshare.Data
 
         public IEnumerable<LandListing> GetAllUnApprovedSubmittedLandListings()
         {
-            return _context.LandListings.Where(landListing => landListing.Approved.Equals(false) && landListing.Submitted.Equals(true));
+            return _context.LandListings.Include("UserListing").Where(landListing => landListing.Approved.Equals(false) && landListing.Submitted.Equals(true));
         }
 
         public LandListing GetLandListing(Guid id)
