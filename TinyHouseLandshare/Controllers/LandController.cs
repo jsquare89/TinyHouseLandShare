@@ -137,7 +137,11 @@ namespace TinyHouseLandshare.Controllers
             {
                 var landListing = _mapper.Map<LandListing>(model);
                 landListing = UpdateLandListingWithUpdateDefaults(landListing);
-                _listingService.UpdateLandListing(landListing);               
+                _listingService.UpdateLandListing(landListing);
+                if (model.MainImage is not null)
+                {
+                    _imageHandler.SaveImageToStorage(model.MainImage, model.ListerId, model.Id);
+                }
                 return RedirectToAction("Dashboard", "Account");
             }
             return View();           

@@ -151,7 +151,6 @@ namespace TinyHouseLandshare.Controllers
                 _listingService.UpdateSeekerListing(seekerListing);
                 if (model.MainImage is not null)
                 {
-                    //_imageHandler.UpdateMainImage(model.MainImage, seekerListing.UserListing.UserId, seekerListing.Id);
                     _imageHandler.SaveImageToStorage(model.MainImage, model.ListerId, model.Id);
                 }
                 return RedirectToAction("Dashboard", "Account");

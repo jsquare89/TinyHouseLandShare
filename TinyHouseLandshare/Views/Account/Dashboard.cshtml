@@ -161,17 +161,18 @@
                     <!-- Display main image-->
                     @if(landListing.ImageSrc is not null)
                     {
-                        <img src="@landListing.ImageSrc" class="mx-auto md:mx-2 w-60 border border-gray-200 bg-green-100" title="land main image" />
+                        <img src="@landListing.ImageSrc" class="mx-auto w-60 border border-gray-200 bg-green-100" title="land main image" />
                             
                     }else
                     {
-                        <img src="~/img/placeholder-image.png" class="mx-auto md:mx-2 w-60 border border-gray-200 bg-green-100" title="land main image" />
+                        <img src="~/img/placeholder-image.png" class="mx-auto w-60 border border-gray-200 bg-green-100" title="land main image" />
                     }
 
                     <!-- Land Listing Details-->
-                    <div class="flex flex-col w-full md:ml-2">
+                    <div class="flex flex-col w-full md:ml-4">
                         <div>
-                            <a asp-controller="land" asp-action="listing" asp-route-id="@landListing.Id" class="text-lg font-semibold line-clamp-2">@landListing.Title.FirstCharToUpper() &centerdot; (@landListing.Id)</a>
+                            <a asp-controller="land" asp-action="listing" asp-route-id="@landListing.Id" class="text-lg font-semibold line-clamp-2">@landListing.Title.FirstCharToUpper()</a>
+                            <p class="text-md font-semibold">$@landListing.Price.ToString("N0")</p>
                             <p class="text-sm">@landListing.Location, @landListing.State, @landListing.Country</p>
                             <p class="text-sm">@landListing.CreatedTime.Date.ToString("MMM dd yyyy") &centerdot; Modified: @landListing.ModifiedTime.Date.ToString("MMM dd yyyy")</p>
                         </div>
