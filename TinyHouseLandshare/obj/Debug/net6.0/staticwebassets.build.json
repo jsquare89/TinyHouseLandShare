@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lhigGbe16QPUPhXAPh1Dlt9aUTnzc9WWPuz5RRzsohA=",
+  "Hash": "0GKQIX1hwGG9p9cA+NCc8wMWHnzMRJGS99VwJh6jIBc=",
   "Source": "TinyHouseLandshare",
   "BasePath": "_content/TinyHouseLandshare",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1aea816c-fc3e-4e4c-2c26-08daad728641\\ca073980-4320-49d6-a248-f6d537e0078f_1aea816c-fc3e-4e4c-2c26-08daad728641_1.jpg"
+    },
+    {
+      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\28880b50-f259-41e5-4841-08dab0b39d4b\\ca073980-4320-49d6-a248-f6d537e0078f_28880b50-f259-41e5-4841-08dab0b39d4b_1.jpg",
+      "SourceId": "TinyHouseLandshare",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "BasePath": "_content/TinyHouseLandshare",
+      "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/28880b50-f259-41e5-4841-08dab0b39d4b/ca073980-4320-49d6-a248-f6d537e0078f_28880b50-f259-41e5-4841-08dab0b39d4b_1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\28880b50-f259-41e5-4841-08dab0b39d4b\\ca073980-4320-49d6-a248-f6d537e0078f_28880b50-f259-41e5-4841-08dab0b39d4b_1.jpg"
     },
     {
       "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\6b978c38-0e3e-4743-489e-08dab0ad2d80\\ca073980-4320-49d6-a248-f6d537e0078f_6b978c38-0e3e-4743-489e-08dab0ad2d80_1.png",

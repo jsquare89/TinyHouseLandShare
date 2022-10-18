@@ -116,7 +116,7 @@ namespace TinyHouseLandshare.Controllers
             var userListings = new UserListingsViewModel
             {
                 SeekerListing = _mapper.Map<SeekerListingViewModel>(_listingService.GetUserSeekerListing(userId)),
-                LandListings = _mapper.Map<IEnumerable<LandListingViewModel>>(_listingService.GetUserLandListings(userId))
+                LandListings = _mapper.Map<IEnumerable<LandListingViewModel>>(_listingService.GetUserLandListings(userId).OrderByDescending(l => l.ModifiedTime))
             };
 
             if(userListings.SeekerListing is not null)

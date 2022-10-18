@@ -147,15 +147,26 @@ namespace TinyHouseLandshare.Controllers
             if (ModelState.IsValid)
             {
                 var seekerListing = _mapper.Map<SeekerListing>(model);
-                seekerListing.ModifiedTime = DateTimeOffset.UtcNow;
-                seekerListing.Status = "Edited";
-                seekerListing.Submitted = false;
-                seekerListing.Approved = false;
+                seekerListing = UpdateSeekerListingWithUpdateDefaults(seekerListing);
                 _listingService.UpdateSeekerListing(seekerListing);
+                if (model.MainImage is not null)
+                {
+                    //_imageHandler.UpdateMainImage(model.MainImage, seekerListing.UserListing.UserId, seekerListing.Id);
+                    _imageHandler.SaveImageToStorage(model.MainImage, model.ListerId, model.Id);
+                }
                 return RedirectToAction("Dashboard", "Account");
             }
             // TODO: return error view
             return View();
+        }
+
+        private static SeekerListing UpdateSeekerListingWithUpdateDefaults(SeekerListing seekerListing)
+        {
+            seekerListing.ModifiedTime = DateTimeOffset.UtcNow;
+            seekerListing.Status = "Edited";
+            seekerListing.Submitted = false;
+            seekerListing.Approved = false;
+            return seekerListing;
         }
 
         [Route("[action]")]

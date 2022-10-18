@@ -34,7 +34,7 @@ namespace TinyHouseLandshare.Data
 
         public SeekerListing GetSeekerListing(Guid id)
         {
-            return _context.SeekerListings.Find(id);
+            return _context.SeekerListings.Include("UserListing").Where(x => x.Id == id).FirstOrDefault();// Find(id);
         }
 
         public IEnumerable<SeekerListing> GetAllSeekerListings()

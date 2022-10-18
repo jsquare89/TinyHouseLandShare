@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration.UserSecrets;
 using TinyHouseLandshare.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TinyHouseLandshare.Services;
 
@@ -21,13 +22,23 @@ public class ImageHandlerService : IImageHandlerService
 
         if(filePath is not null)
         {
+            FileStream? fileStream = null;
             try
             {
-                image.CopyTo(new FileStream(filePath, FileMode.Create));
+                fileStream = new FileStream(filePath, FileMode.Create);
+                image.CopyTo(fileStream);
+                fileStream.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine("SaveImageToStorage error: ",ex);
+            }
+            finally
+            {
+                if(fileStream is not null)
+                {
+                    fileStream.Close();
+                }                
             }
         }
     }
@@ -119,4 +130,20 @@ public class ImageHandlerService : IImageHandlerService
         }
     }
 
+    public void UpdateMainImage(IFormFile image, Guid userId, Guid listingId)
+    {
+        string filePath = GetFilePath(image, userId, listingId);
+
+        if (filePath is not null)
+        {
+            try
+            {
+                image.CopyTo(new FileStream(filePath, FileMode.Create));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+    }
 }
