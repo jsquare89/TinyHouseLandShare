@@ -46,7 +46,7 @@ namespace TinyHouseLandshare.Data
 
         public LandListing GetLandListing(Guid id)
         {
-            return _context.LandListings.Find(id);
+            return _context.LandListings.Include("UserListing").Where(landListing => landListing.Id == id).FirstOrDefault();
         }
 
         public LandListing Update(LandListing landListingUpdated)

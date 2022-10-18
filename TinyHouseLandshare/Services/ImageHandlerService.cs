@@ -15,10 +15,10 @@ public class ImageHandlerService : IImageHandlerService
         _webHostEnvironment = webHostEnvironment;
     }
 
-    //CONSIDER MAKING BOOL TO INDICATE SAVED OR NOT
+    //TODO: CONSIDER MAKING BOOL TO INDICATE SAVED OR NOT
     public void SaveImageToStorage(IFormFile image, Guid userId, Guid listingId)
     {
-        string filePath = GetFilePath(image, userId, listingId);
+        string? filePath = GetFilePath(image, userId, listingId);
 
         if(filePath is not null)
         {

@@ -124,30 +124,8 @@ namespace TinyHouseLandshare.Controllers
         [Route("[action]")]
         public IActionResult EditListing(Guid id)
         {
-            var landListing = _listingService.GetLandListing(id);
-            var landListingViewModel = new LandListingViewModel
-            {
-                Id = id,
-                Title = landListing.Title,
-                Location = landListing.Location,
-                Details = landListing.Details,
-                State = landListing.State,
-                Country = landListing.Country,
-                Price = landListing.Price,
-                AvailableDate = landListing.AvailableDate,
-                ModifiedTime = landListing.ModifiedTime,
-                LandType = landListing.LandType,
-                SiteFoundation = landListing.SiteFoundation,
-                DrivewayFoundation = landListing.DrivewayFoundation,
-                Private = landListing.Private,
-                WaterConnection = landListing.WaterConnection,
-                ElectricalConnection = landListing.ElectricalConnection,
-                WifiConnection = landListing.WifiConnection,
-                PetFriendly = landListing.PetFriendly,
-                ChildFriendly = landListing.ChildFriendly ,
-                NoSmoking = landListing.NoSmoking,
-                Parking = landListing.Parking
-            };
+            var landListingViewModel = _mapper.Map<LandListingViewModel>(_listingService.GetLandListing(id));
+            
             return View(landListingViewModel);
         }
 
@@ -157,38 +135,23 @@ namespace TinyHouseLandshare.Controllers
         {
             if(ModelState.IsValid)
             {
-                var landListing = _listingService.GetLandListing(model.Id);
-                landListing.Title = model.Title;
-                landListing.Location = model.Location;
-                landListing.State = model.State;
-                landListing.Country = model.Country;
-                landListing.Details = model.Details;
-                landListing.MapLocation = "";
-                landListing.AvailableDate = model.AvailableDate;
-                landListing.Price = model.Price;
-                landListing.LandType = model.LandType;
-                landListing.SiteFoundation = model.SiteFoundation;
-                landListing.DrivewayFoundation = model.DrivewayFoundation;
-                landListing.WaterConnection = model.WaterConnection;
-                landListing.ElectricalConnection = model.ElectricalConnection;
-                landListing.WifiConnection = model.WifiConnection;
-                landListing.PetFriendly = model.PetFriendly;
-                landListing.ChildFriendly = model.ChildFriendly;
-                landListing.NoSmoking = model.NoSmoking;
-                landListing.Private = model.Private;
-                landListing.Parking = model.Parking;
-
-                landListing.ModifiedTime = DateTimeOffset.UtcNow;
-                landListing.Approved = false;
-                landListing.Submitted = false;
-                landListing.Status = "Edited Draft";
-
-                _listingService.UpdateLandListing(landListing);
+                var landListing = _mapper.Map<LandListing>(model);
+                landListing = UpdateLandListingWithUpdateDefaults(landListing);
+                _listingService.UpdateLandListing(landListing);               
                 return RedirectToAction("Dashboard", "Account");
             }
-            // TODO: fill out the rest of the model, dummy default values used below. Form needs to accept all parameters
-
             return View();           
+        }
+
+        private LandListing UpdateLandListingWithUpdateDefaults(LandListing landListing)
+        {
+            landListing.MapLocation = "";
+
+            landListing.ModifiedTime = DateTimeOffset.UtcNow;
+            landListing.Approved = false;
+            landListing.Submitted = false;
+            landListing.Status = "Edited Draft";
+            return landListing;
         }
 
         [Route("[action]")]
