@@ -3,72 +3,140 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<div class="flex flex-col text-center">
-    <h1 class="text-xl">Dashboard</h1>
-    <br />
-    @if (Model.SeekerListing is null)
-    {
-        @Html.ActionLink("Create Seeker Listing", "createlisting", "seeker", null, new {@class="mx-auto m-4 px-4 py-2 text-white bg-green-700 rounded-sm duration-300 hover:bg-green-800"}) 
-    }
-    @Html.ActionLink("Create Land Listing", "createlisting", "Land", null, new {@class="mx-auto m-4 px-4 py-2 text-white bg-green-700 rounded-sm duration-300 hover:bg-green-800"})
+<div class="flex flex-col text-center pb-6">
+    <h1 class="text-xl">Listings Dashboard</h1>   
 </div>
 
 
-<div class="">
+<div class="flex flex-col items-center">
+    <!-- Seeker Listing Title Bar -->
+    <div class="flex flex-row my-4 py-3 w-full items-center border border-1 border-green-700 rounded-md text-green-700 bg-white">
+        <h1 class="text-xl font-semibold mx-4">Seeker Listing</h1>
+        @if (Model.SeekerListing is null)
+        {
+            @Html.ActionLink("Create Seeker Listing", "createlisting", "seeker", null, new {@class="ml-auto mr-3 px-4 py-2 text-white bg-green-700 rounded-sm duration-300 hover:bg-green-800"})
+        }
+    </div>
 
-    <h1 class="text-xl m-4">Seeker Listing</h1>
-    <div class="flex flex-col sm:flex-row sm:max-w-3xl border border-gray-50 shadow-md  space-x-4 p-4">
+    <!-- Seeker Listing Card (Single Listing)-->
+    <div class="flex flex-col w-full sm:flex-row sm:max-w-4xl border border-gray-50 shadow-md  space-x-4 p-4">
         @if(Model.SeekerListing is not null)
         {
-                
-                <img src="~/img/placeholder-image.png" class="w-80 border border-gray-200 bg-green-100" title="seeker main image"/>
-                
-                <div class="flex flex-col">
-                    <div class="flex flex-row ">
-                        <div>
-                            <h1><a asp-controller="seeker" asp-action="listing" asp-route-id="@Model.SeekerListing.Id" >@Model.SeekerListing.Title</a></h1>
-                            <p>@Model.SeekerListing.Id</p>
-                            <p>@Model.SeekerListing.Location, @Model.SeekerListing.State, @Model.SeekerListing.Country</p>
-                            <p>Created: @Model.SeekerListing.CreatedTime.Date.ToString("MMM dd yyyy")</p>
-                            <p>Modified: @Model.SeekerListing.ModifiedTime.Date.ToString("MMM dd yyyy")</p>
-                        </div>
-                        <div>
-                            <p>@Model.SeekerListing.Status</p>
-                            <p>Submitted: @Model.SeekerListing.Submitted</p>
-                            <p>Approved: @Model.SeekerListing.Approved</p>
-                        </div>
+            <!-- Display main image -->
+            @if (Model.SeekerListing.ImageSrc is not null)
+            {
+                <img src="@Model.SeekerListing.ImageSrc" class="w-60 border border-gray-200 bg-green-100" title="land main image" />
+
+            }
+            else
+            {
+                <img src="~/img/placeholder-image.png" class="w-60 border border-gray-200 bg-green-100" title="land main image" />
+            }
+            
+            <!-- Seeker Listing Details & Buttons-->
+            <div class="flex flex-col">
+                <div class="flex flex-row">
+                    <div>
+                        <h1><a asp-controller="seeker" asp-action="listing" asp-route-id="@Model.SeekerListing.Id" class="text-lg line-clamp-2">@Model.SeekerListing.Title</a></h1>
+                        <p class="text-sm">@Model.SeekerListing.Location, @Model.SeekerListing.State, @Model.SeekerListing.Country</p>
+                        <p class="text-sm">Created: @Model.SeekerListing.CreatedTime.Date.ToString("MMM dd yyyy") &centerdot; Modified: @Model.SeekerListing.ModifiedTime.Date.ToString("MMM dd yyyy")</p>
+                        <p class="text-sm"></p>
+                        <p class="text-sm">@Model.SeekerListing.Id</p>
                     </div>
-                    <div class="grow"> </div>
-                    <div class="flex flex-row">
-                        @Html.ActionLink("Edit", 
-                                          "EditListing", 
-                                          "Seeker", 
-                                          new{ Model.SeekerListing.Id},
-                                          new{ @class="m-2 px-4 py-2 text-white bg-yellow-500 shadow-md rounded-sm duration-300 hover:bg-yellow-600"})
-                        @if(Model.SeekerListing.Submitted is false)
+                    <!-- Seeker Listing Status area TODO: Refactor-->
+                    <div class="ml-4 w-full">
+                        @if (Model.SeekerListing.Status == "Edited Draft")
                         {
-                            @Html.ActionLink("Submit for Approval", 
-                                          "SubmitApproval", 
-                                          "Seeker", 
-                                          new{ Model.SeekerListing.Id},
-                                          new{ @class="m-2 px-4 py-2 text-white bg-green-700 shadow-md rounded-sm duration-300 hover:bg-green-800"})
+                            <div>
+                                <i class="fa-solid fa-circle-check text-yellow-500"></i>
+                                <span>Edited Draft</span>
+                            </div>
+                        }
+                        else if (Model.SeekerListing.Status == "Submitted")
+                        {
+                            @*<div>
+                    <i class="fa-solid fa-circle-check text-yellow-500"></i>
+                    <span>Pending Approval</span>
+                    </div>*@
+                        }
+                        else if (Model.SeekerListing.Status.StartsWith("Rejected"))
+                        {
+                            <div>
+                                <i class="fa-sharp fa-solid fa-circle-exclamation text-yellow-500"></i>
+                                <span>Rejected, please revise</span>
+                            </div>
+                        }
+
+                        @if (Model.SeekerListing.Submitted)
+                        {
+                            <div>
+                                <i class="fa-solid fa-circle-check text-green-500"></i>
+                                <span>Submitted</span>
+                            </div>
                         }
                         else
                         {
-                            @*if(Model.SeekerListing.Approved is false)
-                            {
-                            <button type="button" class="m-2 px-4 py-2 text-white bg-green-700 shadow-md rounded-sm duration-300 hover:bg-green-800" disabled>Submit for Approval2</button>
-                            }*@
+                            <div>
+                                <i class="fa-sharp fa-solid fa-circle-exclamation text-yellow-500"></i>
+                                <span>Pending Submission</span>
+                            </div>
+                        }
+                        @if (Model.SeekerListing.Approved)
+                        {
+                            <div>
+                                <i class="fa-solid fa-circle-check text-green-500"></i>
+                                <span>Approved</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div>
+                                <i class="fa-sharp fa-solid fa-circle-exclamation text-yellow-500"></i>
+                                <span>Not Yet Approved</span>
+                            </div>
                         }
 
-                        @Html.ActionLink("Delete", 
-                                          "DeleteListing", 
-                                          "Seeker", 
-                                          new{ Model.SeekerListing.Id},
-                new{ @class="m-2 px-4 py-2 text-white bg-red-700 shadow-md  rounded-sm duration-300 hover:bg-red-800"})
-                        </div>
-                    
+                        @if (Model.SeekerListing.Status == "Posted")
+                        {
+                            <div>
+                                <i class="fa-solid fa-circle-check text-green-500"></i>
+                                <span>Posted</span>
+                            </div>
+                        }
+                    </div>
                 </div>
+                <div class="grow"> </div>
+                <!-- Seeker Listing EDIT & DELETE BUTTONS -->
+                <div class="flex flex-row ml-auto">
+                    @Html.ActionLink("Edit", 
+                                        "EditListing", 
+                                        "Seeker", 
+                                        new{ Model.SeekerListing.Id},
+                                        new{ @class="m-2 px-4 py-2 text-white bg-yellow-500 shadow-md rounded-sm duration-300 hover:bg-yellow-600"})
+                    @if(Model.SeekerListing.Submitted is false)
+                    {
+                        @Html.ActionLink("Submit for Approval", 
+                                        "SubmitApproval", 
+                                        "Seeker", 
+                                        new{ Model.SeekerListing.Id},
+                                        new{ @class="m-2 px-4 py-2 text-white bg-green-700 shadow-md rounded-sm duration-300 hover:bg-green-800"})
+                    }
+                    else
+                    {
+                        @*if(Model.SeekerListing.Approved is false)
+                        {
+                        <button type="button" class="m-2 px-4 py-2 text-white bg-green-700 shadow-md rounded-sm duration-300 hover:bg-green-800" disabled>Submit for Approval2</button>
+                        }*@
+                    }
+
+                    @Html.ActionLink("Delete", 
+                                        "DeleteListing", 
+                                        "Seeker", 
+                                        new{ Model.SeekerListing.Id},
+            new{ @class="m-2 px-4 py-2 text-white bg-red-700 shadow-md  rounded-sm duration-300 hover:bg-red-800"})
+                    </div>
+                    
+            </div>
         }
         else
         {
@@ -76,9 +144,13 @@
         }
     </div>
 
+    <div class="flex flex-row my-4 py-3 w-full items-center border border-1 border-green-700 rounded-md text-green-700 bg-white">
+        <h1 class="text-xl font-semibold mx-4">Land Listings</h1>
+        @Html.ActionLink("Create Land Listing", "createlisting", "Land", null, new {@class="ml-auto mr-3 px-4 py-2 text-white bg-green-700 rounded-sm duration-300 hover:bg-green-800"})
+
+    </div>
     @if(Model.LandListings.Any() is true)
     {
-        <h1 class="text-xl m-4">Land Listings</h1>
         <div class="flex flex-row flex-wrap">
             @foreach(var landListing in Model.LandListings)
             {

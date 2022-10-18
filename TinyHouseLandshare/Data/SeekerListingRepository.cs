@@ -1,4 +1,5 @@
-﻿using TinyHouseLandshare.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using TinyHouseLandshare.Models;
 
 namespace TinyHouseLandshare.Data
 {
@@ -43,7 +44,7 @@ namespace TinyHouseLandshare.Data
 
         public IEnumerable<SeekerListing> GetAllApprovedSeekerListings()
         {
-            return _context.SeekerListings.Where(seekerListing => seekerListing.Approved.Equals(true));
+            return _context.SeekerListings.Include("UserListing").Where(seekerListing => seekerListing.Approved.Equals(true));
         }
 
         public SeekerListing Update(SeekerListing seekerPostUpdated)
@@ -56,7 +57,7 @@ namespace TinyHouseLandshare.Data
 
         public IEnumerable<SeekerListing> GetAllUnapprovedSubmittedSeekerListings()
         {
-            return _context.SeekerListings.Where(seekerListing => seekerListing.Approved.Equals(false) && seekerListing.Submitted.Equals(true));
+            return _context.SeekerListings.Include("UserListing").Where(seekerListing => seekerListing.Approved.Equals(false) && seekerListing.Submitted.Equals(true));
         }
 
         public IEnumerable<SeekerListing> Search(SeekerSearchFilter seekerSearch)

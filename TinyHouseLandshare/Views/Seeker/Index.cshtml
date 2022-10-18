@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SeekerListing>
+﻿@model IEnumerable<SeekerListingViewModel>
 @{
     ViewData["Title"] = "Seeker Listings";
 }
@@ -13,7 +13,16 @@
             <!-- Listing Card -->
             <div class="flex flex-col m-2 w-full bg-white hover:duration-300 shadow-md hover:shadow-xl ">
                 <a asp-controller="seeker" asp-action="listing" asp-route-id="@listing.Id" class="flex flex-col p-4 grow">
-                    <img src="~/img/placeholder-image.png" title="seeker main image" class="bg-white mx-auto mb-4 rounded-sm border border-gray-200 " />
+
+                    @if (listing.ImageSrc is not null)
+                    {
+                        <img src="@listing.ImageSrc" class="bg-white mx-auto mb-4 rounded-sm border border-gray-200 " title="land main image" />
+
+                    }
+                    else
+                    {
+                        <img src="~/img/placeholder-image.png" class="bg-white mx-auto mb-4 rounded-sm border border-gray-200 " title="land main image" />
+                    }
                     <h1 class="text-l text-center line-clamp-2">@listing.Title.FirstCharToUpper()</h1>
                     <p class="text-md text-center">@listing.Id</p>
                     <p class="text-base font-light mb-2 mr-2 text-center">@listing.Location, @listing.State, @listing.Country</p>

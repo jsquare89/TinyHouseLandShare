@@ -20,16 +20,19 @@ namespace TinyHouseLandshare.Controllers
         private readonly IUserListingRepository _userListingRepository;
         private readonly UserManager<UserEntity> _userManager;
         private readonly IMapper _mapper;
+        private readonly IImageHandlerService _imageHandler;
 
         public SeekerController(IListingService listingService,
                                 IUserListingRepository userListingRepository,
                                 UserManager<UserEntity> userManager,
-                                IMapper mapper)
+                                IMapper mapper,
+                                IImageHandlerService imageHandler)
         {
             _listingService = listingService;
             _userListingRepository = userListingRepository;
             _userManager = userManager;
             _mapper = mapper;
+            _imageHandler = imageHandler;
         }
         
         [Route("")]
@@ -37,8 +40,18 @@ namespace TinyHouseLandshare.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            var seekerListings = _listingService.GetApprovedSeekerListings();
-            return View(seekerListings);
+            var seekerListingViewModels = _mapper.Map<IEnumerable<SeekerListingViewModel>>(_listingService.GetApprovedSeekerListings());
+
+            foreach(var seekerListingViewModel in seekerListingViewModels)
+            {
+                var seekerListingFileName = _imageHandler.GetFileName(seekerListingViewModel.ListerId,
+                                                                    seekerListingViewModel.Id,
+                                                                    ".jpg");
+                seekerListingViewModel.ImageSrc = _imageHandler.GetImageSrc(seekerListingViewModel.ListerId,
+                                                                    seekerListingViewModel.Id,
+                                                                    seekerListingFileName);
+            }
+            return View(seekerListingViewModels);
         }
 
 
@@ -64,6 +77,9 @@ namespace TinyHouseLandshare.Controllers
             seekerListingViewModel.ListerId = userListing.UserId;
             seekerListingViewModel.UserListingId = userListing.Id;
 
+            var fileName = _imageHandler.GetImageFileName(seekerListingViewModel.ListerId, seekerListingViewModel.Id, "1", ".jpg");
+            seekerListingViewModel.ImageSrc = _imageHandler.GetImageSrc(userListing.UserId, seekerListing.Id, fileName);
+
             return View(seekerListingViewModel);
         }
 
@@ -83,18 +99,27 @@ namespace TinyHouseLandshare.Controllers
                 // TODO: set response 404 and return error invalid data entered
                 return View();
             }
-            var timeStamp = DateTimeOffset.UtcNow;
             var seekerListing = _mapper.Map<SeekerListing>(model);
+            seekerListing = UpdateSeekerListingWithCreateDefaults(seekerListing);
+            _listingService.AddSeekerListing(seekerListing, GetLoggedInUserId());
+            if (model.MainImage is not null)
+            {
+                _imageHandler.SaveImageToStorage(model.MainImage, seekerListing.UserListing.UserId, seekerListing.Id);
+            }
+
+            return RedirectToAction("Dashboard", "Account");
+        }
+
+        private SeekerListing UpdateSeekerListingWithCreateDefaults(SeekerListing seekerListing)
+        {
+            var timeStamp = DateTimeOffset.UtcNow;
             seekerListing.Approved = false;
             seekerListing.Status = "Draft";
             seekerListing.Submitted = false;
             seekerListing.Approved = false;
             seekerListing.CreatedTime = timeStamp;
             seekerListing.ModifiedTime = timeStamp;
-
-            _listingService.AddSeekerListing(seekerListing, GetLoggedInUserId());
-
-            return RedirectToAction("Dashboard", "Account");
+            return seekerListing;
         }
 
         private Guid GetLoggedInUserId()

@@ -65,11 +65,11 @@ public class ImageHandlerService : IImageHandlerService
 
     private string? GetFilePath(IFormFile image, Guid userId, Guid listingId)
     {
-        var folderPath = CreateFolderPath(listingId, userId);
+        var folderPath = CreateFolderPath(userId, listingId);
         if(folderPath is not null)
         {
-            var fileName = GetFileName(listingId,
-                                          userId,
+            var fileName = GetFileName(userId,
+                                          listingId,
                                           Path.GetExtension(image.FileName));
             return Path.Combine(folderPath, fileName);
         }
@@ -96,9 +96,9 @@ public class ImageHandlerService : IImageHandlerService
                             listingId.ToString());
     }
 
-    private string? CreateFolderPath(Guid listingId, Guid userId)
+    private string? CreateFolderPath(Guid userId, Guid listingId)
     {
-        var folderPath = GetFolderPath(listingId, userId);
+        var folderPath = GetFolderPath(userId, listingId);
 
         if (Directory.Exists(folderPath))
         {

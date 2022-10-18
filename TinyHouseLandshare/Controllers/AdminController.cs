@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TinyHouseLandshare.Data;
+using TinyHouseLandshare.Models;
 using TinyHouseLandshare.Services;
 using TinyHouseLandshare.ViewModels;
 
@@ -37,15 +38,21 @@ namespace TinyHouseLandshare.Controllers
         {
             var approveListingsViewModel = new ApproveListingViewModel
             {
-                seekerListings = _listingService.GetAllUnapprovedSubmittedSeekerListings(),
+                seekerListings = _mapper.Map<IEnumerable<SeekerListingViewModel>>(_listingService.GetAllUnapprovedSubmittedSeekerListings()),
                 landListings = _mapper.Map<IEnumerable<LandListingViewModel>>(_listingService.GetAllUnApprovedSubmittedLandListings())
             };
+
+            foreach(var seekerListing in approveListingsViewModel.seekerListings)
+            {
+                var seekerListingFileName = _imageHandler.GetFileName(seekerListing.ListerId, seekerListing.Id, ".jpg");
+                seekerListing.ImageSrc = _imageHandler.GetImageSrc(seekerListing.ListerId, seekerListing.Id, seekerListingFileName);
+            }
 
             foreach (var landListing in approveListingsViewModel.landListings)
             {
                 // should get fileName from database. userId_listingId_index.extention. check to see if path exists then populate view model
-                var fileName = _imageHandler.GetFileName(landListing.ListerId, landListing.Id, ".jpg");
-                landListing.ImageSrc = _imageHandler.GetImageSrc(landListing.ListerId, landListing.Id, fileName);
+                var landListingFileName = _imageHandler.GetFileName(landListing.ListerId, landListing.Id, ".jpg");
+                landListing.ImageSrc = _imageHandler.GetImageSrc(landListing.ListerId, landListing.Id, landListingFileName);
             }
 
             return View(approveListingsViewModel);

@@ -115,16 +115,23 @@ namespace TinyHouseLandshare.Controllers
             var userId = new Guid(_userManager.GetUserId(User));
             var userListings = new UserListingsViewModel
             {
-                SeekerListing = _listingService.GetUserSeekerListing(userId),
+                SeekerListing = _mapper.Map<SeekerListingViewModel>(_listingService.GetUserSeekerListing(userId)),
                 LandListings = _mapper.Map<IEnumerable<LandListingViewModel>>(_listingService.GetUserLandListings(userId))
             };
 
+            if(userListings.SeekerListing is not null)
+            {
+                var seekerListingFileName = _imageHandler.GetFileName(userId, userListings.SeekerListing.Id, ".jpg");
+                userListings.SeekerListing.ImageSrc = _imageHandler.GetImageSrc(userId,
+                       userListings.SeekerListing.Id,
+                       seekerListingFileName);
+            }
 
             foreach(var landListing in userListings.LandListings)
             {
                 // should get fileName from database. userId_listingId_index.extention. check to see if path exists then populate view model
-                var fileName = _imageHandler.GetFileName( userId, landListing.Id, ".jpg");
-                landListing.ImageSrc = _imageHandler.GetImageSrc(userId, landListing.Id, fileName);      
+                var landListingFileName = _imageHandler.GetFileName( userId, landListing.Id, ".jpg");
+                landListing.ImageSrc = _imageHandler.GetImageSrc(userId, landListing.Id, landListingFileName);      
             }
             return View(userListings);
         }

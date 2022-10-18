@@ -6,7 +6,7 @@
 
 <div class="mx-auto p-6 max-w-4xl flex flex-col shadow-md">
     <h1 class="text-xl text-center">Create Seeker Listing</h1>
-    <form method="post" class="flex flex-col mb-2">
+    <form method="post" enctype="multipart/form-data" class="flex flex-col mb-2">
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="flex flex-col mb-2">
             <label asp-for="Title"></label>
@@ -75,9 +75,7 @@
 
 
         <label for="file">Upload Image:</label>
-        <input type="file" name="file" id="file" />
-        <input type="submit" value="Upload Image" class="mx-auto btn btn-primary" />
-
+        <input asp-for="MainImage" id="MainImage" />
 
         <button type="submit" class="btn btn-primary mx-auto mt-6">Create</button>
     </form>

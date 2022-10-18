@@ -68,7 +68,7 @@ namespace TinyHouseLandshare.Controllers
                 return View("LandNotFound", id);
             }
             var landListingViewModel = _mapper.Map<LandListingViewModel>(landListing);
-            landListingViewModel.ListerId = userListing.UserId ;
+            landListingViewModel.ListerId = userListing.UserId;
             landListingViewModel.UserListingId = userListing.Id;
 
             var fileName = _imageHandler.GetImageFileName(landListingViewModel.ListerId, landListingViewModel.Id, "1", ".jpg");
