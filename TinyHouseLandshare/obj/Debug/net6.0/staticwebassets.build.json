@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0lsx/+7y/0Av2C37YYBeFh8VYgm9VR2Z0Lou5II/9jg=",
+  "Hash": "NUZxggCw0VKUSnjF0Zi75iE+66gOBI0ACW/Sczsk+xY=",
   "Source": "TinyHouseLandshare",
   "BasePath": "_content/TinyHouseLandshare",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "TinyHouseLandshare\\wwwroot",
       "Source": "TinyHouseLandshare",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\bundle\\TinyHouseLandshare.styles.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\bundle\\TinyHouseLandshare.styles.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "TinyHouseLandshare.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\bundle\\TinyHouseLandshare.styles.css"
+      "OriginalItemSpec": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\bundle\\TinyHouseLandshare.styles.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\TinyHouseLandshare.bundle.scp.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\TinyHouseLandshare.bundle.scp.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "TinyHouseLandshare.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\TinyHouseLandshare.bundle.scp.css"
+      "OriginalItemSpec": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\TinyHouseLandshare.bundle.scp.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\css\\site.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\css\\site.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\favicon.ico",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\favicon.ico",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\img\\placeholder-image.png",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\img\\placeholder-image.png",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "img/placeholder-image.png",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\img\\placeholder-image.png"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\js\\site.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\js\\site.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -799,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -816,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -833,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -850,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -867,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -884,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -901,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -918,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -935,10 +935,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -952,10 +952,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -969,10 +969,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1003,10 +1003,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1020,10 +1020,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1037,10 +1037,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1054,10 +1054,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1071,10 +1071,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\000d4487-bd31-417a-489f-08dab0ad2d80\\ca073980-4320-49d6-a248-f6d537e0078f_000d4487-bd31-417a-489f-08dab0ad2d80_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\000d4487-bd31-417a-489f-08dab0ad2d80\\ca073980-4320-49d6-a248-f6d537e0078f_000d4487-bd31-417a-489f-08dab0ad2d80_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/000d4487-bd31-417a-489f-08dab0ad2d80/ca073980-4320-49d6-a248-f6d537e0078f_000d4487-bd31-417a-489f-08dab0ad2d80_1.jpg",
       "AssetKind": "All",
@@ -1105,10 +1105,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\000d4487-bd31-417a-489f-08dab0ad2d80\\ca073980-4320-49d6-a248-f6d537e0078f_000d4487-bd31-417a-489f-08dab0ad2d80_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\05cc1aab-0bc1-48c7-b1c5-08daa65c4708\\ca073980-4320-49d6-a248-f6d537e0078f_05cc1aab-0bc1-48c7-b1c5-08daa65c4708_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\05cc1aab-0bc1-48c7-b1c5-08daa65c4708\\ca073980-4320-49d6-a248-f6d537e0078f_05cc1aab-0bc1-48c7-b1c5-08daa65c4708_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/05cc1aab-0bc1-48c7-b1c5-08daa65c4708/ca073980-4320-49d6-a248-f6d537e0078f_05cc1aab-0bc1-48c7-b1c5-08daa65c4708_1.jpg",
       "AssetKind": "All",
@@ -1122,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\05cc1aab-0bc1-48c7-b1c5-08daa65c4708\\ca073980-4320-49d6-a248-f6d537e0078f_05cc1aab-0bc1-48c7-b1c5-08daa65c4708_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1672c110-496d-452c-2f4f-08daae2d6104\\ca073980-4320-49d6-a248-f6d537e0078f_1672c110-496d-452c-2f4f-08daae2d6104_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1672c110-496d-452c-2f4f-08daae2d6104\\ca073980-4320-49d6-a248-f6d537e0078f_1672c110-496d-452c-2f4f-08daae2d6104_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/1672c110-496d-452c-2f4f-08daae2d6104/ca073980-4320-49d6-a248-f6d537e0078f_1672c110-496d-452c-2f4f-08daae2d6104_1.jpg",
       "AssetKind": "All",
@@ -1139,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1672c110-496d-452c-2f4f-08daae2d6104\\ca073980-4320-49d6-a248-f6d537e0078f_1672c110-496d-452c-2f4f-08daae2d6104_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1aea816c-fc3e-4e4c-2c26-08daad728641\\ca073980-4320-49d6-a248-f6d537e0078f_1aea816c-fc3e-4e4c-2c26-08daad728641_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1aea816c-fc3e-4e4c-2c26-08daad728641\\ca073980-4320-49d6-a248-f6d537e0078f_1aea816c-fc3e-4e4c-2c26-08daad728641_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/1aea816c-fc3e-4e4c-2c26-08daad728641/ca073980-4320-49d6-a248-f6d537e0078f_1aea816c-fc3e-4e4c-2c26-08daad728641_1.jpg",
       "AssetKind": "All",
@@ -1156,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\1aea816c-fc3e-4e4c-2c26-08daad728641\\ca073980-4320-49d6-a248-f6d537e0078f_1aea816c-fc3e-4e4c-2c26-08daad728641_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\28880b50-f259-41e5-4841-08dab0b39d4b\\ca073980-4320-49d6-a248-f6d537e0078f_28880b50-f259-41e5-4841-08dab0b39d4b_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\28880b50-f259-41e5-4841-08dab0b39d4b\\ca073980-4320-49d6-a248-f6d537e0078f_28880b50-f259-41e5-4841-08dab0b39d4b_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/28880b50-f259-41e5-4841-08dab0b39d4b/ca073980-4320-49d6-a248-f6d537e0078f_28880b50-f259-41e5-4841-08dab0b39d4b_1.jpg",
       "AssetKind": "All",
@@ -1173,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\28880b50-f259-41e5-4841-08dab0b39d4b\\ca073980-4320-49d6-a248-f6d537e0078f_28880b50-f259-41e5-4841-08dab0b39d4b_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\6b978c38-0e3e-4743-489e-08dab0ad2d80\\ca073980-4320-49d6-a248-f6d537e0078f_6b978c38-0e3e-4743-489e-08dab0ad2d80_1.png",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\6b978c38-0e3e-4743-489e-08dab0ad2d80\\ca073980-4320-49d6-a248-f6d537e0078f_6b978c38-0e3e-4743-489e-08dab0ad2d80_1.png",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/6b978c38-0e3e-4743-489e-08dab0ad2d80/ca073980-4320-49d6-a248-f6d537e0078f_6b978c38-0e3e-4743-489e-08dab0ad2d80_1.png",
       "AssetKind": "All",
@@ -1190,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\6b978c38-0e3e-4743-489e-08dab0ad2d80\\ca073980-4320-49d6-a248-f6d537e0078f_6b978c38-0e3e-4743-489e-08dab0ad2d80_1.png"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\72feb764-d72b-4510-b1c6-08daa65c4708\\ca073980-4320-49d6-a248-f6d537e0078f_72feb764-d72b-4510-b1c6-08daa65c4708_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\72feb764-d72b-4510-b1c6-08daa65c4708\\ca073980-4320-49d6-a248-f6d537e0078f_72feb764-d72b-4510-b1c6-08daa65c4708_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/72feb764-d72b-4510-b1c6-08daa65c4708/ca073980-4320-49d6-a248-f6d537e0078f_72feb764-d72b-4510-b1c6-08daa65c4708_1.jpg",
       "AssetKind": "All",
@@ -1207,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\72feb764-d72b-4510-b1c6-08daa65c4708\\ca073980-4320-49d6-a248-f6d537e0078f_72feb764-d72b-4510-b1c6-08daa65c4708_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\afa78b15-da07-410c-4e1b-08daa70b6e18\\ca073980-4320-49d6-a248-f6d537e0078f_afa78b15-da07-410c-4e1b-08daa70b6e18_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\afa78b15-da07-410c-4e1b-08daa70b6e18\\ca073980-4320-49d6-a248-f6d537e0078f_afa78b15-da07-410c-4e1b-08daa70b6e18_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/afa78b15-da07-410c-4e1b-08daa70b6e18/ca073980-4320-49d6-a248-f6d537e0078f_afa78b15-da07-410c-4e1b-08daa70b6e18_1.jpg",
       "AssetKind": "All",
@@ -1224,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\afa78b15-da07-410c-4e1b-08daa70b6e18\\ca073980-4320-49d6-a248-f6d537e0078f_afa78b15-da07-410c-4e1b-08daa70b6e18_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\b10d6bc8-1a30-4c01-29cb-08daa70ee4ad\\ca073980-4320-49d6-a248-f6d537e0078f_b10d6bc8-1a30-4c01-29cb-08daa70ee4ad_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\b10d6bc8-1a30-4c01-29cb-08daa70ee4ad\\ca073980-4320-49d6-a248-f6d537e0078f_b10d6bc8-1a30-4c01-29cb-08daa70ee4ad_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/b10d6bc8-1a30-4c01-29cb-08daa70ee4ad/ca073980-4320-49d6-a248-f6d537e0078f_b10d6bc8-1a30-4c01-29cb-08daa70ee4ad_1.jpg",
       "AssetKind": "All",
@@ -1241,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\b10d6bc8-1a30-4c01-29cb-08daa70ee4ad\\ca073980-4320-49d6-a248-f6d537e0078f_b10d6bc8-1a30-4c01-29cb-08daa70ee4ad_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\c479c303-a6fc-464a-9cd0-08daae167f5e\\ca073980-4320-49d6-a248-f6d537e0078f_c479c303-a6fc-464a-9cd0-08daae167f5e_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\c479c303-a6fc-464a-9cd0-08daae167f5e\\ca073980-4320-49d6-a248-f6d537e0078f_c479c303-a6fc-464a-9cd0-08daae167f5e_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/c479c303-a6fc-464a-9cd0-08daae167f5e/ca073980-4320-49d6-a248-f6d537e0078f_c479c303-a6fc-464a-9cd0-08daae167f5e_1.jpg",
       "AssetKind": "All",
@@ -1258,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\c479c303-a6fc-464a-9cd0-08daae167f5e\\ca073980-4320-49d6-a248-f6d537e0078f_c479c303-a6fc-464a-9cd0-08daae167f5e_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\d5bd32e5-e775-4c64-8de7-08dab09b9444\\ca073980-4320-49d6-a248-f6d537e0078f_d5bd32e5-e775-4c64-8de7-08dab09b9444_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\d5bd32e5-e775-4c64-8de7-08dab09b9444\\ca073980-4320-49d6-a248-f6d537e0078f_d5bd32e5-e775-4c64-8de7-08dab09b9444_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/d5bd32e5-e775-4c64-8de7-08dab09b9444/ca073980-4320-49d6-a248-f6d537e0078f_d5bd32e5-e775-4c64-8de7-08dab09b9444_1.jpg",
       "AssetKind": "All",
@@ -1275,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\d5bd32e5-e775-4c64-8de7-08dab09b9444\\ca073980-4320-49d6-a248-f6d537e0078f_d5bd32e5-e775-4c64-8de7-08dab09b9444_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\e26986ed-bbc6-48c5-9fef-08dab094fd4c\\ca073980-4320-49d6-a248-f6d537e0078f_e26986ed-bbc6-48c5-9fef-08dab094fd4c_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\e26986ed-bbc6-48c5-9fef-08dab094fd4c\\ca073980-4320-49d6-a248-f6d537e0078f_e26986ed-bbc6-48c5-9fef-08dab094fd4c_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/e26986ed-bbc6-48c5-9fef-08dab094fd4c/ca073980-4320-49d6-a248-f6d537e0078f_e26986ed-bbc6-48c5-9fef-08dab094fd4c_1.jpg",
       "AssetKind": "All",
@@ -1292,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\e26986ed-bbc6-48c5-9fef-08dab094fd4c\\ca073980-4320-49d6-a248-f6d537e0078f_e26986ed-bbc6-48c5-9fef-08dab094fd4c_1.jpg"
     },
     {
-      "Identity": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\e424218f-b8b6-40b1-faf8-08daa660cc53\\ca073980-4320-49d6-a248-f6d537e0078f_e424218f-b8b6-40b1-faf8-08daa660cc53_1.jpg",
+      "Identity": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\listing_images\\ca073980-4320-49d6-a248-f6d537e0078f\\e424218f-b8b6-40b1-faf8-08daa660cc53\\ca073980-4320-49d6-a248-f6d537e0078f_e424218f-b8b6-40b1-faf8-08daa660cc53_1.jpg",
       "SourceId": "TinyHouseLandshare",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CODE\\Personal Projects\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
+      "ContentRoot": "C:\\CODE\\TinyHouseLandShare\\TinyHouseLandshare\\wwwroot\\",
       "BasePath": "_content/TinyHouseLandshare",
       "RelativePath": "listing_images/ca073980-4320-49d6-a248-f6d537e0078f/e424218f-b8b6-40b1-faf8-08daa660cc53/ca073980-4320-49d6-a248-f6d537e0078f_e424218f-b8b6-40b1-faf8-08daa660cc53_1.jpg",
       "AssetKind": "All",
