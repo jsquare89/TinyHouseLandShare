@@ -15,8 +15,8 @@ builder.Services.AddDbContextPool<LandShareDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("LandShareDbConnection")));
 
 // Get the database context and apply the migrations
-builder.Services.BuildServiceProvider().GetService<LandShareDbContext>().
-    Database.Migrate();
+//builder.Services.BuildServiceProvider().GetService<LandShareDbContext>().
+//    Database.Migrate();
 
 
 builder.Services.AddIdentity<UserEntity, UserRoleEntity>(options =>
