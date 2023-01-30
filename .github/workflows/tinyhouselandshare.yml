@@ -1,10 +1,10 @@
-name: Build and deploy .NET Core application to Web App TinyHouseLandshare20230130105017
+name: Build and deploy .NET Core application to Web App tinyhouselandshare
 on:
   push:
     branches:
     - main
 env:
-  AZURE_WEBAPP_NAME: TinyHouseLandshare20230130105017
+  AZURE_WEBAPP_NAME: tinyhouselandshare
   AZURE_WEBAPP_PACKAGE_PATH: TinyHouseLandshare\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.TinyHouseLandshare20230130105017_7428 }}
+        publish-profile: ${{ secrets.tinyhouselandshare_3048 }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
